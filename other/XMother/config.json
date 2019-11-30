@@ -1,0 +1,27 @@
+{
+    "serverCfg": [{
+        "connectionLimit": 100,
+        "dbhost": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "mt_web",
+        "dialect": "mysql",
+        "inhost":"0.0.0.0",
+        "outhost":"172.104.112.229",
+        "port": 3001
+    },
+    {
+        "connectionLimit": 100,
+        "dbhost": "localhost",
+        "user": "root",
+        "password": "123456",
+        "database": "mt_web",
+        "dialect": "mysql",
+        "inhost":"0.0.0.0",
+        "outhost":"127.0.0.1",
+        "port": 3001
+    }],
+
+    "databaseCfg":1
+
+}

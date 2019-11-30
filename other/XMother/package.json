@@ -1,0 +1,19 @@
+{
+  "name": "mother",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "log4js": "^4.1.0",
+    "mysql2": "^1.6.5",
+    "request": "^2.88.0",
+    "sequelize": "^5.7.5"
+  }
+}
