@@ -1,0 +1,1699 @@
+[{
+	"id": 211500,
+	"name": "熔核巨人-普通攻击",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 1500
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:source():physical_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211501,
+	"name": "熔核巨人-撞击",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 1000
+	},
+	"target_buff": [{
+		"buff_id": 104,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 3000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211502,
+	"name": "熔核巨人-击退",
+	"desc": "击退：对2米范围内所有目标造成一次物理伤害，并击退2米。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:source():physical_armor()",
+	"target_buff": [{
+		"buff_id": 104,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 3000
+	}],
+	"hit_off": {
+		"distance": 2000
+	},
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211510,
+	"name": "熔核摧毁者-普通攻击",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 1500
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:source():physical_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211511,
+	"name": "熔核摧毁者-地震",
+	"desc": "地震：对3米范围内所有目标造成两次火焰伤害，两次伤害间隔1秒，都会造成1秒的晕眩效果。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 1500
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:source():physical_armor()",
+	"damage_type": "FIRE",
+	"target_buff": [{
+		"buff_id": 104,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 1000
+	}],
+	"repeat_interval": 633,
+	"repeat": 2,
+	"repeat_calc_buff": true,
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211512,
+	"name": "熔核摧毁者-击倒",
+	"desc": "击倒：对目标和目标2米范围内所有目标造成一次物理伤害，并使目标晕眩2秒。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 1500
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:source():physical_armor()",
+	"damage_type": "PHYSICAL",
+	"target_buff": [{
+		"buff_id": 104,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 2000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211520,
+	"name": "熔岩爪牙-火球术",
+	"desc": "火球术：对目标造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211521,
+	"name": "熔岩爪牙-熔岩灼烧",
+	"desc": "熔岩灼烧：对目标周围2米范围内所有目标造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		199],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211522,
+	"name": "熔岩爪牙-分裂",
+	"desc": "分裂：HP降低到50%，自身分裂为2个生命25%的熔岩爪牙。",
+	"todo": true
+},
+{
+	"id": 211530,
+	"name": "火誓者-献祭",
+	"desc": "献祭：对目标造成持续的火焰伤害，持续6秒，每2秒造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 1500
+	},
+	"target_buff": [{
+		"buff_id": 107,
+		"name": "bleed",
+		"damage_type": "FIRE",
+		"source_value": "ctx:source():magic_attack()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:buff_effect_value()",
+		"life_time": 6000,
+		"pulse": 3
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211531,
+	"name": "火誓者-火焰爆发",
+	"desc": "火焰爆发：对目标周围2米范围内所有目标造成一次火焰伤害，并击退2米。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"hit_off": {
+		"distance": 2000
+	},
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211532,
+	"name": "火誓者-分裂",
+	"desc": "分裂：HP降低到50%，自身分裂为2个生命25%的火誓者。",
+	"todo": true
+},
+{
+	"id": 211540,
+	"name": "烈焰小鬼-火球术",
+	"desc": "火球术：对目标造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211541,
+	"name": "烈焰小鬼-火焰新星",
+	"desc": "火焰新星：对目标周围2米范围内所有目标造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211550,
+	"name": "火妖护卫-统御意志",
+	"desc": "统御意志：控制一个等级不高于25级的敌对人型生物，持续5秒。【转变其阵营，让被控的玩家攻击其他玩家，但是玩家不会优先选择攻击被控制的玩家】",
+	"todo": true
+},
+{
+	"id": 211551,
+	"name": "火妖护卫-顺劈斩",
+	"desc": "顺劈斩：对目标和它身边最近的敌人造成你的武器伤害再加30点伤害，最多可影响3个目标。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 2000,
+		"tar_extra": {
+			"count": [1,
+			3],
+			"type": "circle",
+			"range": 2000
+		}
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"extra_value_effect": "ctx:effect_value() + 30",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211560,
+	"name": "火妖护卫-顺劈斩",
+	"desc": "顺劈斩：对目标和它身边最近的敌人造成你的武器伤害再加30点伤害，最多可影响3个目标。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 2000,
+		"tar_extra": {
+			"count": [1,
+			3],
+			"type": "circle",
+			"range": 2000
+		}
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"extra_value_effect": "ctx:effect_value() + 30",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211561,
+	"name": "火妖护卫-冲锋",
+	"desc": "冲锋：向敌人冲锋，将其击退2米并造成949点伤害，晕眩3秒。",
+	"move_logic": "charge",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 80000
+	},
+	"hit_off": {
+		"distance": 2000
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:source():physical_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"target_buff": [{
+		"buff_id": 0,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 3000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211570,
+	"name": "熔岩奔腾者-汹涌",
+	"desc": "汹涌：向敌人冲锋，对目标和它周围的盟友造成23点伤害，并将它们击退。",
+	"move_logic": "charge",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 80000
+	},
+	"effect_value": "23",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"hit_off": {
+		"distance": 2000
+	},
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211571,
+	"name": "熔岩奔腾者-自爆",
+	"desc": "自爆：死亡时被动触发，对范围2米的玩家造成火焰伤害，并击退2米，晕眩2秒。",
+	"passive": true,
+	"damage_type": "FIRE",
+	"before_dead_stub": [
+		"for _, enemy in pairs(ctx:passive_owner():enemies(false)) do",
+			"if ctx:passive_owner():distance(enemy) < 2000 then",
+				"enemy:take_skill_damage(2000, ctx:passive_skill():damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"enemy:add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"end",
+		"end",
+		"ctx:passive_owner():be_killed_by(ctx:source():guid())",
+		"return true"
+	],
+	"extra_buff": [{
+		"buff_id": 104,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 2000
+	}]
+},
+{
+	"id": 211580,
+	"name": "火妖祭祀-献祭",
+	"desc": "献祭：造成火焰伤害，并持续15秒，每3秒造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 1500
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"target_buff": [{
+		"buff_id": 144,
+		"name": "fire",
+		"effect_value": "ctx:effect_value() * 0.2",
+		"life_time": 15000,
+		"pulse": 5
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211581,
+	"name": "火妖祭祀-暗言术：痛",
+	"desc": "暗言术：痛：持续15秒，每3秒造成1次暗影伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 1500
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "SHADOW",
+	"cd": 2000,
+	"target_buff": [{
+		"buff_id": 161,
+		"name": "pain",
+		"effect_value": "ctx:effect_value() * 0.2",
+		"life_time": 15000,
+		"pulse": 5
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211582,
+	"name": "火妖祭祀-黑暗治疗",
+	"desc": "黑暗治疗：使用黑暗能量治疗队友，恢复10%生命。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "min_hp_percent",
+		"teammates": true,
+		"range": 3000
+	},
+	"cure": true,
+	"source_value": "ctx:source():magic_attack()",
+	"effect_value": "ctx:target():max_hp() * 0.1",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211583,
+	"name": "火妖祭祀-黑暗能量",
+	"desc": "黑暗能量：积蓄黑暗能量使得下一次伤害效果加倍。",
+	"tar_logic": {
+		"type": "self"
+	},
+	"self_buff": [{
+		"buff_id": 177,
+		"name": "dummy",
+		"before_do_damage_stub": ["ctx:set_effect_value(ctx:effect_value() * 2)",
+		"ctx:buff():set_layer(0)"],
+		"life_time": -1
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211590,
+	"name": "火妖精英-火球术",
+	"desc": "火球术：对目标造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+		"id": 211591,
+		"name": "火妖精英-冲击波",
+		"desc": "在你周围制造1次爆炸，对自身范围5米内的所有目标造成法术伤害，并使目标晕眩2秒。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"cd": 2000,
+		"prepare_time": 1000,
+		"post_time": 1000,
+		"damage_type": "FIRE",
+		"source_value": "ctx:source():magic_attack() + 1133 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"target_buff": [{
+				"buff_id": 205,
+				"name": "add_status",
+				"status" : "STUN",
+				"life_time": 2000
+		}]
+},
+{
+		"id": 211592,
+		"name": "火妖精英-火焰冲击",
+		"desc": "对目标造成1次法术伤害。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 3000
+		},
+		"source_value": "ctx:source():magic_attack() + 3001 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 1000,
+		"post_time": 1000
+},
+{
+	"id": 211593,
+	"name": "火妖术士-冰霜疾病",
+	"desc": "冰霜疾病：每3秒造成一次冰霜伤害，使目标移动速度降低40%，持续20秒。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"damage_type": "SHADOW",
+	"target_buff": [{
+		"buff_id": 192,
+		"name": "slow_down",
+		"slow_down_percent": 0.4,
+		"life_time": 20000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+
+{
+	"id": 211600,
+	"name": "火妖术士-暗影箭",
+	"desc": "暗影箭：对目标造成一次暗影伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "SHADOW",
+	"cd": 2000,
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211601,
+	"name": "火妖术士-暗影震击",
+	"desc": "暗影震击：对附近所有目标造成一次暗影伤害。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 4000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:source():magic_armor()",
+	"damage_type": "SHADOW",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211602,
+	"name": "火妖术士-冰霜疾病",
+	"desc": "冰霜疾病：每3秒造成一次冰霜伤害，使目标移动速度降低40%，持续20秒。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"damage_type": "SHADOW",
+	"target_buff": [{
+		"buff_id": 192,
+		"name": "slow_down",
+		"slow_down_percent": 0.4,
+		"life_time": 20000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211610,
+	"name": "火妖行者-火焰绽放",
+	"desc": "火焰绽放：火焰围绕施法者，持续15秒，每3秒对附近2米内所有目标造成一次火焰伤害。",
+	"tar_logic": {
+		"type": "self"
+	},
+	"self_buff": [{
+		"buff_id": 118,
+		"name": "dummy",
+		"life_time": 15000,
+		"pulse": 5,
+		"on_pulse_stub": ["for _, enemy in pairs(ctx:buff():owner():enemies(false)) do",
+		"if ctx:buff():owner():distance(enemy) < 2000 then",
+		"enemy:take_buff_damage(2000, DamageType_FIRE, ctx:buff:owner(), ctx:buff())",
+		"end",
+		"end"]
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211611,
+	"name": "火妖行者-煽动火焰",
+	"desc": "煽动火焰：给附近2米内所有目标增加一个降低火焰的抵抗能力，使其受到的火焰伤害提升20%, 持续20秒",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"target_buff": [{
+		"buff_id": 118,
+		"name": "dummy",
+		"life_time": 20000,
+		"before_be_damage_stub": ["if ctx:skill():damage_type() == \"FIRE\" then",
+		"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+		"end"]
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211620,
+	"name": "熔火恶犬-大地践踏",
+	"desc": "大地践踏：践踏是附近2米的敌人晕眩3秒。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"target_buff": [{
+		"buff_id": 104,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 3000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211621,
+	"name": "熔火恶犬-枯萎热浪",
+	"desc": "枯萎热浪：使敌人的生命上限降低10%，持续10秒，最多叠加3成。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"target_buff": [{
+		"buff_id": 208,
+		"name": "reduce_hp_max",
+		"hp_max_value": "ctx:target():max_hp() * 0.1",
+		"max_layer": 3,
+		"life_time": 10000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211622,
+	"name": "熔火恶犬-上古恐惧",
+	"desc": "上古恐惧：使得周围3米的敌人恐惧逃跑，持续3秒。受到伤害恢复正常状态。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 3000
+	},
+	"target_buff": [{
+		"buff_id": 162,
+		"name": "add_status",
+		"status": "FEAR",
+		"life_time": 3000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211623,
+	"name": "熔火恶犬-上古恐惧",
+	"desc": "上古绝望：使得周围3米的敌人力量降低50%，持续5秒。【每个玩家头顶加一个红色buff特效】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 3000
+	},
+	"target_buff": [{
+		"buff_id": 208,
+		"name": "reduce_level1",
+		"status": "physical_strenth",
+		"life_time": 5000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211624,
+	"name": "熔火恶犬-上古狂乱",
+	"desc": "上古狂乱：使得周围3米的敌人智力降低50%，持续5秒。【每个玩家头顶加一个蓝色buff特效】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 3000
+	},
+	"target_buff": [{
+		"buff_id": 209,
+		"name": "reduce_level1",
+		"status": "intelligence",
+		"life_time": 5000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211630,
+	"name": "火焰之子-火球术",
+	"desc": "火球术：对目标造成一次魔法伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "MAGIC",
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211631,
+	"name": "火焰之子-火锥术",
+	"desc": "火锥术：对面前的一个锥形范围的所有目标造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "sector",
+		"range": 4000,
+		"radian": 1.57
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "FIRE",
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211632,
+	"name": "火焰之子-熔岩烈火",
+	"desc": "熔岩烈火：对一个目标施放魔法，对其周围2米范围造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 4000,
+		"tar_extra": {
+			"count": [1,
+			99],
+			"type": "circle",
+			"range": 2000
+		}
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "FIRE",
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211633,
+	"name": "火焰之子-熔岩之盾",
+	"desc": "熔岩之盾：被动技能，令攻击自己的目标护甲降低10%，持续5秒。",
+	"passive": true,
+	"after_be_damage_stub": "ctx:source():add_buff(ctx:passive_skill():extra_buff(0), ctx:;passive_owner(), ctx)",
+	"extra_buff": [{
+		"buff_id": 118,
+		"name": "reduce_level2",
+		"level2_type": "physical_armor",
+		"level2_type_value": "ctx:source():physical_armor() * 0.1",
+		"life_time": 5000
+	}]
+},
+{
+	"id": 211640,
+	"name": "鲁西弗隆-暗影震击",
+	"desc": "暗影震击：使用暗影魔法攻击敌人，对其造成暗影伤害。【对生命最高的角色使用】",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "max_hp",
+		"range": 4000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "SHADOW",
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211641,
+	"name": "鲁西弗隆-鲁西弗隆的诅咒",
+	"desc": "鲁西弗隆的诅咒：降低所有人伤害、治疗50%，持续5分钟。【诅咒效果可以驱散】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 40000
+	},
+	"target_buff": [{
+		"buff_id": 208,
+		"name": "lucifron_curse",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 0.5)",
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 0.5)",
+		"life_time": 300000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211642,
+	"name": "鲁西弗隆-末日迫近",
+	"desc": "末日迫近：在10秒后，对附近的敌人造成一次群体暗影伤害。【类似于一个定时炸弹的效果，希望做一个带有跳数字的炸弹buff特效】",
+	"tar_logic": {
+		"type": "self"
+	},
+	"self_buff": [{
+		"buff_id": 209,
+		"name": "lucifron_bomb",
+		"on_destroy_stub": ["for _, enemy in pairs(ctx:buff():owner():enemies(false)) do",
+		"if ctx:buff():owner():distance(enemy) < 2000 then",
+		"enemy:take_buff_damage(5000, DamageType_SHADOW, ctx:buff():owner(), ctx:buff())",
+		"end",
+		"end"],
+		"life_time": 10000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211643,
+	"name": "鲁西弗隆-狂暴",
+	"desc": "狂暴：战斗5分钟后，BOSS物理攻击和法术攻击提升两倍。【狂暴给团队压力，如果打到狂暴时间了，说明dps不足，必须要找可以驱散的职业】",
+	"tar_logic": {
+		"type": "self"
+	},
+	"self_buff": [{
+		"buff_id": 185,
+		"name": "lucifron_rage",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 2)",
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 2)",
+		"life_time": 300000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211650,
+	"name": "玛格达曼-恐慌",
+	"desc": "恐慌：恐吓4米范围内的敌人，使它们惊慌地逃跑，持续5秒。【全体群体恐惧】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 4000
+	},
+	"target_buff": [{
+		"buff_id": 115,
+		"name": "add_status",
+		"status": "FEAR",
+		"life_time": 5000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211651,
+	"name": "玛格达曼-熔岩炸弹",
+	"desc": "熔岩炸弹：向敌人投掷熔岩炸弹，在8秒后对其范围2米的所有目标造成一次火焰伤害。【给目标绑一个定时炸弹，希望在炸弹特效加上读秒的特效】",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"target_buff": [{
+		"buff_id": 208,
+		"name": "magmadar_bomb",
+		"on_destroy_stub": ["for _, enemy in pairs(ctx:buff():owner():enemies(false)) do",
+		"if ctx:buff():owner():distance(enemy) < 2000 then",
+		"enemy:take_buff_damage(5000, DamageType_FIRE, ctx:buff():owner(), ctx:buff())",
+		"end",
+		"end"],
+		"life_time": 8000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211652,
+	"name": "玛格达曼-激怒",
+	"desc": "激怒：伤害提升50%，持续8秒。【BOSS的体型变大，猎人的技能宁神射击可以解除这个状态，其他职业无法解除这个状态】",
+	"tar_logic": {
+		"type": "self"
+	},
+	"self": [{
+		"buff_id": 208,
+		"name": "magmadar_rage",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.5)",
+		"life_time": 8000
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211653,
+	"name": "玛格达曼-熔岩喷吐",
+	"desc": "熔岩喷吐：向目标喷射火焰，持续3秒每1秒对其造成一次额外的火焰伤害。【类似黑龙的喷火技能，美术效果参考暗黑3Diablo的吐火】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "sector",
+		"range": 4000,
+		"radian": 1.57
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"effect_value": "ctx:effect_value() * 0.667",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"repeat": 3,
+	"repeat_interval": 1000,
+	"post_time": 746
+},
+{
+	"id": 211660,
+	"name": "基赫纳斯-暗影箭",
+	"desc": "暗影箭：对敌人射出暗影箭，造成2249点暗影伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"effect_value": "2249",
+	"damage_type": "SHADOW",
+	"cd": 2000,
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211661,
+	"name": "基赫纳斯-群体暗影箭",
+	"desc": "暗影箭：对所有敌人射出暗影箭，造成2249点暗影伤害。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 4000
+	},
+	"effect_value": "2249",
+	"damage_type": "SHADOW",
+	"cd": 2000,
+	"bullet_speed": 11000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211662,
+	"name": "基赫纳斯-火焰之雨",
+	"desc": "火焰之雨：召唤火焰之雨，对指定区域中的敌人每2秒造成924点火焰伤害，持续6秒。【全体范围陨石术】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 4000
+	},
+	"effect_value": "924",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"repeat": 3,
+	"repeat_interval": 2000,
+	"post_time": 746
+},
+{
+	"id": 211663,
+	"name": "基赫纳斯-基赫纳斯的诅咒",
+	"desc": "基赫纳斯的诅咒：使敌人受到治疗时的治疗效果降低75%，持续5分钟。【可以被驱散或者净化】",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"target_buff": [{
+		"buff_id": 209,
+		"name": "gehennas_curse",
+		"before_be_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 0.25)",
+		"life_time": 300000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211664,
+	"name": "基赫纳斯-召唤",
+	"desc": "召唤：每2分钟召唤1个熔岩奔腾者。",
+	"tar_logic": {
+		"type": "self"
+	},
+	"cd": 60000,
+	"create_actor": [{
+		"buff_id": 0,
+		"life_time": 20000,
+		"magic_attack_value": "ctx:source():magic_attack()* 0.4 + 9.97 * ctx:skill():skill_level()",
+		"location": {
+			"distance": 6000,
+			"dir": 1
+		},
+		"count": 5
+	}],
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211670,
+	"name": "加尔-反魔法脉冲",
+	"desc": "反魔法脉冲：对全体敌人造成一次魔法伤害，并驱散附近敌人身上的增益效果。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 40000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "MAGIC",
+	"despelling": {
+		"layer_count": 0,
+		"debuff": false
+	},
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211671,
+	"name": "加尔-熔岩镣铐",
+	"desc": "熔岩镣铐：全体魔法伤害，并使所有目标移动降低为40%，持续15秒。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 40000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "MAGIC",
+	"target_buff": [{
+		"buff_id": 129,
+		"name": "slow_down",
+		"slow_down_percent": 0.4,
+		"life_time": 15000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211672,
+	"name": "加尔-召唤玩家",
+	"desc": "召唤玩家：随机召唤一个玩家到面前。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000,
+		"random": true
+	},
+	"position_logic": "capture",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211680,
+	"name": "迦顿男爵-普通攻击",
+	"desc": "普通攻击：造成火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "MAGIC",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211681,
+	"name": "迦顿男爵-魔力反噬",
+	"desc": "魔力反噬：随机选中一个目标，使用目标的魔攻进行伤害。【对目标进行一次伤害判定，使用目标自己的魔法属性进行伤害计算，如果是法师就会收到高伤害，战士没什么事情】",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"random": true,
+		"range": 2000
+	},
+	"source_value": "ctx:target():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "MAGIC",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211682,
+	"name": "迦顿男爵-活体炸弹",
+	"desc": "活体炸弹：随机选取一个目标，在目标身上安放一个炸弹，8秒后爆炸，目标2米范围内所有玩家都会受到爆炸受到伤害，同时被炸飞到空中，落地时会再次受到20%生命的伤害。",
+	"TODO": "击飞,落地伤害",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"random": true,
+		"range": 2000
+	},
+	"target_buff": [{
+		"buff_id": 209,
+		"name": "baron_geddon_bomb",
+		"on_destroy_stub": ["for _, teammate in pairs(ctx:buff():owner():teammates(false)) do",
+		"teammate:on_buff_damage(teammate:max_hp() * 0.2, ctx:buff():owner(), ctx:buff())",
+		"end"],
+		"life_time": 8000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211683,
+	"name": "迦顿男爵-地狱火",
+	"desc": "地狱火：随机选取一个方向，连续释放锥形区域火焰喷射，造成3次范围伤害。【类似黑龙的喷火技能，美术效果参考暗黑3Diablo的吐火】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "sector",
+		"range": 4000,
+		"radian": 1.57
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"effect_value": "ctx:effect_value() * 0.667",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"repeat": 3,
+	"repeat_interval": 1000,
+	"post_time": 746
+},
+{
+	"id": 211684,
+	"name": "迦顿男爵-自爆",
+	"desc": "自爆：死亡时被动触发自爆，全体造成30%伤害。",
+	"passive": true,
+	"before_dead_stub": [
+		"for _, enemy in pairs(ctx:passive_owner():enemies(false)) do",
+		"enemy:take_skill_damage(enemy:max_hp() * 0.3, ctx:passive_skill():damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+		"end",
+		"ctx:passive_owner():be_killed_by(ctx:source():guid())",
+		"return true"
+	]
+},
+{
+	"id": 211690,
+	"name": "沙斯拉尔-奥爆术",
+	"desc": "奥爆术：造成范围3米的奥术伤害。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 3000
+	},
+	"source_value": "ctx:target():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "ARCANE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211691,
+	"name": "沙斯拉尔-沙斯拉尔的诅咒",
+	"desc": "沙斯拉尔的诅咒：受到魔法伤害提升100%。【使得玩家收到的魔法伤害翻倍，可以被净化或者驱散】",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000
+	},
+	"target_buff": [{
+		"buff_id": 209,
+		"name": "shazzrah_curse",
+		"before_be_damage_stub": ["if ctx:skill():damage_type() == \"MAGIC\" then",
+		"ctx:set_effect_value(ctx:effect_value() * 2)",
+		"end"]
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211692,
+	"name": "沙斯拉尔-沙斯拉尔的诅咒",
+	"desc": "法术反制：对群体目标进行法术反制，打断法术职业的施法，并让所有法术职业禁言3秒。【禁言效果不可以被驱散或净化】",
+	"passive": true,
+	"actor_use_long_time_skill_stub": ["if ctx:is_teammate(ctx:source(),ctx:passive_owner()) == false then",
+	"ctx:passive_owner():use_skill(ctx:passive_skill())",
+	"return true",
+	"end",
+	"return false"],
+	"active_skill": {
+		"prepare_time": 0,
+		"post_time": 1000,
+		"break_skill": true,
+		"target_buff": [{
+			"buff_id": 0,
+			"name": "add_status",
+			"status": "MUTE",
+			"life_time": 3000
+		}]
+	}
+},
+{
+	"id": 211693,
+	"name": "沙斯拉尔-伤害衰减",
+	"desc": "伤害衰减：对沙斯拉尔的伤害都减少50%。【使BOSS收到的伤害减半，可以被驱散或者净化】",
+	"tar_logic": {
+		"type": "self"
+	},
+	"self_buff": [{
+		"buff_id": 0,
+		"name": "shazzrah_reduce",
+		"before_be_damage_stub": ["ctx:set_effect_value(ctx:effect_value() * 0.5)"]
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211694,
+	"name": "沙斯拉尔-瞬移",
+	"desc": "瞬移：随机目标瞬间移动至目标位置。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"position_logic": "teleport",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211700,
+	"name": "萨弗龙先驱者-投掷",
+	"desc": "投掷：随机向一个目标投掷长矛，造成物理伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000
+	},
+	"source_value": "ctx:target():physical_attack()",
+	"target_value": "ctx:target():physical_armor()",
+	"damage_type": "PHYSICAL",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211701,
+	"name": "萨弗龙先驱者-烈焰之矛",
+	"desc": "烈焰之矛：随机向一个目标投掷燃烧的长矛，对目标造成物理伤害，并对目标周围2米范围内所有目标造成一次火焰伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000,
+		"random": true,
+		"tar_extra": {
+			"count": [1,
+			99],
+			"type": "circle",
+			"range": 2000
+		}
+	},
+	"source_value": "ctx:target():physical_attack()",
+	"target_value": "ctx:target():physical_armor()",
+	"damage_type": "PHYSICAL",
+	"extra_target_damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211702,
+	"name": "萨弗龙先驱者-狂热",
+	"desc": "狂热：提升一个队友的伤害100%，持续10秒。【目标体型变大，可以被猎人的凝神设计驱散，其他技能无法驱散这个效果】",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000,
+		"teammate": true
+	},
+	"target_buff": [{
+		"buff_id": 0,
+		"name": "sulfuron_harbinger_craze",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 2)",
+		"life_time": 10000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211703,
+	"name": "萨弗龙先驱者-挫志怒吼",
+	"desc": "挫志怒吼：使得附近的敌人物理伤害降低30%，持续30秒。【不可以驱散】",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"target_buff": [{
+		"buff_id": 0,
+		"name": "reduce_level2",
+		"level2_type": "physical_attack",
+		"level2_type_value": "ctx:target():physical_attack() * 0.3",
+		"life_time": 10000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211704,
+	"name": "萨弗龙先驱者-拉格纳罗斯之手",
+	"desc": "拉格纳罗斯之手：对附近的敌人造成火焰伤害，击退2米，并晕眩2秒。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "FIRE",
+	"hit_off": {
+		"distance": 2000
+	},
+	"target_buff": [{
+		"buff_id": 0,
+		"name": "add_status",
+		"status": "STUN",
+		"life_time": 2000
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211710,
+	"name": "焚化者古雷曼格-炎爆术",
+	"desc": "炎爆术：对一个目标造成一次火焰伤害",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000
+	},
+	"source_value": "ctx:target():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211711,
+	"name": "焚化者古雷曼格-地震术",
+	"desc": "地震术：对3米范围的所有目标造成火焰伤害",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 3000
+	},
+	"source_value": "ctx:target():magic_attack()",
+	"target_value": "ctx:target():magic_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211712,
+	"name": "焚化者古雷曼格-熔岩喷溅",
+	"desc": "熔岩喷溅：对目标造成火焰伤害，持续5秒，每1秒一次。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000
+	},
+	"target_buff": [{
+		"buff_id": 0,
+		"name": "fire",
+		"source_value": "ctx:source():magic_attack()",
+		"target_value": "ctx:target():magic_armor()",
+		"life_time": 5000,
+		"pulse": 5
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211713,
+	"name": "焚化者古雷曼格-召唤玩家",
+	"desc": "召唤玩家：随机选中一个玩家传送至自己面前。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000
+	},
+	"position_logic": "capture",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211714,
+	"name": "焚化者古雷曼格-召唤熔火恶犬",
+	"desc": "召唤熔火恶犬：熔火恶犬被杀死后召唤两只熔火恶犬。",
+	"tar_logic": {
+		"type": "self"
+	},
+	"create_actor": [{
+		"buff_id": 0,
+		"life_time": 20000,
+		"magic_attack_value": "ctx:source():magic_attack()* 0.4 + 9.97 * ctx:skill():skill_level()",
+		"location": {
+			"distance": 6000,
+			"dir": 1
+		},
+		"count": 2
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211720,
+	"name": "管理者埃克索图斯-魔法反射",
+	"desc": "魔法反射：给所有附近盟友增加一个50%几率反射魔法伤害的buff",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"teammate": true,
+		"range": 3000
+	},
+	"target_buff": [{
+		"buff_id": 170,
+		"name": "Majordomo_executus_reflect",
+		"before_be_damage_stub": ["if math.random(100) < 50 then",
+		"if ctx:skill():damage_type() == DamageType_MAGIC then",
+		"ctx:source():take_buff_damage(ctx:effect_value() * 0.5, DamageType_MAGIC, ctx:buff():owner(), ctx:buff())",
+		"end",
+		"end"]
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211721,
+	"name": "管理者埃克索图斯-盾牌反伤",
+	"desc": "盾牌反伤：使得所有附近盟友在受到物理伤害时反弹10%伤害。",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"teammate": true,
+		"range": 3000
+	},
+	"target_buff": [{
+		"buff_id": 169,
+		"name": "Majordomo_executus_reflect",
+		"before_be_damage_stub": ["if math.random(100) < 50 then",
+		"if ctx:skill():damage_type() == DamageType_PHYSICAL then",
+		"ctx:source():take_buff_damage(ctx:effect_value() * 0.1,DamageType_MAGIC, ctx:buff():owner(), ctx:buff())",
+		"end",
+		"end"]
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211723,
+	"name": "管理者埃克索图斯-盾牌反伤",
+	"desc": "拉格纳罗斯的庇护：吸收50%伤害，并反弹10%伤害。",
+	"passive": true,
+	"before_be_damage_stub": ["ctx:source():take_skill_damage(ctx:effect_value() * 0.1, ctx:skill():damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+	"ctx:set_effect_value(ctx:effect_value() * 0.5)"],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211724,
+	"name": "管理者埃克索图斯-传送目标",
+	"desc": "传送目标：随机选中一个敌人传送至我方阵地中央。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000,
+		"random": true
+	},
+	"position_logic": "capture",
+	"capture_to_pos": 7,
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211730,
+	"name": "拉格纳罗斯-普通攻击",
+	"desc": "普通攻击：对目标造成物理伤害，并附带火焰dot，每3秒造成一次伤害，持续6秒。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:target():physical_armor()",
+	"damage_type": "PHYSICAL",
+	"target_buff": [{
+		"buff_id": 0,
+		"name": "ragnaros_fire",
+		"effect_value": "ctx:effect_value()",
+		"life_time": 6000,
+		"pulse": 2
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211731,
+	"name": "拉格纳罗斯-拉格纳罗斯之怒",
+	"desc": "拉格纳罗斯之怒：对2米范围内所有目标造成一次火焰伤害，并将这些目标击飞浮空，落地时再次受到20%HP的坠落伤害。",
+	"todo": "击飞",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:target():physical_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211732,
+	"name": "拉格纳罗斯-火焰爆炸",
+	"desc": "火焰爆炸：随机对一个目标打出大火球，对目标不产生伤害，但是对目标周围2米的目标造成火焰伤害和击飞效果。",
+	"todo": "击飞",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 3000,
+		"random": true,
+		"tar_extra": {
+			"count": [1,
+			99],
+			"type": "circle",
+			"range": 2000
+		}
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:target():physical_armor()",
+	"effect_value": "0",
+	"extra_value_effect": "ctx:source():physical_attack()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211733,
+	"name": "拉格纳罗斯-熔岩轰击",
+	"desc": "熔岩轰击：随机对一个目标施放熔岩攻击，造成单体高额伤害。",
+	"tar_logic": {
+		"count": [1,
+		1],
+		"type": "circle",
+		"range": 4000
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:target():physical_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211734,
+	"name": "拉格纳罗斯-熔岩喷发",
+	"desc": "熔岩喷发：随机施放范围的熔岩喷发伤害，造成一次火焰伤害。",
+	"todo": "随机范围",
+	"tar_logic": {
+		"count": [1,
+		99],
+		"type": "circle",
+		"range": 2000
+	},
+	"source_value": "ctx:source():physical_attack()",
+	"target_value": "ctx:target():physical_armor()",
+	"damage_type": "FIRE",
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+},
+{
+	"id": 211735,
+	"name": "拉格纳罗斯-火焰之子",
+	"desc": "火焰之子：每3分钟召唤4个火焰之子，火焰之子存在时，拉格纳罗斯处于无敌状态。【每3分钟触发一次召唤】",
+	"tar_logic": {
+		"type": "self"
+	},
+	"create_actor": [{
+		"buff_id": 0,
+		"life_time": 20000,
+		"magic_attack_value": "ctx:source():magic_attack()* 0.4 + 9.97 * ctx:skill():skill_level()",
+		"location": {
+			"distance": 6000,
+			"dir": 1
+		},
+		"count": 2
+	}],
+	"cd": 2000,
+	"prepare_time": 1254,
+	"post_time": 746
+}]

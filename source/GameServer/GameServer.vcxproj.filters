@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="app">
+      <UniqueIdentifier>{16ddac49-a12d-4c16-94e0-602c858621c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{a14b82b4-930e-4165-bdd2-25be932dc5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mail">
+      <UniqueIdentifier>{6a1a302c-a4d2-47ca-b8aa-97262aa10eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\ranklist">
+      <UniqueIdentifier>{a9db9b3a-0aa2-40aa-9246-2d625b273808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\friend">
+      <UniqueIdentifier>{d74d0b71-14c1-40f1-a0fc-9c05433723d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\base">
+      <UniqueIdentifier>{83a447de-7967-403d-bd8f-0bbc3c71212d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_scene">
+      <UniqueIdentifier>{83a08564-08fb-4aad-8b8e-565c5c5e1f75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_player">
+      <UniqueIdentifier>{a9b172d1-2c56-4963-95fd-c5b78fd221e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_server">
+      <UniqueIdentifier>{bedf9169-60fb-42d9-b656-4e339f0e07d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_config">
+      <UniqueIdentifier>{6b7a1fa8-f36a-465e-be1d-01b145b51a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_config\onhook">
+      <UniqueIdentifier>{ed645003-1898-430c-a120-7c7be997812f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_guid">
+      <UniqueIdentifier>{a82f266f-b3f2-4b35-9483-beaa4a7bd2e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_migrate">
+      <UniqueIdentifier>{ba67c6ef-be2d-4765-bfed-96dcb6ec8d85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_actor">
+      <UniqueIdentifier>{0c4c0014-22c0-48e0-9941-ffe523d21358}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_battle">
+      <UniqueIdentifier>{7d4913c4-7d1c-4088-a810-35ac912350b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_monster">
+      <UniqueIdentifier>{34c37b7e-def5-416f-90fa-fa8bfa0fbf91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_skill">
+      <UniqueIdentifier>{7ea3a169-6f17-422b-8c20-ad0385e45fcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_item">
+      <UniqueIdentifier>{d87b274e-0734-4413-b4c2-fa4da1076c2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_upgrade">
+      <UniqueIdentifier>{6c9c42f1-ad3d-4710-a4f9-3aa81f2cab81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_market">
+      <UniqueIdentifier>{99819644-a74e-450e-9142-ccc5a459ed70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_mission">
+      <UniqueIdentifier>{ca84a9d5-e791-4b8f-ac9b-2f9a05647a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_team">
+      <UniqueIdentifier>{0325f975-ef34-4e25-8007-80375ecd33e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_activity">
+      <UniqueIdentifier>{cec2faf9-24d8-4ccd-83e7-ba542a5131cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_chat">
+      <UniqueIdentifier>{6c703db1-c02b-4d98-8b92-e3a42e3f9c8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_guild">
+      <UniqueIdentifier>{ab23ad41-4e26-4b05-a77e-c4e9d8c87850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_data">
+      <UniqueIdentifier>{b7c70f3d-f518-4854-b2e9-41fc1aecffc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_data_cell">
+      <UniqueIdentifier>{38da9381-c86c-4efa-9902-2b490c62efb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_trial_field">
+      <UniqueIdentifier>{dfc6b2fb-1ac2-48b0-9095-1051cdf1ab09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_arena">
+      <UniqueIdentifier>{6a199229-d70a-41dd-9185-caa8a9eec4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_cache">
+      <UniqueIdentifier>{95956a00-f628-47a2-a1a6-1f0db2d131bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_battle_field">
+      <UniqueIdentifier>{567776c7-6a12-4104-8fad-53523063e3d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_lua">
+      <UniqueIdentifier>{b3255338-998e-490c-84e2-5c043c1e6405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{5f1ed543-4c35-4dd7-aba3-55deaebfc54e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\lua_script">
+      <UniqueIdentifier>{922a996d-40b2-46b9-9787-f3cf0d6573c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\lua_script\activity">
+      <UniqueIdentifier>{cfd81bd3-887c-4bcc-b324-56f442446643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\lua_script\handler">
+      <UniqueIdentifier>{57f1683d-d394-4ebe-83b2-ff2023f589de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_capture_point">
+      <UniqueIdentifier>{47e961b4-8032-4c36-896c-2e6f56ee87d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_stage">
+      <UniqueIdentifier>{0a85747a-2771-4fc4-a024-74dde360a73e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\mt_battle_reply">
+      <UniqueIdentifier>{dd9c4789-0ec7-4a9b-adc6-8ee52931a8d2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="data\data_manager.cpp">
+      <Filter>game\mt_data</Filter>
+    </ClCompile>
+    <ClCompile Include="data\data_table.cpp">
+      <Filter>game\mt_data</Filter>
+    </ClCompile>
+    <ClCompile Include="data\data_value.cpp">
+      <Filter>game\mt_data</Filter>
+    </ClCompile>
+    <ClCompile Include="base\client_protocol_dispatcher.cpp">
+      <Filter>game\base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\client_session.cpp">
+      <Filter>game\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_zone.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_scene.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_player\mt_player.cpp">
+      <Filter>game\mt_player</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_server\mt_server.cpp">
+      <Filter>game\mt_server</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_config\mt_config.cpp">
+      <Filter>game\mt_config</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_guid\mt_guid.cpp">
+      <Filter>game\mt_guid</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_migrate\mt_migrate.cpp">
+      <Filter>game\mt_migrate</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_migrate\mt_migrate_test.cpp">
+      <Filter>game\mt_migrate</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mt_db_load_work.cpp">
+      <Filter>game\base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mt_db_save_work.cpp">
+      <Filter>game\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_actor\mt_actor.cpp">
+      <Filter>game\mt_actor</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle\mt_battle_ground.cpp">
+      <Filter>game\mt_battle</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle\mt_battle_command.cpp">
+      <Filter>game\mt_battle</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_actor\mt_actor_state.cpp">
+      <Filter>game\mt_actor</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_actor\mt_actor_config.cpp">
+      <Filter>game\mt_actor</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_monster\mt_monster_manager.cpp">
+      <Filter>game\mt_monster</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_skill\mt_skill.cpp">
+      <Filter>game\mt_skill</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_skill\mt_target_select.cpp">
+      <Filter>game\mt_skill</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_skill\mt_skill_logic.cpp">
+      <Filter>game\mt_skill</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_item\mt_item.cpp">
+      <Filter>game\mt_item</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_item\mt_container.cpp">
+      <Filter>game\mt_item</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_item\mt_item_package.cpp">
+      <Filter>game\mt_item</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle\mt_trap.cpp">
+      <Filter>game\mt_battle</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_upgrade\mt_upgrade.cpp">
+      <Filter>game\mt_upgrade</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_scene_upgrades.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_market\mt_market.cpp">
+      <Filter>game\mt_market</Filter>
+    </ClCompile>
+    <ClCompile Include="friend\FriendContainer.cpp">
+      <Filter>game\friend</Filter>
+    </ClCompile>
+    <ClCompile Include="mail\MessageContainer.cpp">
+      <Filter>game\mail</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_mission\mt_mission.cpp">
+      <Filter>game\mt_mission</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mt_game_urlwork.cpp">
+      <Filter>game\base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mt_timer.cpp">
+      <Filter>game\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_team\mt_team_manager.cpp">
+      <Filter>game\mt_team</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_monster\mt_npc.cpp">
+      <Filter>game\mt_monster</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle\mt_battle_object.cpp">
+      <Filter>game\mt_battle</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle\battle_ability_manager.cpp">
+      <Filter>game\mt_battle</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_raid.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_chat\mt_chatmessage.cpp">
+      <Filter>game\mt_chat</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_guild\mt_guild_manager.cpp">
+      <Filter>game\mt_guild</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_copy_scene.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_logic_area.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_data_cell\mt_data_container.cpp">
+      <Filter>game\mt_data_cell</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_data_cell\mt_data_cell.cpp">
+      <Filter>game\mt_data_cell</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_activity\mt_activity.cpp">
+      <Filter>game\mt_activity</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_activity\mt_draw.cpp">
+      <Filter>game\mt_activity</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle\mt_worldboss_manager.cpp">
+      <Filter>game\mt_battle</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_trial_field\mt_trial_field.cpp">
+      <Filter>game\mt_trial_field</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_types.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_arena\mt_arena.cpp">
+      <Filter>game\mt_arena</Filter>
+    </ClCompile>
+    <ClCompile Include="ranklist\ranklist.cpp">
+      <Filter>game\ranklist</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_arena\geometry.cpp">
+      <Filter>game\mt_arena</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_player\mt_player_offline_ai.cpp">
+      <Filter>game\mt_player</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_cache\mt_shm_manager.cpp">
+      <Filter>game\mt_cache</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_scene_manager.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_mission\mt_mission_proxy.cpp">
+      <Filter>game\mt_mission</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle_field\mt_battle_field_manager.cpp">
+      <Filter>game\mt_battle_field</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle_field\mt_battle_field.cpp">
+      <Filter>game\mt_battle_field</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_skill\mt_simple_impact.cpp">
+      <Filter>game\mt_skill</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_chat\mt_word_manager.cpp">
+      <Filter>game\mt_chat</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_skill\mt_buff.cpp">
+      <Filter>game\mt_skill</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_actor\mt_actor_skill_trigger.cpp">
+      <Filter>game\mt_actor</Filter>
+    </ClCompile>
+    <ClCompile Include="ranklist\top_ranklist.cpp">
+      <Filter>game\ranklist</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_skill\skill_context.cpp">
+      <Filter>game\mt_skill</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle\battle_event.cpp">
+      <Filter>game\mt_battle</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mt_lua_proxy.cpp">
+      <Filter>game\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_actor\mt_battle_state.cpp">
+      <Filter>game\mt_actor</Filter>
+    </ClCompile>
+    <ClCompile Include="mail\static_message_manager.cpp">
+      <Filter>game\mail</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_scene_g2s.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_lua\mt_lua_initializer.cpp">
+      <Filter>game\mt_lua</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_scene\mt_raid_guildbattle.cpp">
+      <Filter>game\mt_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_mission\mt_arrange_proxy.cpp">
+      <Filter>game\mt_mission</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_capture_point\mt_capture_point.cpp">
+      <Filter>game\mt_capture_point</Filter>
+    </ClCompile>
+    <ClCompile Include="ranklist\guilduserdamage_ranklist.cpp">
+      <Filter>game\ranklist</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_stage\mt_player_stage.cpp">
+      <Filter>game\mt_stage</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_stage\mt_scene_stage.cpp">
+      <Filter>game\mt_stage</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_battle_reply\mt_battle_reply_manager.cpp">
+      <Filter>game\mt_battle_reply</Filter>
+    </ClCompile>
+    <ClCompile Include="friend\mt_friend_manager.cpp">
+      <Filter>game\friend</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_guild\mt_player_guild_proxy.cpp">
+      <Filter>game\mt_guild</Filter>
+    </ClCompile>
+    <ClCompile Include="data\luafile_manager.cpp">
+      <Filter>game\mt_data</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_activity\mt_operative_config.cpp">
+      <Filter>game\mt_activity</Filter>
+    </ClCompile>
+    <ClCompile Include="mt_trial_field\mt_tower.cpp">
+      <Filter>game\mt_trial_field</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data\data_manager.h">
+      <Filter>game\mt_data</Filter>
+    </ClInclude>
+    <ClInclude Include="data\data_table.h">
+      <Filter>game\mt_data</Filter>
+    </ClInclude>
+    <ClInclude Include="data\data_value.h">
+      <Filter>game\mt_data</Filter>
+    </ClInclude>
+    <ClInclude Include="ranklist\ranklist.h">
+      <Filter>game\ranklist</Filter>
+    </ClInclude>
+    <ClInclude Include="onhook\onhook_manager.h">
+      <Filter>game\mt_config\onhook</Filter>
+    </ClInclude>
+    <ClInclude Include="onhook\pharmacy_onhook.h">
+      <Filter>game\mt_config\onhook</Filter>
+    </ClInclude>
+    <ClInclude Include="onhook\player_onhook_container.h">
+      <Filter>game\mt_config\onhook</Filter>
+    </ClInclude>
+    <ClInclude Include="onhook\questing_onhook.h">
+      <Filter>game\mt_config\onhook</Filter>
+    </ClInclude>
+    <ClInclude Include="onhook\smithing_onhook.h">
+      <Filter>game\mt_config\onhook</Filter>
+    </ClInclude>
+    <ClInclude Include="onhook\gathering_onhook.h">
+      <Filter>game\mt_config\onhook</Filter>
+    </ClInclude>
+    <ClInclude Include="base\client_protocol_dispatcher.h">
+      <Filter>game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\client_session.h">
+      <Filter>game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_zone.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_scene.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_player\mt_player.h">
+      <Filter>game\mt_player</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_types.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_server\mt_server.h">
+      <Filter>game\mt_server</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_config\mt_config.h">
+      <Filter>game\mt_config</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_guid\mt_guid.h">
+      <Filter>game\mt_guid</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_migrate\mt_migrate.h">
+      <Filter>game\mt_migrate</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mt_db_load_work.h">
+      <Filter>game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mt_db_save_work.h">
+      <Filter>game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_actor\mt_actor.h">
+      <Filter>game\mt_actor</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle\mt_battle_command.h">
+      <Filter>game\mt_battle</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle\mt_battle_ground.h">
+      <Filter>game\mt_battle</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_actor\mt_actor_state.h">
+      <Filter>game\mt_actor</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_actor\mt_actor_config.h">
+      <Filter>game\mt_actor</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_monster\mt_monster_manager.h">
+      <Filter>game\mt_monster</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_actor\mt_actor_ai.h">
+      <Filter>game\mt_actor</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_skill\mt_skill.h">
+      <Filter>game\mt_skill</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_scene_object.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_skill\mt_target_select.h">
+      <Filter>game\mt_skill</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_skill\mt_skill_logic.h">
+      <Filter>game\mt_skill</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_item\mt_item.h">
+      <Filter>game\mt_item</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_item\mt_container.h">
+      <Filter>game\mt_item</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_item\mt_item_package.h">
+      <Filter>game\mt_item</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle\mt_trap.h">
+      <Filter>game\mt_battle</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_upgrade\mt_upgrade.h">
+      <Filter>game\mt_upgrade</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_market\mt_market.h">
+      <Filter>game\mt_market</Filter>
+    </ClInclude>
+    <ClInclude Include="friend\FriendContainer.h">
+      <Filter>game\friend</Filter>
+    </ClInclude>
+    <ClInclude Include="mail\MessageContainer.h">
+      <Filter>game\mail</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_mission\mt_mission.h">
+      <Filter>game\mt_mission</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mt_game_urlwork.h">
+      <Filter>game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mt_timer.h">
+      <Filter>game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_team\mt_team_manager.h">
+      <Filter>game\mt_team</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_monster\mt_npc.h">
+      <Filter>game\mt_monster</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle\mt_battle_object.h">
+      <Filter>game\mt_battle</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle\battle_ability_manager.h">
+      <Filter>game\mt_battle</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_raid.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_chat\mt_chatmessage.h">
+      <Filter>game\mt_chat</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_copy_scene.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_logic_area.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_guild\mt_guild_manager.h">
+      <Filter>game\mt_guild</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_data_cell\mt_data_container.h">
+      <Filter>game\mt_data_cell</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_data_cell\mt_data_cell.h">
+      <Filter>game\mt_data_cell</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_activity\mt_activity.h">
+      <Filter>game\mt_activity</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_activity\mt_draw.h">
+      <Filter>game\mt_activity</Filter>
+    </ClInclude>
+    <ClInclude Include="ranklist\guilduserdamage_ranklist.h">
+      <Filter>game\ranklist</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle\mt_worldboss_manager.h">
+      <Filter>game\mt_battle</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_trial_field\mt_trial_field.h">
+      <Filter>game\mt_trial_field</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_arena\mt_arena.h">
+      <Filter>game\mt_arena</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_arena\geometry.h">
+      <Filter>game\mt_arena</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_player\mt_player_offline_ai.h">
+      <Filter>game\mt_player</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_cache\mt_shm_manager.h">
+      <Filter>game\mt_cache</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_scene_manager.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_mission\mt_mission_proxy.h">
+      <Filter>game\mt_mission</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle_field\mt_battle_field_manager.h">
+      <Filter>game\mt_battle_field</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle_field\mt_battle_field.h">
+      <Filter>game\mt_battle_field</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_skill\mt_simple_impact.h">
+      <Filter>game\mt_skill</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_chat\mt_word_manager.h">
+      <Filter>game\mt_chat</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_skill\mt_buff.h">
+      <Filter>game\mt_skill</Filter>
+    </ClInclude>
+    <ClInclude Include="ranklist\top_ranklist.h">
+      <Filter>game\ranklist</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_skill\skill_context.h">
+      <Filter>game\mt_skill</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle\battle_event.h">
+      <Filter>game\mt_battle</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mt_lua_proxy.h">
+      <Filter>game\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_actor\mt_battle_state.h">
+      <Filter>game\mt_actor</Filter>
+    </ClInclude>
+    <ClInclude Include="mail\static_message_manager.h">
+      <Filter>game\mail</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_lua\mt_lua_initializer.h">
+      <Filter>game\mt_lua</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_scene\mt_raid_guildbattle.h">
+      <Filter>game\mt_scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_mission\mt_arrange_proxy.h">
+      <Filter>game\mt_mission</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_capture_point\mt_capture_point.h">
+      <Filter>game\mt_capture_point</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_stage\mt_player_stage.h">
+      <Filter>game\mt_stage</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_stage\mt_scene_stage.h">
+      <Filter>game\mt_stage</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_battle_reply\mt_battle_reply_manager.h">
+      <Filter>game\mt_battle_reply</Filter>
+    </ClInclude>
+    <ClInclude Include="friend\mt_friend_manager.h">
+      <Filter>game\friend</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_guild\mt_player_guild_proxy.h">
+      <Filter>game\mt_guild</Filter>
+    </ClInclude>
+    <ClInclude Include="data\luafile_manager.h">
+      <Filter>game\mt_data</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_activity\mt_operative_config.h">
+      <Filter>game\mt_activity</Filter>
+    </ClInclude>
+    <ClInclude Include="mt_trial_field\mt_tower.h">
+      <Filter>game\mt_trial_field</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="base\CMakeLists.txt">
+      <Filter>game\base</Filter>
+    </Text>
+    <Text Include="CMakeLists.txt">
+      <Filter>game</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="protobuf.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\lua_script\handler\activity_common.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\activity_handler.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\player_common.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\player_gm_hander.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\player_handler.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\scene_common.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\scene_handler.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\server_common.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+    <None Include="..\bin\lua_script\handler\server_handler.lua">
+      <Filter>res\lua_script\handler</Filter>
+    </None>
+  </ItemGroup>
+</Project>

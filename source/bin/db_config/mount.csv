@@ -1,0 +1,15 @@
+﻿id,name,tip,icon,desc,speed,impact_id,res_id
+ID,坐骑名,备注,图标,描述,附加速度,impact索引,资源ID
+int,string,string,string,string,int,int,int
+1,mount_name_1,地狱军马,item_mount+mount_diyujunma,mount_desc_1,2400,1004,20001
+2,mount_name_2,科多兽,item_mount+mount_keduoshou,mount_desc_2,2400,1007,20002
+3,mount_name_3,白虎,item_mount+mount_hu,mount_desc_3,2400,1008,20003
+4,mount_name_4,沙漠之虫,item_mount+mount_shachong,mount_desc_4,2400,1009,20004
+5,mount_name_5,宝石豹,item_mount+mount_bao,mount_desc_5,2400,1010,20005
+6,mount_name_6,乌龟,item_mount+mount_wugui,mount_desc_6,1200,1011,20006
+7,mount_name_7,黑晶皇者,item_mount+mount_heijinghuangzhe,mount_desc_7,2400,1012,20007
+8,mount_name_8,沙皇[专属],item_mount+mount_shahuang,mount_desc_8,2400,1013,20008
+9,mount_name_9,狼王,item_mount+mount_lang,mount_desc_9,1600,1014,20009
+10,mount_name_10,迅猛龙,item_mount+mount_xunlong,mount_desc_10,2400,1015,20010
+11,mount_name_11,军马,item_mount+mount_ma,mount_desc_11,1200,1018,20011
+

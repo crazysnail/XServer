@@ -1,0 +1,5 @@
+﻿item_1_id,item_1_exp,item_2_id,item_2_exp,item_3_id,item_3_exp
+道具id,对应exp,道具id,对应exp,道具id,对应exp
+int,int,int,int,int,int
+20121001,10000,20121002,50000,20121003,250000
+

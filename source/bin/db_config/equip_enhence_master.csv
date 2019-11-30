@@ -1,0 +1,13 @@
+﻿level,attr_0,value_0,attr_1,value_1,attr_2,value_2,attr_3,value_3,attr_4,value_4
+装备等级,激活类型,激活数值,激活类型,激活数值,激活类型,激活数值,激活类型,激活数值,激活类型,激活数值
+int,string,int,string,int,string,int,string,int,string,int
+1,hp,360,"",0,"",0,"",0,"",0
+2,physical_attack,72,magic_attack,72,"",0,"",0,"",0
+3,physical_armor,72,magic_armor,72,"",0,"",0,"",0
+4,hp,1080,"",0,"",0,"",0,"",0
+5,physical_attack,216,magic_attack,216,"",0,"",0,"",0
+6,physical_armor,216,magic_armor,216,"",0,"",0,"",0
+7,hp,2160,"",0,"",0,"",0,"",0
+8,physical_attack,432,magic_attack,432,"",0,"",0,"",0
+9,physical_armor,432,magic_armor,432,"",0,"",0,"",0
+

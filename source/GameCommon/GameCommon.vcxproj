@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AbilityAndStatus.pb.cc" />
+    <ClCompile Include="ActivityConfig.pb.cc" />
+    <ClCompile Include="ActivityConfig.proto.fflua.cc" />
+    <ClCompile Include="ActivityPacket.pb.cc" />
+    <ClCompile Include="ActivityPacket.proto.fflua.cc" />
+    <ClCompile Include="ActorBasicInfo.pb.cc" />
+    <ClCompile Include="ActorBasicInfo.proto.fflua.cc" />
+    <ClCompile Include="ActorConfig.pb.cc" />
+    <ClCompile Include="ActorConfig.proto.fflua.cc" />
+    <ClCompile Include="All.pb.cc" />
+    <ClCompile Include="All.proto.fflua.cc" />
+    <ClCompile Include="AllConfigEnum.pb.cc" />
+    <ClCompile Include="AllConfigEnum.proto.fflua.cc" />
+    <ClCompile Include="AllPacketEnum.pb.cc" />
+    <ClCompile Include="AllPacketEnum.proto.fflua.cc" />
+    <ClCompile Include="ArenaDb.pb.cc" />
+    <ClCompile Include="ArenaMessage.pb.cc" />
+    <ClCompile Include="Base.pb.cc" />
+    <ClCompile Include="Base.proto.fflua.cc" />
+    <ClCompile Include="BaseConfig.pb.cc" />
+    <ClCompile Include="BaseConfig.proto.fflua.cc" />
+    <ClCompile Include="BattleExpression.pb.cc" />
+    <ClCompile Include="BattleExpression.proto.fflua.cc" />
+    <ClCompile Include="BattleField.pb.cc" />
+    <ClCompile Include="BattleField.proto.fflua.cc" />
+    <ClCompile Include="BattleGroundInfo.pb.cc" />
+    <ClCompile Include="BattleGroundInfo.proto.fflua.cc" />
+    <ClCompile Include="BattleInfo.pb.cc" />
+    <ClCompile Include="BattleInfo.proto.fflua.cc" />
+    <ClCompile Include="BattleReply.pb.cc" />
+    <ClCompile Include="BattleReply.proto.fflua.cc" />
+    <ClCompile Include="ChatMessage.pb.cc" />
+    <ClCompile Include="ChatMessage.proto.fflua.cc" />
+    <ClCompile Include="ClientMove.pb.cc" />
+    <ClCompile Include="ClientMove.proto.fflua.cc" />
+    <ClCompile Include="CreatePlayerPacket.pb.cc" />
+    <ClCompile Include="CreatePlayerPacket.proto.fflua.cc" />
+    <ClCompile Include="DataCellPacket.pb.cc" />
+    <ClCompile Include="DataCellPacket.proto.fflua.cc" />
+    <ClCompile Include="DrawCard.pb.cc" />
+    <ClCompile Include="DrawCard.proto.fflua.cc" />
+    <ClCompile Include="EnterScene.pb.cc" />
+    <ClCompile Include="EnterScene.proto.fflua.cc" />
+    <ClCompile Include="EquipmentConfig.pb.cc" />
+    <ClCompile Include="EquipmentConfig.proto.fflua.cc" />
+    <ClCompile Include="FriendMail.pb.cc" />
+    <ClCompile Include="FriendMail.proto.fflua.cc" />
+    <ClCompile Include="G2SMessage.pb.cc" />
+    <ClCompile Include="G2SMessage.proto.fflua.cc" />
+    <ClCompile Include="Guild.pb.cc" />
+    <ClCompile Include="Guild.proto.fflua.cc" />
+    <ClCompile Include="GuildCapturePoint.pb.cc" />
+    <ClCompile Include="GuildCapturePoint.proto.fflua.cc" />
+    <ClCompile Include="GuildConfig.pb.cc" />
+    <ClCompile Include="GuildConfig.proto.fflua.cc" />
+    <ClCompile Include="HeroFragment.pb.cc" />
+    <ClCompile Include="HeroFragment.proto.fflua.cc" />
+    <ClCompile Include="HeroFragmentConfig.pb.cc" />
+    <ClCompile Include="HeroFragmentConfig.proto.fflua.cc" />
+    <ClCompile Include="ItemAndEquip.pb.cc" />
+    <ClCompile Include="ItemAndEquip.proto.fflua.cc" />
+    <ClCompile Include="ItemConfig.pb.cc" />
+    <ClCompile Include="ItemConfig.proto.fflua.cc" />
+    <ClCompile Include="LimitMessage.pb.cc" />
+    <ClCompile Include="LimitMessage.proto.fflua.cc" />
+    <ClCompile Include="LoginPacket.pb.cc" />
+    <ClCompile Include="LoginPacket.proto.fflua.cc" />
+    <ClCompile Include="LootDb.pb.cc" />
+    <ClCompile Include="LootMessage.pb.cc" />
+    <ClCompile Include="MapPush.pb.cc" />
+    <ClCompile Include="MapPush.proto.fflua.cc" />
+    <ClCompile Include="MarketConfig.pb.cc" />
+    <ClCompile Include="MarketConfig.proto.fflua.cc" />
+    <ClCompile Include="MissionConfig.pb.cc" />
+    <ClCompile Include="MissionConfig.proto.fflua.cc" />
+    <ClCompile Include="MissionPacket.pb.cc" />
+    <ClCompile Include="MissionPacket.proto.fflua.cc" />
+    <ClCompile Include="MonsterConfig.pb.cc" />
+    <ClCompile Include="MonsterConfig.proto.fflua.cc" />
+    <ClCompile Include="PackageConfig.pb.cc" />
+    <ClCompile Include="PackageConfig.proto.fflua.cc" />
+    <ClCompile Include="PlayerBasicInfo.pb.cc" />
+    <ClCompile Include="PlayerBasicInfo.proto.fflua.cc" />
+    <ClCompile Include="ProtoBufOption.pb.cc" />
+    <ClCompile Include="ProtoBufOption.proto.fflua.cc" />
+    <ClCompile Include="RankList.pb.cc" />
+    <ClCompile Include="RankList.proto.fflua.cc" />
+    <ClCompile Include="S2GMessage.pb.cc" />
+    <ClCompile Include="S2GMessage.proto.fflua.cc" />
+    <ClCompile Include="S2SMessage.pb.cc" />
+    <ClCompile Include="S2SMessage.proto.fflua.cc" />
+    <ClCompile Include="SceneBroadCast.pb.cc" />
+    <ClCompile Include="SceneBroadCast.proto.fflua.cc" />
+    <ClCompile Include="SceneCommon.pb.cc" />
+    <ClCompile Include="SceneCommon.proto.fflua.cc" />
+    <ClCompile Include="SceneConfig.pb.cc" />
+    <ClCompile Include="SceneConfig.proto.fflua.cc" />
+    <ClCompile Include="SceneObject.pb.cc" />
+    <ClCompile Include="SceneObject.proto.fflua.cc" />
+    <ClCompile Include="SceneStage.pb.cc" />
+    <ClCompile Include="SceneStage.proto.fflua.cc" />
+    <ClCompile Include="SceneStageConfig.pb.cc" />
+    <ClCompile Include="SceneStageConfig.proto.fflua.cc" />
+    <ClCompile Include="ServerCommon.pb.cc" />
+    <ClCompile Include="ServerCommon.proto.fflua.cc" />
+    <ClCompile Include="session.cpp" />
+    <ClCompile Include="SimpleImpact.pb.cc" />
+    <ClCompile Include="SimpleImpact.proto.fflua.cc" />
+    <ClCompile Include="SkillConfig.pb.cc" />
+    <ClCompile Include="SkillConfig.proto.fflua.cc" />
+    <ClCompile Include="Team.pb.cc" />
+    <ClCompile Include="Team.proto.fflua.cc" />
+    <ClCompile Include="TrapConfig.pb.cc" />
+    <ClCompile Include="TrapConfig.proto.fflua.cc" />
+    <ClCompile Include="TrialFieldDB.pb.cc" />
+    <ClCompile Include="TrialFieldDB.proto.fflua.cc" />
+    <ClCompile Include="Upgrades.pb.cc" />
+    <ClCompile Include="Upgrades.proto.fflua.cc" />
+    <ClCompile Include="W2GMessage.pb.cc" />
+    <ClCompile Include="W2GMessage.proto.fflua.cc" />
+    <ClCompile Include="WorldBoss.pb.cc" />
+    <ClCompile Include="WorldBoss.proto.fflua.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbilityAndStatus.pb.h" />
+    <ClInclude Include="ActivityConfig.pb.h" />
+    <ClInclude Include="ActivityConfig.proto.fflua.h" />
+    <ClInclude Include="ActivityPacket.pb.h" />
+    <ClInclude Include="ActivityPacket.proto.fflua.h" />
+    <ClInclude Include="ActorBasicInfo.pb.h" />
+    <ClInclude Include="ActorBasicInfo.proto.fflua.h" />
+    <ClInclude Include="ActorConfig.pb.h" />
+    <ClInclude Include="ActorConfig.proto.fflua.h" />
+    <ClInclude Include="All.pb.h" />
+    <ClInclude Include="All.proto.fflua.h" />
+    <ClInclude Include="AllConfigEnum.pb.h" />
+    <ClInclude Include="AllConfigEnum.proto.fflua.h" />
+    <ClInclude Include="AllPacketEnum.pb.h" />
+    <ClInclude Include="AllPacketEnum.proto.fflua.h" />
+    <ClInclude Include="ArenaDb.pb.h" />
+    <ClInclude Include="ArenaMessage.pb.h" />
+    <ClInclude Include="Base.pb.h" />
+    <ClInclude Include="Base.proto.fflua.h" />
+    <ClInclude Include="BaseConfig.pb.h" />
+    <ClInclude Include="BaseConfig.proto.fflua.h" />
+    <ClInclude Include="BattleExpression.pb.h" />
+    <ClInclude Include="BattleExpression.proto.fflua.h" />
+    <ClInclude Include="BattleField.pb.h" />
+    <ClInclude Include="BattleField.proto.fflua.h" />
+    <ClInclude Include="BattleGroundInfo.pb.h" />
+    <ClInclude Include="BattleGroundInfo.proto.fflua.h" />
+    <ClInclude Include="BattleInfo.pb.h" />
+    <ClInclude Include="BattleInfo.proto.fflua.h" />
+    <ClInclude Include="BattleReply.pb.h" />
+    <ClInclude Include="BattleReply.proto.fflua.h" />
+    <ClInclude Include="ChatMessage.pb.h" />
+    <ClInclude Include="ChatMessage.proto.fflua.h" />
+    <ClInclude Include="ClientMove.pb.h" />
+    <ClInclude Include="ClientMove.proto.fflua.h" />
+    <ClInclude Include="CreatePlayerPacket.pb.h" />
+    <ClInclude Include="CreatePlayerPacket.proto.fflua.h" />
+    <ClInclude Include="DataCellPacket.pb.h" />
+    <ClInclude Include="DataCellPacket.proto.fflua.h" />
+    <ClInclude Include="DrawCard.pb.h" />
+    <ClInclude Include="DrawCard.proto.fflua.h" />
+    <ClInclude Include="EnterScene.pb.h" />
+    <ClInclude Include="EnterScene.proto.fflua.h" />
+    <ClInclude Include="EquipmentConfig.pb.h" />
+    <ClInclude Include="EquipmentConfig.proto.fflua.h" />
+    <ClInclude Include="FriendMail.pb.h" />
+    <ClInclude Include="FriendMail.proto.fflua.h" />
+    <ClInclude Include="G2SMessage.pb.h" />
+    <ClInclude Include="G2SMessage.proto.fflua.h" />
+    <ClInclude Include="Guild.pb.h" />
+    <ClInclude Include="Guild.proto.fflua.h" />
+    <ClInclude Include="GuildCapturePoint.pb.h" />
+    <ClInclude Include="GuildCapturePoint.proto.fflua.h" />
+    <ClInclude Include="GuildConfig.pb.h" />
+    <ClInclude Include="GuildConfig.proto.fflua.h" />
+    <ClInclude Include="HeroFragment.pb.h" />
+    <ClInclude Include="HeroFragment.proto.fflua.h" />
+    <ClInclude Include="HeroFragmentConfig.pb.h" />
+    <ClInclude Include="HeroFragmentConfig.proto.fflua.h" />
+    <ClInclude Include="ItemAndEquip.pb.h" />
+    <ClInclude Include="ItemAndEquip.proto.fflua.h" />
+    <ClInclude Include="ItemConfig.pb.h" />
+    <ClInclude Include="ItemConfig.proto.fflua.h" />
+    <ClInclude Include="LimitMessage.pb.h" />
+    <ClInclude Include="LimitMessage.proto.fflua.h" />
+    <ClInclude Include="LoginPacket.pb.h" />
+    <ClInclude Include="LoginPacket.proto.fflua.h" />
+    <ClInclude Include="LootDb.pb.h" />
+    <ClInclude Include="LootMessage.pb.h" />
+    <ClInclude Include="MapPush.pb.h" />
+    <ClInclude Include="MapPush.proto.fflua.h" />
+    <ClInclude Include="MarketConfig.pb.h" />
+    <ClInclude Include="MarketConfig.proto.fflua.h" />
+    <ClInclude Include="MissionConfig.pb.h" />
+    <ClInclude Include="MissionConfig.proto.fflua.h" />
+    <ClInclude Include="MissionPacket.pb.h" />
+    <ClInclude Include="MissionPacket.proto.fflua.h" />
+    <ClInclude Include="MonsterConfig.pb.h" />
+    <ClInclude Include="MonsterConfig.proto.fflua.h" />
+    <ClInclude Include="PackageConfig.pb.h" />
+    <ClInclude Include="PackageConfig.proto.fflua.h" />
+    <ClInclude Include="PlayerBasicInfo.pb.h" />
+    <ClInclude Include="PlayerBasicInfo.proto.fflua.h" />
+    <ClInclude Include="ProtoBufOption.pb.h" />
+    <ClInclude Include="ProtoBufOption.proto.fflua.h" />
+    <ClInclude Include="RankList.pb.h" />
+    <ClInclude Include="RankList.proto.fflua.h" />
+    <ClInclude Include="S2GMessage.pb.h" />
+    <ClInclude Include="S2GMessage.proto.fflua.h" />
+    <ClInclude Include="S2SMessage.pb.h" />
+    <ClInclude Include="S2SMessage.proto.fflua.h" />
+    <ClInclude Include="SceneBroadCast.pb.h" />
+    <ClInclude Include="SceneBroadCast.proto.fflua.h" />
+    <ClInclude Include="SceneCommon.pb.h" />
+    <ClInclude Include="SceneCommon.proto.fflua.h" />
+    <ClInclude Include="SceneConfig.pb.h" />
+    <ClInclude Include="SceneConfig.proto.fflua.h" />
+    <ClInclude Include="SceneObject.pb.h" />
+    <ClInclude Include="SceneObject.proto.fflua.h" />
+    <ClInclude Include="SceneStage.pb.h" />
+    <ClInclude Include="SceneStage.proto.fflua.h" />
+    <ClInclude Include="SceneStageConfig.pb.h" />
+    <ClInclude Include="SceneStageConfig.proto.fflua.h" />
+    <ClInclude Include="ServerCommon.pb.h" />
+    <ClInclude Include="ServerCommon.proto.fflua.h" />
+    <ClInclude Include="session.h" />
+    <ClInclude Include="SimpleImpact.pb.h" />
+    <ClInclude Include="SimpleImpact.proto.fflua.h" />
+    <ClInclude Include="SkillConfig.pb.h" />
+    <ClInclude Include="SkillConfig.proto.fflua.h" />
+    <ClInclude Include="Team.pb.h" />
+    <ClInclude Include="Team.proto.fflua.h" />
+    <ClInclude Include="TrapConfig.pb.h" />
+    <ClInclude Include="TrapConfig.proto.fflua.h" />
+    <ClInclude Include="TrialFieldDB.pb.h" />
+    <ClInclude Include="TrialFieldDB.proto.fflua.h" />
+    <ClInclude Include="Upgrades.pb.h" />
+    <ClInclude Include="Upgrades.proto.fflua.h" />
+    <ClInclude Include="W2GMessage.pb.h" />
+    <ClInclude Include="W2GMessage.proto.fflua.h" />
+    <ClInclude Include="WorldBoss.pb.h" />
+    <ClInclude Include="WorldBoss.proto.fflua.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Common\ProtoGen\proto\ActorBasicInfo.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\All.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\BattleExpression.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\BattleGroundInfo.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\ClientMove.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\CreatePlayerPacket.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\EnterScene.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\EquipmentConfig.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\ItemAndEquip.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\ItemConfig.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\LoginPacket.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\MonsterConfig.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\PlayerBasicInfo.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\SceneConfig.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\SceneStage.proto" />
+    <None Include="..\..\..\Common\ProtoGen\proto\SceneStageConfig.proto" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D9351E13-858A-4819-8CD7-4E1CB1F16BC8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GameCommon</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>C:\boost1620\include\boost-1_62;C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\boost1620\lib;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10150.0\ucrt\x86\;$(LibraryPath)</LibraryPath>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>C:\boost1620\include\boost-1_62;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>C:\boost1620\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd\lua-5.3.3\src;$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PreBuildEvent>
+      <Command>cd $(SolutionDir)..\..\Common\ProtoGen\proto
+..\ProtoGen\protoc.exe --cpp_out=..\Proto-CPP *.proto
+copy /y ..\Proto-CPP\* $(ProjectDir)</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>生成protobuf的cpp文件</Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd\lua-5.3.3\src;$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="google::protobuf::RepeatedPtrField&lt;*&gt;">
+    <DisplayString>{{ size={current_size_}, capacity={total_size_} }}</DisplayString>
+    <Expand>
+      <IndexListItems>
+        <Size>current_size_</Size>
+        <ValueNode>($T1*)elements_[$i]</ValueNode>
+      </IndexListItems>
+    </Expand>
+  </Type>
+  <Type Name="google::protobuf::RepeatedField&lt;*&gt;">
+    <DisplayString>{{ size={current_size_}, capacity={total_size_} }}</DisplayString>
+    <Expand>
+      <ArrayItems>
+        <Size>current_size_</Size>
+        <ValuePointer>elements_</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="google::protobuf::UnknownFieldSet">
+    <DisplayString>hide</DisplayString>
+  </Type>
+  <Type Name="Packet::Position">
+    <DisplayString>{{x={x_},y={y_},z={z_}}}</DisplayString>
+  </Type>
+  <Type Name="Json::Value::CZString">
+    <DisplayString>{cstr_}</DisplayString>
+  </Type>
+  <Type Name="Json::Value">
+    <DisplayString Condition="type_ == 0">{"null"}</DisplayString>
+    <DisplayString Condition="type_ == 1">{value_.int_}</DisplayString>
+    <DisplayString Condition="type_ == 2">{value_.uint_}</DisplayString>
+    <DisplayString Condition="type_ == 3">{value_.real_}</DisplayString>
+    <DisplayString Condition="type_ == 4">{value_.string_}</DisplayString>
+    <DisplayString Condition="type_ == 5">{value_.bool_}</DisplayString>
+    <DisplayString Condition="type_ == 6">{value_.map_}</DisplayString>
+    <DisplayString Condition="type_ == 7">{value_.map_}</DisplayString>
+    <Expand>
+      <ExpandedItem>value_.map_</ExpandedItem>
+    </Expand>
+  </Type>
+  <Type Name="Mt::MtActorSkill">
+    <DisplayString >{{id={db_info_.skill_id_},level={db_info_.skill_level_},status={status_}}}</DisplayString>
+  </Type>
+  <Type Name="Mt::MtActor">
+    <DisplayString Condition="db_info_.px != nullptr">{{id={db_info_.px->actor_config_id_},guid={db_info_.px->guid_}}}</DisplayString>
+  </Type>
+  <Type Name="Mt::BuffImpl::Buff">
+    <DisplayString>{{type:{buff_type_},left:{life_time_},layer:{current_layer_}}}</DisplayString> 
+  </Type>
+  <Type Name="Mt::BuffImpl::AddStatus">
+    <DisplayString>{{add_status:{status_},left:{life_time_},layer:{current_layer_}}}</DisplayString>
+  </Type>
+  <Type Name="Mt::MtZone">
+    <DisplayString>{{id:{zone_id_},player:{player_map_},scene:{scene_}}}</DisplayString>
+  </Type>
+  <Type Name="Mt::MtScene">
+    <DisplayString>{{id:{config_.px->id_},player:{player_map_}}}</DisplayString>
+  </Type>
+</AutoVisualizer>

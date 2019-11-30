@@ -1,0 +1,8 @@
+﻿index,attribute1,attribute2,desc,value
+索引,属性,属性,描述,换算系数，千分比
+int,string,string,string,int
+0,hp,"",xxxxxxxxx,200
+1,physical_attack|magic_attack,"",xxxxxxxxx,200
+2,physical_armor,"",xxxxxxxxx,200
+3,magic_armor,"",xxxxxxxxx,200
+

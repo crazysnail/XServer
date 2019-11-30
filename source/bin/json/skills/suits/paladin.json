@@ -1,0 +1,661 @@
+[
+	{
+        "id": 222011,
+        "name": "光铸力量生命（8件套圣骑套装）",
+        "desc": "受到攻击时，有10%概率增加自身抗性190点，持续4秒",
+        "passive": true,
+        "after_be_damage_stub": [
+            "if math.random(100) < 10 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 243,
+				"name": "add_level2",
+				"level2_type": "magic_armor",
+				"number" : 190,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 222012,
+        "name": "光铸力量攻击（8件套圣骑套装）",
+        "desc": "攻击时，有20%概率降低目标韧性78点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 244,
+				"name": "reduce_level2",
+				"level2_type": "toughness",
+				"level2_type_value" : "78",
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 222013,
+        "name": "光铸精神攻击（8件套圣骑套装）",
+        "desc": "释放技能时，有20%概率使自己的法强提高286点，持续4秒",
+        "passive": true,
+        "after_use_active_skill_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 245,
+				"name": "add_level2",
+				"level2_type": "magic_attack",
+				"number" : 286,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 222021,
+        "name": "魂铸力量防御（8件套圣骑套装）",
+        "desc": "受到攻击时，有10%概率增加自身抗性220点，持续4秒",
+        "passive": true,
+        "after_be_damage_stub": [
+            "if math.random(100) < 10 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 246,
+				"name": "add_level2",
+				"level2_type": "magic_armor",
+				"number" : 220,
+				"life_time": 4000
+            }
+        ]
+    },
+{
+        "id": 222022,
+        "name": "魂铸力量攻击（8件套圣骑套装）",
+        "desc": "攻击时，有20%概率降低目标韧性90点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 247,
+				"name": "reduce_level2",
+				"level2_type": "toughness",
+				"level2_type_value" : "90",
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 222023,
+        "name": "魂铸精神攻击（8件套圣骑套装）",
+        "desc": "释放技能时，有20%概率使自己的法强提高328点，持续4秒",
+        "passive": true,
+        "after_use_active_skill_stub": [
+            "if math.random(10) < 5 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 248,
+				"name": "add_level2",
+				"level2_type": "magic_attack",
+				"number" : 328,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 222031,
+        "name": "秩序之源力量防御（8件套圣骑套装）",
+        "desc": "攻击时，命中几率额外增加2%",
+        "passive": true,
+		"after_calc_critical_percent_stub" : "ctx:set_dodge_percent_value(ctx:dodge_percent_value() - 0.02); return true"
+    },
+	{
+        "id": 222032,
+        "name": "秩序之源力量防御（8件套圣骑套装）",
+        "desc": "若你的攻击未命中目标，则有40%的几率将该次伤害转化为治疗，作用于自身，这个效果5秒内最多触发1次",
+        "passive": true,
+		"cd": 5000,
+		"after_be_dodge_stub" : [
+			"if math.random(100) < 40 then",
+				"ctx:passive_owner():take_skill_cure(ctx:effect_value(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222033,
+        "name": "秩序之源力量防御（8件套圣骑套装）",
+        "desc": "若你的生命低于20%，则受到的伤害降低20%",
+        "passive": true,
+		"before_be_damage_stub" : [
+			"if ctx:passive_owner():hp_percent() < 0.2 then",
+				"ctx:set_effect_value(ctx:effect_value() * 0.8)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222034,
+        "name": "秩序之源力量攻击（8件套圣骑套装）",
+        "desc": "攻击时，爆击几率额外增加2%",
+        "passive": true,
+		"after_calc_critical_percent_stub" : "ctx:set_critical_percent_value(ctx:critical_percent_value() + 0.02); return true"
+    },
+	{
+        "id": 222035,
+        "name": "秩序之源力量攻击（8件套圣骑套装）",
+        "desc": "使你有20%的几率在攻击时，造成的伤害提高20%",
+        "passive": true,
+		"before_do_damage_stub" : [
+			"if math.random(100) < 20 then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222036,
+        "name": "秩序之源力量攻击（8件套圣骑套装）",
+        "desc": "生命值低于20%时，你造成的伤害会额外回复自身生命，回复值为该次伤害的20%",
+        "passive": true,
+		"before_do_damage_stub" : [
+			"if ctx:passive_owner():hp_percent() < 0.2 then",
+				"ctx:passive_owner():take_skill_cure(ctx:effect_value() * 0.2, ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222037,
+        "name": "秩序之源精神攻击（8件套圣骑套装）",
+        "desc": "释放法术时，爆击几率额外增加2%",
+        "passive": true,
+		"after_calc_critical_percent_stub" : "ctx:set_critical_percent_value(ctx:critical_percent_value() + 0.02); return true"
+    },
+	{
+        "id": 222038,
+        "name": "秩序之源精神攻击（8件套圣骑套装）",
+        "desc": "使你有20%的几率在释放法术时，造成的治疗效果提高20%",
+        "passive": true,
+		"before_do_cure_stub" : [
+			"if math.random(100) < 20 then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222039,
+        "name": "秩序之源精神攻击（8件套圣骑套装）",
+        "desc": "你的治疗法术会使生命值低于20%的目标附加圣光守护状态，受到的伤害降低20%，生命值高于20%时，取消圣光守护",
+        "passive": true,
+		"before_do_cure_stub" : [
+			"if ctx:target():hp_percent() < 0.2 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 249,
+				"name" : "holy_light_guard",
+				"before_be_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 0.8)",
+				"after_hp_change_stub" : [
+					"if ctx:buff():owner():hp_percent() > 0.2 then",
+						"ctx:buff():dec_layer(ctx:buff():layer())",
+					"end"
+				],
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 222041,
+        "name": "审判力量防御（8件套圣骑套装）",
+        "desc": "攻击时，命中几率额外增加3%",
+        "passive": true,
+		"after_calc_critical_percent_stub" : "ctx:set_dodge_percent_value(ctx:dodge_percent_value() - 0.03); return true"
+    },
+	{
+        "id": 222042,
+        "name": "审判力量防御（8件套圣骑套装）",
+        "desc": "若你的攻击未命中目标，则有60%的几率将该次伤害转化为治疗，作用于自身",
+        "passive": true,
+		"cd": 5000,
+		"after_do_damage_stub" : [
+			"if math.random(100) < 60 and ctx:is_dodge() then",
+				"ctx:passive_owner():take_skill_cure(ctx:effect_value(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222043,
+        "name": "审判力量防御（8件套圣骑套装）",
+        "desc": "若你的生命低于30%，则受到的伤害降低20%",
+        "passive": true,
+		"before_be_damage_stub" : [
+			"if ctx:target():hp_percent() < 0.3 then",
+				"ctx:set_effect_value(ctx:effect_value() * 0.8)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222044,
+        "name": "审判力量攻击（8件套圣骑套装）",
+        "desc": "攻击时，爆击几率额外增加3%",
+        "passive": true,
+		"after_calc_critical_percent_stub" : "ctx:set_critical_percent_value(ctx:critical_percent_value() + 0.03); return true"
+    },
+	{
+        "id": 222045,
+        "name": "审判力量攻击（8件套圣骑套装）",
+        "desc": "使你有20%的几率在攻击时，额外造成目标最大生命值2%的伤害，最多不超过1200",
+        "passive": true,
+		"before_do_damage_stub" : [
+			"if math.random(100) < 20 then",
+				"extra_damage = ctx:target():max_hp() * 0.02",
+				"if extra_damage > 1200 then extra_damage = 1200 end",
+				"ctx:set_effect_value(set:effect_value() + extra_damage)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222046,
+        "name": "审判力量攻击（8件套圣骑套装）",
+        "desc": "生命值低于30%时，你造成的伤害会额外回复自身生命，回复值为该次伤害的20%",
+        "passive": true,
+		"after_do_damage_stub" : [
+			"if ctx:passive_owner():hp_percent() < 0.3 then",
+				"ctx:passive_owner():take_skill_cure(ctx:effect_value() * 0.2, ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222047,
+        "name": "审判精神攻击（8件套圣骑套装）",
+        "desc": "释放法术时，爆击几率额外增加3%",
+        "passive": true,
+		"after_calc_critical_percent_stub" : "ctx:set_critical_percent_value(ctx:critical_percent_value() + 0.03); return true"
+    },
+	{
+        "id": 222048,
+        "name": "审判精神攻击（8件套圣骑套装）",
+        "desc": "使你有20%的几率在释放法术时，额外回复目标2%的生命，最多不超过1200点",
+        "passive": true,
+		"before_do_cure_stub" : [
+			"if math.random(100) < 20 then",
+				"extra_cure = ctx:target():max_hp() * 0.02",
+				"if extra_cure > 600 then extra_cure = 1200 end",
+				"ctx:set_effect_value(set:effect_value() + extra_cure)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222049,
+        "name": "审判精神攻击（8件套圣骑套装）",
+        "desc": "你的治疗法术会使生命值低于30%的目标附加圣光守护状态，受到的伤害降低20%，生命值高于30%时，取消圣光守护",
+        "passive": true,
+		"before_do_cure_stub" : [
+			"if ctx:target():hp_percent() < 0.3 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 250,
+				"name" : "holy_light_guard",
+				"before_be_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 0.8)",
+				"after_hp_change_stub" : [
+					"if ctx:buff():owner():hp_percent() > 0.3 then",
+						"ctx:buff():dec_layer(ctx:buff():layer())",
+					"end"
+				],
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 222051,
+        "name": "复仇者力量防御（5件套圣骑套装）",
+        "desc": "使你受到的伤害降低3%",
+        "passive": true,
+		"before_be_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 0.97); return true"
+    },
+	{
+        "id": 222052,
+        "name": "复仇者力量防御（5件套圣骑套装）",
+        "desc": "使你的普通攻击有10%的几率随机驱除目标一个增益buff",
+        "passive": true,
+		"before_do_damage_stub" :[
+			"if math.random(100) < 10 and ctx:skill():has_prop(\"base_skill\") then",
+				"buffs = ctx:target():buffs(1)",
+				"buff = buffs[math.random(#buffs)]",
+				"if buff ~= nil then buff:dec_layer(buff:layer()) end",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222053,
+        "name": "复仇者力量攻击（5件套圣骑套装）",
+        "desc": "使你造成的伤害提高3%",
+        "passive": true,
+		"before_do_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+    },
+	{
+        "id": 222054,
+        "name": "复仇者力量攻击（5件套圣骑套装）",
+        "desc": "使你的普通攻击有概率忽视目标100%的护甲值",
+        "passive": true,
+		"after_target_value_calc_stub" :[
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+				"ctx:set_target_value(ctx:target_value() * 0.5)",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222055,
+        "name": "复仇者精神攻击（5件套圣骑套装）",
+        "desc": "使你造成的魔法伤害和治疗效果提高3%",
+        "passive": true,
+		"before_do_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.03); return true",
+		"before_do_cure_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+    },
+	{
+        "id": 222056,
+        "name": "复仇者精神攻击（5件套圣骑套装）",
+        "desc": "在你的圣光闪现治疗目标后，有10%的几率随机解除目标一个负面效果",
+        "passive": true,
+		"after_do_cure_stub" :[
+			"if math.random(100) < 10 and ctx:skill():has_prop(\"base_skill\") then",
+				"buffs = ctx:target():buffs(-1)",
+				"buff = buffs[math.random(#buffs)]",
+				"if buff ~= nil then buff:dec_layer(buff:layer()) end",
+			"end",
+			"return false"
+		]
+    },	
+	{
+        "id": 222061,
+        "name": "救赎力量防御（9件套圣骑套装）",
+        "desc": "使你受到的伤害降低4%",
+        "passive": true,
+		"before_be_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 0.96); return true"
+    },
+	{
+        "id": 222062,
+        "name": "救赎力量防御（9件套圣骑套装）",
+        "desc": "受到法术攻击时有20%的概率进行反弹，反弹伤害为受到伤害的50%",
+        "passive": true,
+		"after_be_damage_stub" : [
+			"if ctx:skill_damage_type() == MAGIC and math.random(100) < 20 then",
+				"reflect_damage = ctx:effect_value() * 0.5",
+				"ctx:source():take_skill_damage(reflect_damage, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222063,
+        "name": "救赎力量防御（9件套圣骑套装）",
+        "desc": "套装反弹概率提升至30%，并由敌方生命最低的单位承受此次反弹伤害",
+        "passive": true,
+		"after_be_damage_stub" : [
+			"if ctx:skill_damage_type() == MAGIC and math.random(100) < 30 then",
+				"low_hp = nil",
+				"reflect_damage = ctx:effect_value() * 0.5",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+					"if low_hp == nil then low_hp = mate end",
+					"if low_hp:hp_percent() > mate:hp_percent() then low_hp = mate end",
+				"end",
+				"if low_hp ~= nil then",
+					"low_hp:take_skill_damage(reflect_damage, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222064,
+        "name": "救赎力量攻击（9件套圣骑套装）",
+        "desc": "使你造成的伤害提高4%",
+        "passive": true,
+		"before_do_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+    },
+	{
+        "id": 222065,
+        "name": "救赎力量攻击（9件套圣骑套装）",
+        "desc": "攻击时，有20%的概率为目标附加灵魂连接状态，接下来5秒内，转移50%自身受到伤害到目标身上，同一时间只能存在一个灵魂连接",
+        "passive": true,
+		"after_do_damage_stub" : [
+			"if math.random(100) <20 then",
+				"link = ctx:passive_owner():find_buff(251, 0)",
+				"if link ~= nil then return false end",
+				"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+				"link = ctx:passive_owner():find_buff(251,0)",
+				"link:set_data(\"link_guid\", ctx:target():guid())",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" :[
+			{
+				"buff_id" : 251,
+				"name" : "damage_link",
+				"before_be_damage_stub" : [
+					"split_damage = ctx:effect_value() * 0.5",
+					"ctx:set_effect_value(ctx:effect_value() - split_damage)",
+					"link_guid = ctx:buff():get_data(\"link_guid\")",
+					"link_target = nil",
+					"for _, enemy in pairs(ctx:buff():owner():enemies(false)) do",
+						"if enemy:guid() == link_guid then",
+							"link_target = enemy",
+						"end",
+					"end",
+					"if link_target ~= nil then",
+						"link_target:take_buff_damage(split_damage, ctx:skill():damage_type(), ctx:passive_owner(), ctx:buff())",
+					"end"
+				],
+				"life_time" : 5000
+			}
+		]
+    },
+	{
+        "id": 222066,
+        "name": "救赎力量攻击（9件套圣骑套装）",
+        "desc": "攻击时，有30%的概率为目标附加灵魂连接状态，接下来5秒内，转移70%自身受到伤害到目标身上，同一时间只能存在一个灵魂连接",
+        "passive": true,
+		"after_do_damage_stub" : [
+			"if math.random(100) < 30 then",
+				"link = ctx:passive_owner():find_buff(222065, 0)",
+				"if link ~= nil then return false end",
+				"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" :[
+			{
+				"buff_id" : 252,
+				"name" : "damage_link",
+				"before_be_damage_stub" : [
+					"split_damage = ctx:effect_value() * 0.7",
+					"ctx:set_effect_value(ctx:effect_value() - split_damage)",
+					"link_guid = ctx:buff():get_int64(\"link_guid\")",
+					"link_target = nil",
+					"for _, enemy in pairs(ctx:buff():owner():enemies(false)) do",
+						"if enemy:guid() == link_guid then",
+							"link_target = enemy",
+						"end",
+					"end",
+					"if link_target ~= nil then",
+						"link_target:take_buff_damage(split_damage, ctx:skill():damage_type(), ctx:passive_owner(), ctx:buff())",
+					"end"
+				],
+				"life_time" : 5000
+			}
+		]
+    },
+	{
+        "id": 222067,
+        "name": "救赎精神攻击（9件套圣骑套装）",
+        "desc": "使你造成的魔法伤害和治疗效果提高4%",
+        "passive": true,
+		"before_do_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.04); return true",
+		"before_do_cure_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+    },
+	{
+        "id": 222068,
+        "name": "救赎精神攻击（9件套圣骑套装）",
+        "desc": "使你的治疗法术有20%的几率对额外的一个友方单位造成50%连锁治疗效果",
+        "passive": true,
+		"after_do_cure_stub" : [
+			"if math.random(100) < 20 then",
+				"teammates = ctx:passive_owner():teammates(false)",
+				"teammate = teammates[math.random(#teammates)]",
+				"if teammate ~= nil and teammate:guid() ~= ctx:passive_owner():guid() then",
+					"teammate:take_skill_cure(ctx:effect_value() * 0.5, ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+			"end"
+		]
+    },
+	{
+        "id": 222069,
+        "name": "救赎力量防御（9件套圣骑套装）",
+        "desc": "套装触发几率提升至30%，连接的治疗效果优先选择生命值最低的单位",
+        "passive": true,
+		"after_do_cure_stub" : [
+			"if math.random(100) < 30 then",
+				"teammates = ctx:passive_owner():teammates(false)",
+				"low_hp = nil",
+				"for _, mate in pairs(teammates) do",
+					"if low_hp == nil then low_hp = mate end",
+					"if low_hp:hp_percent() > mate:hp_percent() then low_hp = mate end",
+				"end",
+				"if low_hp ~= nil then",
+					"low_hp:take_skill_cure(ctx:effect_value() * 0.5, ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+			"end"
+		]
+    },
+	{
+        "id": 222071,
+        "name": "思考者护甲力量防御（5件套圣骑套装）",
+        "desc": "使你对恐惧的抵抗能力提升10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FEAR) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222072,
+        "name": "思考者护甲力量防御（5件套圣骑套装）",
+        "desc": "使你受到的爆击伤害降低10%",
+        "passive": true,
+		"target_after_target_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() - 0.1); return true"
+    },
+	{
+        "id": 222073,
+        "name": "思考者护甲力量攻击（5件套圣骑套装）",
+        "desc": "使你对恐惧的抵抗能力提升10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FEAR) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222074,
+        "name": "思考者护甲力量攻击（5件套圣骑套装）",
+        "desc": "使你造成的爆击伤害提升10%",
+        "passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    },
+	{
+        "id": 222075,
+        "name": "思考者护甲精神攻击（5件套圣骑套装）",
+        "desc": "使你对恐惧的抵抗能力提升10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FEAR) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 222076,
+        "name": "思考者护甲精神攻击（5件套圣骑套装）",
+        "desc": "使你造成的治疗爆击效果提升10%",
+        "passive": true,
+		"after_source_value_calc_stub": [
+			"if ctx:skill():is_cure() then",
+				"ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true",
+			"end"
+		]
+    }
+]

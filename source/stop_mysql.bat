@@ -1,0 +1,1 @@
+3rd\mysql-5.5.37-win32\bin\mysqladmin.exe -uroot shutdown

@@ -1,0 +1,5 @@
+﻿equip_path,level,glittering1_path,glittering1_tiling,glittering1_speed,glittering2_path,glittering2_tiling,glittering2_speed,color,coefficient,saturation,brightness
+装备路径,宝石大师等级,流光图1路径,流光1参数,流光1速度,流光图2路径,流光2参数,流光2速度,流光颜色,流光系数,饱和度,亮度
+string,int,string,string,string,string,string,string,string,float,float,float
+xxxx,1,res/texture/1.texture,0.5|0.2,0|0,res/texture/2.texture,1|1,0|0,255|255|255|255,0.0,1.3,2.4
+

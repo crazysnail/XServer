@@ -1,0 +1,66 @@
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'events_waits_current' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'events_waits_history' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'events_waits_history_long' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'setup_consumers' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'setup_instruments' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'setup_timers' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'performance_timers' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'threads' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'events_waits_summary_by_thread_by_event_name' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'events_waits_summary_by_instance' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'events_waits_summary_global_by_event_name' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'file_summary_by_event_name' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'file_summary_by_instance' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'mutex_instances' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'rwlock_instances' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'cond_instances' has the wrong structure
+140418  1:48:59 [ERROR] Native table 'performance_schema'.'file_instances' has the wrong structure
+140418  1:48:59 [Note] Event Scheduler: Loaded 0 events
+140418  1:48:59 [Note] mysql-5.5.37-win32\bin\mysqld: ready for connections.
+Version: '5.5.37-log'  socket: ''  port: 3306  MySQL Community Server (GPL)
+140418  1:49:06 [Note] mysql-5.5.37-win32\bin\mysqld: Normal shutdown
+
+140418  1:49:06 [Note] Event Scheduler: Purging the queue. 0 events
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'events_waits_current' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'events_waits_history' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'events_waits_history_long' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'setup_consumers' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'setup_instruments' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'setup_timers' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'performance_timers' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'threads' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'events_waits_summary_by_thread_by_event_name' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'events_waits_summary_by_instance' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'events_waits_summary_global_by_event_name' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'file_summary_by_event_name' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'file_summary_by_instance' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'mutex_instances' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'rwlock_instances' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'cond_instances' has the wrong structure
+140418  1:59:35 [ERROR] Native table 'performance_schema'.'file_instances' has the wrong structure
+140418  1:59:35 [Note] Event Scheduler: Loaded 0 events
+140418  1:59:35 [Note] 3rd\mysql-5.5.37-win32\bin\mysqld: ready for connections.
+Version: '5.5.37-log'  socket: ''  port: 3306  MySQL Community Server (GPL)
+140418  2:00:26 [Note] 3rd\mysql-5.5.37-win32\bin\mysqld: Normal shutdown
+
+140418  2:00:26 [Note] Event Scheduler: Purging the queue. 0 events
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'events_waits_current' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'events_waits_history' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'events_waits_history_long' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'setup_consumers' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'setup_instruments' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'setup_timers' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'performance_timers' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'threads' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'events_waits_summary_by_thread_by_event_name' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'events_waits_summary_by_instance' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'events_waits_summary_global_by_event_name' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'file_summary_by_event_name' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'file_summary_by_instance' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'mutex_instances' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'rwlock_instances' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'cond_instances' has the wrong structure
+140422 21:57:53 [ERROR] Native table 'performance_schema'.'file_instances' has the wrong structure
+140422 21:57:53 [Note] Event Scheduler: Loaded 0 events
+140422 21:57:53 [Note] 3rd\mysql-5.5.37-win32\bin\mysqld: ready for connections.
+Version: '5.5.37-log'  socket: ''  port: 3306  MySQL Community Server (GPL)

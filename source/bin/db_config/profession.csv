@@ -1,0 +1,13 @@
+﻿id,name,tips,icon0,icon1,description1,description2,description3,description4
+ID,职业名,备注,创建ICON,角色界面ICON,角色描述1,角色描述2,角色描述3,角色描述4
+int,string,string,string,string,string,string,string,string
+1,zhiye_zhanshi,战士,create_profession+zhiye_01,race_profession+zhiye_01_1,description1_1,description2_1,description3_1,description4_1
+2,zhiye_saman,萨满,create_profession+zhiye_02,race_profession+zhiye_02_1,description1_2,description2_2,description3_2,description4_2
+3,zhiye_lieren,猎人,create_profession+zhiye_03,race_profession+zhiye_03_1,description1_3,description2_3,description3_3,description4_3
+4,zhiye_fashi,法师,create_profession+zhiye_04,race_profession+zhiye_04_1,description1_4,description2_4,description3_4,description4_4
+5,zhiye_deluyi,德鲁伊,create_profession+zhiye_05,race_profession+zhiye_05_1,description1_5,description2_5,description3_5,description4_5
+6,zhiye_shushi,术士,create_profession+zhiye_06,race_profession+zhiye_06_1,description1_6,description2_6,description3_6,description4_6
+7,zhiye_mushi,牧师,create_profession+zhiye_07,race_profession+zhiye_07_1,description1_7,description2_7,description3_7,description4_7
+8,zhiye_shengqishi,圣骑士,create_profession+zhiye_08,race_profession+zhiye_08_1,description1_8,description2_8,description3_8,description4_8
+9,zhiye_daozei,盗贼,create_profession+zhiye_09,race_profession+zhiye_09_1,description1_9,description2_9,description3_9,description4_9
+

@@ -1,0 +1,4 @@
+use mysql;
+GRANT USAGE ON *.* TO 'mt_game'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON `mt_game_%`.* TO 'mt_game'@'localhost' IDENTIFIED BY '123456';
+FLUSH PRIVILEGES;

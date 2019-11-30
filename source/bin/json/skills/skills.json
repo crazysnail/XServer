@@ -1,0 +1,3780 @@
+[{
+		"id": 200010,
+		"name": "美屡-自动射击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"property": {
+			"auto_shoot": true,
+			"base_skill": true
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 733,
+		"post_time": 1267
+	},
+	{
+		"id": 200011,
+		"name": "美屡-秘法射击",
+		"tar_logic": {
+			"count": [
+				3,
+				3
+			],
+			"type": "circle",
+			"range": 40000,
+			"random": true
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 733,
+		"post_time": 1267
+	},
+	{
+		"id": 200012,
+		"name": "美屡-冰冻射击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 733,
+		"post_time": 1267,
+		"target_buff": [{
+			"buff_id": 101,
+			"name": "add_status",
+			"status": "FREEZE",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200013,
+		"name": "美屡-狂风乱射",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"range": 40000,
+			"type": "min_hp_percent"
+		},
+		"source_value": " ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": " ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 633,
+		"repeat_interval": 633,
+		"post_time": 1101,
+		"repeat": 3
+	},
+	{
+		"id": 200014,
+		"name": "武装威慑",
+		"passive": true,
+		"cd": 0,
+		"after_use_active_skill_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"self_buff": [{
+			"buff_id": 102,
+			"name": "weapon_deterrence",
+			"critical_percent_value": "0.02",
+			"max_layer": 5,
+			"after_hp_change_stub": [
+				"if (ctx:buff():owner():get_meta(\"weapon_deterrence\") == 0 and ctx:buff():owner():hp_percent() < 0.5) then",
+				"ctx:buff():owner():take_buff_cure(ctx:buff():layer() * 940 * ctx:buff():buff_level_factor(), ctx:buff():owner(), ctx:buff())",
+				"ctx:buff():owner():set_meta(\"weapon_deterrence\", 1)",
+				"ctx:buff():dec_layer(ctx:buff():layer())",
+				"elseif (ctx:buff():owner():get_meta(\"weapon_deterrence\") == 1 and ctx:buff():owner():hp_percent() < 0.25) then",
+				"ctx:buff():owner():take_buff_cure(ctx:buff():layer() * 940 * ctx:buff():buff_level_factor(), ctx:buff():owner(), ctx:buff())",
+				"ctx:buff():owner():set_meta(\"weapon_deterrence\", 2)",
+				"ctx:buff():dec_layer(ctx:buff():layer())",
+				"end"
+			],
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 200020,
+		"name": "哀木涕-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 466,
+		"repeat_interval": 766,
+		"post_time": 768,
+		"repeat": 2
+	},
+	{
+		"id": 200021,
+		"name": "哀木涕-雷霆一击",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "sector",
+			"range": 5000,
+			"radian": 1.57
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.9",
+		"cd": 2000,
+		"prepare_time": 666,
+		"post_time": 1334,
+		"target_buff": [{
+			"buff_id": 103,
+			"name": "slow_down",
+			"slow_down_percent": 0.5,
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200022,
+		"name": "哀木涕-冲锋",
+		"move_logic": "charge",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 15000,
+			"stop_range" : 500
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"post_time": 300,
+		"target_buff": [{
+			"buff_id": 104,
+			"name": "add_status",
+			"status": "STUN",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200023,
+		"name": "哀木涕-盾墙",
+		"passive": true,
+		"trigger_once": true,
+		"after_select_skill_stub": [
+			"if ctx:passive_owner():hp_percent() < 0.3 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"type": "self"
+			},
+			"prepare_time": 400,
+			"post_time": 1100,
+			"target_buff": [{
+				"buff_id": 105,
+				"name": "reduce_damage",
+				"before_be_damage_stub": "ctx:set_effect_value(ctx:effect_value() * (0.85 - ctx:buff():buff_level()*0.01))",
+				"life_time": 15000
+			}]
+		}
+	},
+	{
+		"id": 200024,
+		"name": "哀木涕-挑战怒吼",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 10000
+		},
+		"cd": 2000,
+		"prepare_time": 400,
+		"post_time": 1100,
+		"target_buff": [{
+			"buff_id": 106,
+			"name": "sneer",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200030,
+		"name": "兽战-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 466,
+		"repeat_interval": 766,
+		"post_time": 768,
+		"repeat": 2
+	},
+	{
+		"id": 200031,
+		"name": "兽战-猛击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"critical_percent_value": "if ctx:target():is_bleed() then return ctx:critical_percent() + 0.5 else return ctx:critical_percent() end",
+		"cd": 2000,
+		"prepare_time": 700,
+		"post_time": 1300
+	},
+	{
+		"id": 200032,
+		"name": "兽战-撕裂",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.4",		
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 466,
+		"repeat_interval": 766,
+		"post_time": 768,
+		"repeat": 2,
+		"target_buff": [{
+			"buff_id": 107,
+			"name": "bleed",
+			"damage_type": "PHYSICAL",
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():physical_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.16",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	},
+	{
+		"id": 200033,
+		"name": "兽战-压制",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": " ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": " ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "if ctx:target():is_bleed() then return ctx:effect_value() * 1.2 else return ctx:effect_value() * 0.8 end",
+		"cd": 2000,
+		"prepare_time": 700,
+		"post_time": 1300
+	},
+	{
+		"id": 200034,
+		"name": "兽战-重伤",
+		"passive": true,
+		"desc": "爆击后，使目标进入流血状态，6秒内造成3次流血伤害",
+		"after_do_critical_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"cd": 0,
+		"target_buff": [{
+			"buff_id": 108,
+			"name": "bleed",
+			"damage_type": "PHYSICAL",
+			"source_value": " ctx:source():physical_attack() + 1715 * ctx:buff():buff_level_factor()",
+			"target_value": " ctx:target():physical_armor()",
+			"effect_value": " ctx:buff_effect_value() * 0.27",
+			"life_time": 6000,
+			"pulse": 3
+		}]
+	},
+	{
+		"id": 200040,
+		"name": "会长-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",		
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 433,
+		"repeat_interval": 700,
+		"post_time": 867,
+		"repeat": 2
+	},
+	{
+		"id": 200041,
+		"name": "会长-英勇打击",
+		"desc": "强力的攻击，造成1次物理伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 400,
+		"post_time": 1600
+	},
+	{
+		"id": 200042,
+		"name": "会长-剑刃风暴",
+		"desc": "3秒内发动5次旋风斩，对2米范围内所有目标造成物理伤害，目标每次只承受20%伤害，每释放1次旋风斩寻找距离最近的新目标，免疫控制效果",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.16",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 100,
+		"repeat_interval": 233,
+		"post_time": 803,
+		"repeat": 10,
+		"start_time_buff": [{
+			"buff_id": 109,
+			"name": "add_immune_status",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200043,
+		"name": "会长-横扫攻击",
+		"tar_logic": {
+			"type": "self"
+		},
+		"desc": "使你接下来的5次攻击都会提升攻击强度，并可以攻击到额外1个敌人",
+		"cd": 2000,
+		"prepare_time": 366,
+		"post_time": 634,
+		"self_buff": [{
+			"buff_id": 110,
+			"name": "sweep_away",
+			"add_count": 1,
+			"level2_type": "physical_attack",
+			"level2_type_value": "343 * ctx:skill():skill_level_factor()",
+			"effect_times": 5,
+			"life_time": 10000
+		}]
+	},
+	{
+		"id": 200044,
+		"name": "会长-穿刺",
+		"passive": true,
+		"after_battle_start_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"cd": 0,
+		"self_buff": [{
+			"buff_id": 111,
+			"name": "impaling",
+			"critical_percent_stub": "ctx:set_critical_percent(ctx:critical_percent() + 0.04 + 0.001 * ctx:buff():skill_level())",
+			"critical_factor_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.08 + 0.002 * ctx:buff():skill_level())",
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 200050,
+		"name": "暗夜男-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 566,
+		"repeat_interval": 766,
+		"post_time": 668,
+		"repeat": 2
+	},
+	{
+		"id": 200051,
+		"name": "暗夜男-致死打击",
+		"desc": "对目标造成1次物理伤害并使其受伤，6秒内受到治疗效果降低50%",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 1232,
+		"post_time": 768,
+		"target_buff": [{
+			"buff_id": 112,
+			"name": "reduce_cure_effect",
+			"before_be_cure_stub": "ctx:set_effect_value(ctx:effect_value() * (0.8 - 0.005 * ctx:skill():skill_level()))",
+			"life_time": 6000
+		}]
+	},
+	{
+		"id": 200052,
+		"name": "暗夜男-高速斩",
+		"desc": "快速连续斩击敌人，造成3次物理伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"cd": 2000,
+		"prepare_time": 466,
+		"repeat_interval": 599,
+		"post_time": 1336,
+		"repeat": 3
+	},
+	{
+		"id": 200053,
+		"name": "暗夜男-反击风暴",
+		"desc": "反击所有近战伤害，持续15秒，对攻击者造成1次物理伤害，攻击者每次只承受此伤害的40%，由背后发动的近战伤害无法被反击",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 4000,
+		"prepare_time": 433,
+		"post_time": 567,
+		"self_buff": [{
+			"buff_id": 113,
+			"name": "be_attack_damage",
+			"source_value": "ctx:buff():owner():physical_attack() + 1715 * ctx:buff():skill_level_factor()",
+			"target_value": "ctx:source():physical_armor()",
+			"damage_type": "PHYSICAL",
+			"after_be_damage_stub": [
+				"if ctx:skill():skill_range() < 2500 and ctx:skill():back_stab() == false then",
+				"return ctx:source():take_buff_damage(ctx:buff_effect_value() * 0.33, ctx:buff():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"end"
+			],
+			"life_time": 15000
+		}]
+	},
+	{
+		"id": 200054,
+		"name": "暗夜男-战斗怒吼",
+		"desc": "战士发出怒吼，提升己方所有成员的攻击强度，持续20秒",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"teammates": true,
+			"type": "circle",
+			"range": 50000
+		},
+		"cd": 2000,
+		"prepare_time": 433,
+		"post_time": 567,
+		"target_buff": [{
+			"buff_id": 114,
+			"name": "add_level2",
+			"level2_type": "physical_attack",
+			"level2_type_value": "343 * ctx:skill():skill_level_factor()",
+			"life_time": 20000
+		}]
+	},
+	{
+		"id": 200060,
+		"name": "沉鱼-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",		
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 433,
+		"repeat_interval": 660,
+		"post_time": 907,
+		"repeat": 2
+	},
+	{
+		"id": 200061,
+		"name": "沉鱼-旋风斩",
+		"desc": "挥舞手中的武器，对2米范围内所有目标造成1次物理伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",		
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 132,
+		"repeat_interval": 266,
+		"post_time": 1602,
+		"repeat": 2
+	},
+	{
+		"id": 200062,
+		"name": "沉鱼-破胆怒吼",
+		"desc": "怒吼使4米范围内的敌人因恐惧而四散乱跑，持续5秒",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"cd": 2000,
+		"prepare_time": 266,
+		"post_time": 734,
+		"target_buff": [{
+			"buff_id": 115,
+			"after_be_damage_stub": "ctx:buff():dec_layer(ctx:buff():layer())",
+			"name": "add_status",
+			"status": "FEAR",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200063,
+		"name": "沉鱼-斩杀",
+		"desc": "尝试杀死一个受伤的敌人，对其造成大量物理伤害，只对生命值少于20%的敌人生效",
+		"passive": true,
+		"after_select_skill_stub": [
+			"for _, actor in pairs(ctx:passive_owner():enemies(false)) do",
+			"  if actor:hp_percent() <= 0.2 and actor:has_mark(\"be_crash\", ctx:passive_owner()) == false then",
+			"  ctx:passive_skill():add_passive_target(actor)",
+			"  ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"  return true",
+			"  end",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():physical_armor()",
+			"effect_value": "ctx:effect_value() * 4.0",
+			"skill_range": 10000,
+			"damage_type": "PHYSICAL",
+			"cd": 2000,
+			"prepare_time": 366,
+			"post_time": 1134,
+			"target_buff": [{
+				"buff_id": 116,
+				"name": "mark",
+				"mark_name": "be_crash",
+				"life_time": -1
+			}]
+		}
+	},
+	{
+		"id": 200064,
+		"name": "沉鱼-狂怒",
+		"desc": "每击中一个目标有10%的几率提升攻击强度，并使爆击提高5%，持续10秒，狂怒效果可叠加，最多叠加3次",
+		"passive": true,
+		"cd": 0,
+		"after_do_damage_stub": [
+			"if (math.random(1000) <= 100) then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"self_buff": [{
+			"buff_id": 117,
+			"name": "fury",
+			"physical_attack_value": "229 * ctx:skill():skill_level_factor()",
+			"critical_percent_value": "0.05",
+			"life_time": 10000,
+			"max_layer": 3
+		}]
+	},
+	{
+		"id": 200070,
+		"name": "桶牛-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 666,
+		"post_time": 1334
+	},
+	{
+		"id": 200071,
+		"name": "桶牛-顺劈斩",
+		"desc": "横扫目标，造成1次物理伤害，并对目标最近的两个其他目标造成同等伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000,
+			"tar_extra": {
+				"count": [
+					1,
+					2
+				],
+				"type": "circle",
+				"range": 5000
+			}
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 566,
+		"post_time": 1434
+	},
+	{
+		"id": 200072,
+		"name": "桶牛-鲁莽",
+		"desc": "使用后，在接下来的15秒内，提升50%爆击率，并且免疫恐惧效果，但是需要承担更多的伤害",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1000,
+		"self_buff": [{
+			"buff_id": 118,
+			"name": "reckless",
+			"critical_percent_value": "0.2 + 0.005 * ctx:skill():skill_level()",
+			"before_be_damage_stub": "ctx:set_effect_value(ctx:effect_value() * (1.8 - 0.005 * ctx:buff():skill_level()))",
+			"life_time": 15000
+		}]
+	},
+	{
+		"id": 200073,
+		"name": "桶牛-拦截",
+		"desc": "拦截目标，造成1次物理伤害，并使其昏迷3秒",
+		"move_logic": "charge",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 8000,
+			"stop_range" : 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"cd": 2000,
+		"post_time": 300,
+		"target_buff": [{
+			"buff_id": 119,
+			"name": "add_status",
+			"status": "STUN",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200074,
+		"name": "桶牛-嗜血",
+		"desc": "立即攻击目标，造成1次物理伤害，并使你接下来的5次攻击每次都可以令你恢复当次伤害的10%的生命值，持续10秒",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 666,
+		"post_time": 1334,
+		"self_buff": [{
+			"buff_id": 120,
+			"name": "life_steal",
+			"after_do_damage_stub": [
+				"ctx:buff():owner():take_buff_cure(ctx:effect_value() * 0.1, ctx:buff():owner(), ctx:buff())",
+				"ctx:buff():dec_layer(1)"
+			],
+			"init_layer": 5,
+			"life_time": 10000
+		}]
+	},
+	{
+		"id": 200080,
+		"name": "地中海-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 429,
+		"repeat_interval": 759,
+		"post_time": 812,
+		"repeat": 2
+	},
+	{
+		"id": 200081,
+		"name": "地中海-破甲攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 466,
+		"repeat_interval": 733,
+		"post_time": 801,
+		"repeat": 2,
+		"target_buff": [{
+			"buff_id": 121,
+			"name": "reduce_level2",
+			"level2_type": "physical_armor",
+			"level2_type_value": "191 * ctx:skill():skill_level_factor()",
+			"max_layer": 5,
+			"life_time": 10000
+		}]
+	},
+	{
+		"id": 200082,
+		"name": "地中海-盾击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 1500
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 766,
+		"post_time": 1234,
+		"break_skill": true,
+		"target_buff": [{
+			"buff_id": 122,
+			"name": "add_status",
+			"status": "MUTE",
+			"life_time": 500
+		}]
+	},
+	{
+		"id": 200083,
+		"name": "地中海-破釜沉舟",
+		"passive": true,
+		"trigger_once": true,
+		"after_hp_change_stub": [
+			"if ctx:source():hp_percent() < 0.3 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"type": "self"
+			},
+			"cure": true,
+			"effect_value": "ctx:source():max_hp() * (0.1+0.005 * ctx:skill():skill_level())",
+			"prepare_time": 396,
+			"post_time": 1104,
+			"self_buff": [{
+				"buff_id": 123,
+				"name": "add_hp_max",
+				"hp_max_value": "ctx:source():hp() * (0.1+0.005 * ctx:skill():skill_level())",
+				"life_time": 15000
+			}]
+		}
+	},
+	{
+		"id": 200084,
+		"name": "地中海-复仇",
+		"passive": true,
+		"cd": 0,
+		"after_do_dodge_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"source_value": "ctx:target():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:source():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"self_buff": [{
+			"buff_id": 124,
+			"name": "add_dodge_percent",
+			"before_dodge_stub": "ctx:set_dodge_percent(ctx:dodge_percent() + 0.1)",
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200090,
+		"name": "傻馒-闪电箭",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "FLASH",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"cd": 2000,
+		"prepare_time": 1518,
+		"post_time": 482,
+		"chain_target": true,
+		"chain_reduce": [1.0]
+	},
+	{
+		"id": 200091,
+		"name": "傻馒-冰霜震击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "ICE",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 466,
+		"post_time": 1534,
+		"target_buff": [{
+			"buff_id": 125,
+			"name": "slow_down",
+			"slow_down_percent": 0.4,
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200092,
+		"name": "傻馒-闪电链",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000,
+			"tar_extra": {
+				"count": [1, 3],
+				"range": 5000,
+				"type": "circle"
+			}
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.9",
+		"damage_type": "FLASH",
+		"cd": 2000,
+		"prepare_time": 1518,
+		"post_time": 482,
+		"chain_target": true,
+		"chain_reduce": [
+			1.0,
+			0.85,
+			0.7,
+			0.55
+		]
+	},
+	{
+		"id": 200093,
+		"name": "傻馒-闪电图腾",
+		"tar_logic": {
+			"type": "self"
+		},
+		"prepare_time": 466,
+		"post_time": 534,
+		"cd": 2000,
+		"create_actor": [{
+			"id": 30017,
+			"life_time": 20000,
+			"magic_attack_value": "ctx:source():magic_attack()* 0.45 + 854 * ctx:skill():skill_level_factor()",
+			"location": {
+				"distance": 1000,
+				"dir": 0
+			}
+		}]
+	},
+	{
+		"id": 200094,
+		"name": "傻馒-电能超载",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if ctx:skill():damage_type() == DamageType_FLASH and math.random(1000) <= 300 then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"cd": 0,
+		"extra_buff": [{
+			"buff_id": 126,
+			"name": "electric_overload",
+			"max_layer": 5,
+			"life_time": -1,
+			"skill_id": 200092,
+			"skill_level_value": "ctx:skill():skill_level()"
+		}]
+	},
+	{
+		"id": 200100,
+		"name": "炮姐-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 866,
+		"post_time": 634,
+		"repeat": 2
+	},
+	{
+		"id": 200101,
+		"name": "炮姐-风暴打击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"passive_skill": {
+			"name": "炮姐-风暴打击被动",
+			"passive": true,
+			"damage_type": "FLASH",
+			"after_do_damage_stub": [
+				"if ctx:skill():skill_id() == 200101 then",
+				"ctx:target():take_skill_damage(ctx:effect_value() * 0.4, ctx:passive_skill():passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+				"end",
+				"return false"
+			]
+		}
+	},
+	{
+		"id": 200102,
+		"name": "炮姐-熔岩震击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 866,
+		"post_time": 633,
+		"repeat": 2,
+		"passive_skill": {
+			"name": "炮姐-熔岩震击被动",
+			"passive": true,
+			"damage_type": "FIRE",
+			"after_do_damage_stub": [
+				"if ctx:skill():skill_id() == 200102 then",
+				"ctx:target():take_skill_damage(ctx:effect_value() * 0.25, ctx:passive_skill():passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+				"end",
+				"return false"
+			]
+		}
+	},
+	{
+		"id": 200103,
+		"name": "炮姐-风怒武器，用强风的力量强化武器，每次攻击时有20%几率造成额外2次近战打击，并附加额外的攻击强度，持续20秒",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 500,
+		"self_buff": [{
+			"buff_id": 127,
+			"name": "add_level2",
+			"level2_type": "physical_attack",
+			"level2_type_value": "0 * ctx:skill():skill_level_factor()",
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:buff():buff_level_factor()",
+			"target_value": "ctx:target():physical_armor()",
+			"effect_value": "ctx:effect_value() * 0.8",
+			"damage_type": "PHYSICAL",
+			"after_use_active_skill_stub": [
+				"if math.random(1000) <= 200 and ctx:is_teammate(ctx:target(), ctx:buff():owner()) == false then",
+				"ctx:target():take_buff_damage(ctx:buff_effect_value(), ctx:buff():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"ctx:target():take_buff_damage(ctx:buff_effect_value(), ctx:buff():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"end"
+			],
+			"life_time": 20000
+		}]
+	},
+	{
+		"id": 200104,
+		"name": "炮姐-闪电盾",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1000,
+		"self_buff": [{
+			"buff_id": 128,
+			"name": "flash_ball",
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:buff():buff_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.4",
+			"damage_type": "FLASH",
+			"life_time" : 8000,
+			"after_be_damage_stub": [
+				"ctx:source():take_buff_damage(ctx:buff_effect_value(), ctx:buff():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"ctx:buff():dec_layer(1)"
+			],
+			"init_layer": 3
+		}]
+	},
+	{
+		"id": 200120,
+		"name": "冬-自动射击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"auto_shoot": true,
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 333,
+		"post_time": 1667
+	},
+	{
+		"id": 200121,
+		"name": "冬-震荡射击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 333,
+		"post_time": 1667,
+		"passive_skill" : {
+			"after_do_damage_stub": [
+				"if ctx:target():has_mark(\"hunter_mark\",ctx:source()) and math.random(1000) <= 300 then",
+				"ctx:target():add_buff(ctx:skill():extra_buff(1), ctx:source(), ctx)",
+				"return true",
+				"else",
+				"ctx:target():add_buff(ctx:skill():extra_buff(0), ctx:source(), ctx)",
+				"return true",
+				"end",
+				"return false"
+			]
+		},
+		"extra_buff": [{
+				"buff_id": 129,
+				"name": "slow_down",
+				"slow_down_percent": 0.5,
+				"life_time": 4000
+			},
+			{
+				"buff_id": 130,
+				"name": "add_status",
+				"status": "STUN",
+				"life_time": 4000
+			}
+		]
+	},
+	{
+		"id": 200122,
+		"name": "冬-猎人印记",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"cd": 2000,
+		"prepare_time": 927,
+		"post_time": 1073,
+		"target_buff": [{
+			"buff_id": 131,
+			"name": "hunter_mark",
+			"before_be_damage_stub": [
+				"if ctx:source():guid() == ctx:buff():creator():guid() then",
+				"ctx:set_effect_value(ctx:effect_value() + ctx:buff():skill_level_factor() * 188)",
+				"end"
+			],
+			"life_time": 20000
+		}]
+	},
+	{
+		"id": 200123,
+		"name": "冬-杀戮命令",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor() - 1715 * ctx:skill():skill_level_factor()",
+		"accurate_percent": 1,
+		"critical_percent_value": "ctx:critical_percent() + 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 333,
+		"post_time": 1667,
+		"pet_buff": [{
+			"buff_id": 132,
+			"name": "wild",
+			"value": "ctx:effect_value() * 1.2",
+			"life_time": 10000
+		}]
+	},
+	{
+		"id": 200124,
+		"name": "冬-雄鹰守护",
+		"passive": true,
+		"after_battle_start_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"cd": 0,
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					99
+				],
+				"type": "circle",
+				"range": 50000,
+				"teammates": true,
+				"pets": true
+			},
+			"target_buff": [{
+				"buff_id": 133,
+				"name": "add_level2",
+				"level2_type": "physical_attack",
+				"level2_type_value": "343 * ctx:skill():skill_level_factor()",
+				"life_time": -1
+			}]
+		}
+	},
+	{
+		"id": 200125,
+		"name": "冬-召唤白虎",
+		"after_battle_start_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"passive": true,
+		"active_skill": {
+			"create_actor": [{
+				"id": 39221,
+				"life_time": -1,
+				"physical_attack_value": "ctx:source():physical_attack()* 0.4 + 683 * ctx:passive_owner():actor_level_factor()",
+				"location": {
+					"distance": 1000,
+					"dir": 0
+				}
+			}]
+		}
+	},
+	{
+		"id": 200130,
+		"name": "劣人-自动射击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"auto_shoot": true,
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 333,
+		"post_time": 1667
+	},
+	{
+		"id": 200131,
+		"name": "劣人-投掷陷阱",
+		"tar_logic": {
+			"count": [1, 1],
+			"range": 5000,
+			"type": "circle"
+		},
+		"prepare_time": 333,
+		"post_time": 1667,
+		"bullet_speed": 10000,
+		"cd": 2000,
+		"random_traps": [{
+				"id": 1,
+				"name": "ice_trap",
+				"range": 5000,
+				"count": [1, 99],
+				"source_value": "ctx:source():physical_attack() + 1715 * ctx:trap():trap_level_factor()",
+				"target_value": "ctx:target():magic_armor()",
+				"effect_value": "ctx:trap_effect_value() * 0.8",
+				"damage_type": "ICE",
+				"enemy_enter_stub": "ctx:target():add_buff(ctx:trap():extra_buff(0), ctx:trap():creator(), ctx)",
+				"enemy_leave_stub": "ctx:target():clear_buff(ctx:trap():extra_buff(0), ctx:trap():creator())",
+				"extra_buff": [{
+					"buff_id": 192,
+					"name": "slow_down",
+					"slow_down_percent": 0.5,
+					"life_time": -1
+				}],
+				"life_time": 10000
+			},
+			{
+				"id": 2,
+				"name": "sacrifice",
+				"range": 500,
+				"count": [1, 1],
+				"source_value": "ctx:source():physical_attack() + 1715 * ctx:trap():trap_level_factor()",
+				"target_value": "ctx:target():magic_armor()",
+				"effect_value": "ctx:trap_effect_value()",
+				"damage_type": "FIRE",
+				"enemy_enter_stub": "ctx:target():add_buff(ctx:trap():extra_buff(0), ctx:trap():creator(), ctx)",
+				"extra_buff": [{
+					"buff_id": 193,
+					"name": "sacrifice",
+					"source_value": "ctx:source():physical_attack() + 1715 * ctx:trap():trap_level_factor()",
+					"target_value": "ctx:target():magic_armor()",
+					"effect_value": "ctx:buff_effect_value() * 0.1",
+					"damage_type": "FIRE",
+					"life_time": 10000,
+					"pulse": 5
+				}],
+				"life_time": 10000
+			},
+			{
+				"id": 3,
+				"name": "bomb",
+				"range": 500,
+				"count": [1, 1],
+				"source_value": "ctx:source():physical_attack() + 1715 * ctx:trap():trap_level_factor()",
+				"target_value": "ctx:target():physical_armor()",
+				"effect_value": "ctx:trap_effect_value() * 1.2",
+				"damage_type": "PHYSICAL",
+				"spurting_range": 5000,
+				"spurting_effect_value": "ctx:trap_effect_value() * 0.5"
+			}
+		]
+	},
+	{
+		"id": 200132,
+		"name": "劣人-毒蛇钉刺",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 333,
+		"post_time": 1667,
+		"target_buff": [{
+			"buff_id": 134,
+			"name": "sting",
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:buff():buff_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.32",
+			"damage_type": "NATRUE",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	},
+	{
+		"id": 200133,
+		"name": "劣人-多重射击",
+		"tar_logic": {
+			"count": [
+				5,
+				5
+			],
+			"type": "circle",
+			"range": 15000,
+			"random": true,
+			"repick": true
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",		
+		"effect_value": "ctx:effect_value() * 0.64",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 333,
+		"post_time": 1667
+	},
+	{
+		"id": 200134,
+		"name": "劣人-假死",
+		"passive": true,
+		"trigger_once": true,
+		"after_hp_change_stub": [
+			"if ctx:target():hp_percent() < 0.3 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"type": "self"
+			},
+			"prepare_time": 660,
+			"post_time": 693,
+			"target_buff": [{
+				"buff_id": 135,
+				"name": "fake_dead",
+				"life_time": 3000
+			}]
+		}
+	},
+	{
+		"id": 200140,
+		"name": "方砖-寒冰箭",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "ICE",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1565,
+		"post_time": 435
+	},
+	{
+		"id": 200141,
+		"name": "方砖-冰锥术",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "sector",
+			"range": 5000,
+			"radian": 1.57
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "ICE",
+		"cd": 2000,
+		"prepare_time": 333,
+		"post_time": 1667,
+		"target_buff": [{
+			"buff_id": 136,
+			"name": "slow_down",
+			"slow_down_percent": 0.4,
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200142,
+		"name": "方砖-暴风雪",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 50000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.4",
+		"damage_type": "ICE",
+		"long_time_skill": true,
+		"cd": 2000,
+		"prepare_time": 857,
+		"repeat_interval": 857,
+		"post_time": 858,
+		"repeat": 6,
+		"repeat_calc_buff": true,
+		"target_buff": [{
+			"buff_id": 137,
+			"name": "slow_down",
+			"slow_down_percent": 0.5,
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200143,
+		"name": "方砖-冰甲术",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 2000,
+		"prepare_time": 333,
+		"post_time": 667,
+		"repeat_calc_buff": true,
+		"self_buff": [{
+			"buff_id": 138,
+			"name": "add_level2",
+			"level2_type" : "physical_armor",
+			"level2_type_value": "ctx:skill():skill_level_factor() * 515",
+			"after_be_damage_stub": [
+				"if ctx:skill():skill_range() < 2500 then",
+				"ctx:source():add_buff(ctx:buff():extra_buff(0), ctx:buff():owner(), ctx)",
+				"end"
+			],
+			"after_do_damage_stub": [
+				"local slow_down_buffs = ctx:target():find_buffs_by_name(\"slow_down\", 0)",
+				"local is_slow_down = false",
+				"if #slow_down_buffs > 0 then is_slow_down = true end",
+				"if is_slow_down and math.random(1000) <= 50 then",
+				"ctx:target():add_buff(ctx:buff():extra_buff(1), ctx:buff():owner(), ctx)",
+				"end"
+			],
+			"extra_buff": [{
+					"buff_id": 139,
+					"name": "slow_down",
+					"slow_down_percent": 0.3,
+					"life_time": 5000
+				},
+				{
+					"buff_id": 140,
+					"name": "add_status",
+					"status": "FROZEN",
+					"life_time": 2000
+				}
+			],
+			"life_time": 20000
+		}]
+	},
+	{
+		"id": 200144,
+		"name": "方砖-寒冰屏障",
+		"passive": true,
+		"trigger_once": true,
+		"after_hp_change_stub": [
+			"if ctx:target():hp_percent() < 0.3 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"type": "self"
+			},
+			"prepare_time": 333,
+			"post_time": 667,
+			"target_buff": [{
+				"buff_id": 141,
+				"name": "ice_block",
+				"life_time": 5000,
+				"skill_id": 200142,
+				"skill_level": "ctx:skill():skill_level()"
+			}]
+		}
+	},
+	{
+		"id": 200150,
+		"name": "五火教主-火球术",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1232,
+		"post_time": 768
+	},
+	{
+		"id": 200151,
+		"name": "五火教主-炎爆术",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 1.4",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1232,
+		"post_time": 768
+	},
+	{
+		"id": 200152,
+		"name": "五火教主-烈焰风暴",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000,
+			"tar_extra": {
+				"count": [
+					1,
+					99
+				],
+				"type": "circle",
+				"range": 3000
+			}
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.9",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 1232,
+		"post_time": 768,
+		"target_buff": [{
+			"buff_id": 142,
+			"name": "burning",
+			"damage_type": "FIRE",
+			"effect_value": "ctx:effect_value() * 0.28 * 0.25",
+			"life_time": 8000,
+			"pulse": 4
+		}]
+	},
+	{
+		"id": 200153,
+		"name": "五火教主-龙息术",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "sector",
+			"range": 5000,
+			"radian": 1.57
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 400,
+		"post_time": 1600,
+		"target_buff": [{
+			"buff_id": 143,
+			"name": "add_status",
+			"after_be_damage_stub": "ctx:buff():dec_layer(ctx:buff():layer())",
+			"status": "BLIND",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200154,
+		"name": "五火教主-点燃",
+		"passive": true,
+		"after_do_critical_stub": "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:source(), ctx);return true",
+		"cd": 0,
+		"extra_buff": [{
+			"buff_id": 144,
+			"name": "burning",
+			"damage_type": "FIRE",
+			"source_value": "ctx:source():magic_attack() + 1715 * ctx:buff():buff_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.27",
+			"life_time": 3000,
+			"pulse": 3
+		}]
+	},
+	{
+		"id": 200155,
+		"name": "五火教主-灼烧-开场剧情专用",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 3000
+		},
+		"source_value": "ctx:source():magic_attack() + 7.95 * ctx:skill():skill_level()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 1254,
+		"post_time": 746
+	},
+	{
+		"id": 200160,
+		"name": "羞花-寒冰箭",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "ICE",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1485,
+		"post_time": 515
+	},
+	{
+		"id": 200161,
+		"name": "羞花-冰枪术",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "ICE",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1485,
+		"post_time": 515,
+		"effect_value": "if ctx: target(): is_frozon() then return ctx: effect_value() * 1.6 else return ctx: effect_value() * 0.8 end "
+	},
+	{
+		"id": 200162,
+		"name": "羞花-冰环",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "ICE",
+		"cd": 2000,
+		"prepare_time": 924,
+		"post_time": 1076,
+		"target_buff": [{
+			"buff_id": 145,
+			"name": "add_status",
+			"status": "FREEZE",
+			"life_time": 2000
+		}]
+	},
+	{
+		"id": 200163,
+		"name": "羞花-碎冰",
+		"tar_logic": {
+			"type": "self"
+		},
+		"passive": true,
+		"after_calc_critical_percent_stub": [
+			"if ctx:target():is_frozon() then",
+			"ctx:set_critical_percent_value(ctx:critical_percent_value() + 0.2 + 0.005 * ctx:passive_skill():skill_level())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"cd": 0
+	},
+	{
+		"id": 200164,
+		"name": "羞花-水元素",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 20000,
+		"prepare_time": 924,
+		"post_time": 1076,
+		"create_actor": [{
+			"id": 39201,
+			"life_time": 20000,
+			"magic_attack_value": "ctx:source():magic_attack()* 0.45 + 854 * ctx:skill():skill_level_factor()",
+			"location": {
+				"distance": 1000,
+				"dir": 0
+			}
+		}]
+	}, {
+		"id": 200170,
+		"name": "法丝-奥术飞弹",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.36",
+		"damage_type": "ARCANE",
+		"long_time_skill": true,
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 630,
+		"repeat_interval": 500,
+		"post_time": 370,
+		"repeat": 5
+	}, {
+		"id": 200171,
+		"name": "法丝-奥爆术",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 1.2",
+		"damage_type": "ARCANE",
+		"cd": 2000,
+		"prepare_time": 1000,
+		"post_time": 1000
+	}, {
+		"id": 200172,
+		"name": "法丝-变羊术",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "farest"
+		},
+		"cd": 2000,
+		"skill_range": 15000,
+		"prepare_time": 1000,
+		"post_time": 1000,
+		"target_buff": [{
+			"id" : 0,
+			"name": "transform",
+			"after_be_damage_stub": "ctx:buff():dec_layer(ctx:buff():layer())",
+			"hp_value": "ctx:target():hp()",
+			"config_id": 39235,
+			"life_time": 10000
+		}]
+	}, {
+		"id": 200173,
+		"name": "法丝-法术反制",
+		"passive": true,
+		"cd": 15000,
+		"actor_use_long_time_skill_stub": [
+			"if ctx:is_teammate(ctx:source(),ctx:passive_owner()) == false then",
+			"ctx:passive_skill():add_passive_target(ctx:source())",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					99
+				],
+				"type": "circle",
+				"range": 15000
+			},		
+			"prepare_time": 0,
+			"post_time": 1000,
+			"break_skill": true,
+			"target_buff": [{
+				"buff_id": 147,
+				"name": "add_status",
+				"status": "MUTE",
+				"life_time": 3000
+			}]
+		}
+	}, {
+		"id": 200174,
+		"name": "法丝-奥术智慧",
+		"passive": true,
+		"after_battle_start_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"cd": 0,
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					99
+				],
+				"type": "circle",
+				"range": 55000,
+				"teammates": true,
+				"pets": true
+			},
+			"target_buff": [{
+				"buff_id": 148,
+				"name": "add_level2",
+				"level2_type": "magic_attack",
+				"level2_type_value": "343 * ctx:skill():skill_level_factor()",
+				"life_time": -1
+			}]
+		}
+	}, {
+		"id": 200180,
+		"name": "女德-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500
+	}, {
+		"id": 200181,
+		"name": "女德-扫击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 1.4",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"target_buff": [{
+			"buff_id": 149,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}]
+	}, {
+		"id": 200182,
+		"name": "女德-撕扯",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"target_buff": [{
+				"buff_id": 150,
+				"name": "bleed",
+				"damage_type": "PHYSICAL",
+				"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+				"target_value": "ctx:target():physical_armor()",
+				"effect_value": "ctx:buff_effect_value() * 0.2",
+				"life_time": 10000,
+				"pulse": 5
+			},
+			{
+				"buff_id": 149,
+				"name": "combo_point",
+				"max_layer": 5,
+				"life_time": -1
+			}
+		],
+		"passive_skill": {
+			"name": "女德-撕扯被动",
+			"passive": true,
+			"after_do_damage_stub": [
+				"if ctx:target():is_bleed() and math.random(1000) <=400 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+				"end",
+				"return false"
+			]
+		},
+		"extra_buff": [{
+			"buff_id": 149,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}]
+	}, {
+		"id": 200183,
+		"name": "女德-撕咬",
+		"passive": true,
+		"combo_point_overflow_stub": [
+			"if ctx:buff():creator():guid() == ctx:passive_owner():guid() then",
+			"ctx:passive_skill():add_passive_target(ctx:buff():owner())",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					1
+				],
+				"type": "circle",
+				"range": 15000
+			},
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():physical_armor()",
+			"effect_value": "ctx:effect_value() * 1.8",
+			"damage_type": "PHYSICAL",
+			"cd": 2000,
+			"prepare_time": 700,
+			"post_time": 800
+		}
+	}, {
+		"id": 200184,
+		"name": "女德-扑击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 1.2",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 700,
+		"post_time": 1300,
+		"target_buff": [{
+				"buff_id": 151,
+				"name": "add_status",
+				"status": "STUN",
+				"life_time": 3000
+			},
+			{
+				"buff_id": 149,
+				"name": "combo_point",
+				"max_layer": 5,
+				"life_time": -1
+			}
+		]
+	},
+	{
+		"id": 200185,
+		"name": "女德-变身",
+		"passive": true,
+		"trigger_once": true,
+		"before_battle_start_stub": "ctx:passive_owner():set_config_id(39236);return true"
+	},
+	{
+		"id": 200190,
+		"name": "小德-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 667,
+		"post_time": 1333
+	}, {
+		"id": 200191,
+		"name": "小德-裂伤",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 667,
+		"post_time": 1333,
+		"target_buff": [{
+			"buff_id": 152,
+			"name": "bleed",
+			"damage_type": "PHYSICAL",
+			"source_value": "ctx:source():physical_attack() + 627 * ctx:buff():buff_level_factor()",
+			"target_value": "ctx:target():physical_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.33",
+			"life_time": 6000,
+			"pulse": 3
+		}]
+	}, {
+		"id": 200192,
+		"name": "小德-重殴",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 932,
+		"post_time": 1068,
+		"target_buff": [{
+			"buff_id": 153,
+			"name": "add_status",
+			"status": "STUN",
+			"life_time": 3000
+		}]
+	}, {
+		"id": 200193,
+		"name": "小德-狂暴回复",
+		"passive": true,
+		"tar_logic": {
+			"type": "self"
+		},
+		"trigger_once": true,
+		"after_hp_change_stub": [
+			"if ctx:passive_owner():hp_percent() < 0.3 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"prepare_time": 932,
+			"post_time": 466,
+			"target_buff": [{
+				"buff_id": 154,
+				"name": "continue_cure",
+				"cure_value": "(ctx:skill():skill_level() * 0.01 + 0.15) * 0.2 * ctx:source():max_hp()",
+				"life_time": 5000,
+				"pulse": 5
+			}]
+		}
+	}, {
+		"id": 200194,
+		"name": "小德-挑战咆哮",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"cd": 2000,
+		"prepare_time": 932,
+		"post_time": 466,
+		"target_buff": [{
+			"buff_id": 155,
+			"name": "sneer",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200195,
+		"name": "小德-变身",
+		"passive": true,
+		"trigger_once": true,
+		"before_battle_start_stub": "ctx:passive_owner():set_config_id(39237);return true"
+	}, 
+	{
+		"id": 200200,
+		"name": "花花-治疗之触",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cure": true,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668
+	}, {
+		"id": 200201,
+		"name": "花花-生命绽放",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cd": 10000,
+		"prepare_time": 1332,
+		"post_time": 668,
+		"target_buff": [{
+			"buff_id": 156,
+			"name": "life_burst",
+			"cure_value": "(ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()) * 0.2 * 0.25",
+			"on_destroy_value": "(ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()) * 0.2 * 0.5",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	}, {
+		"id": 200202,
+		"name": "花花-愈合",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cure": true,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"effect_value": "ctx:effect_value() * 1.25",
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668,
+		"target_buff": [{
+			"buff_id": 157,
+			"name": "continue_cure",
+			"cure_value": "ctx:effect_value() * 0.08",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	}, {
+		"id": 200203,
+		"name": "花花-宁静",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 50000
+		},
+		"cure": true,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"effect_value": "ctx:effect_value() * 0.35",
+		"cd": 2000,
+		"long_time_skill": true,
+		"prepare_time": 600,
+		"repeat_interval": 1000,
+		"post_time": 400,
+		"repeat": 5
+	}, {
+		"id": 200204,
+		"name": "花花-战复",
+		"passive": true,
+		"trigger_once": true,
+		"after_select_skill_stub": [
+			"for _, actor in pairs(ctx:passive_owner():teammates(false)) do",
+			" if actor:is_dead() then",
+			" ctx:passive_skill():add_passive_target(actor)",
+			" ctx:passive_owner():use_skill(ctx:passive_skill())",
+			" return true",
+			" end",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					1
+				],
+				"type": "circle",
+				"teammates" : true,
+				"range": 30000
+			},		
+			"relive_target": true,
+			"relive_hp_value": "(ctx:skill():skill_level() * 0.005 + 0.2) * ctx:target():max_hp()",
+			"cd": 0,
+			"skill_range": 4000,
+			"prepare_time": 630,
+			"post_time": 1370
+		}
+	}, {
+		"id": 200230,
+		"name": "娇花-暗影箭",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "SHADOW",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1500,
+		"post_time": 500
+	}, {
+		"id": 200231,
+		"name": "娇花-腐蚀术",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"cd": 2000,
+		"prepare_time": 528,
+		"post_time": 1472,
+		"target_buff": [{
+			"buff_id": 158,
+			"name": "corruption",
+			"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.32",
+			"damage_type": "SHADOW",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	}, {
+		"id": 200232,
+		"name": "娇花-恶魔召唤",
+		"cd": 10000,
+		"prepare_time": 528,
+		"post_time": 472,
+		"create_actor": [{
+			"id": 39223,
+			"life_time": 20000,
+			"magic_attack_value": "ctx:source():magic_attack()* 0.45 + 854 * ctx:skill():skill_level_factor()",
+			"location": {
+				"distance": 1000,
+				"dir": 0
+			}
+		}]
+	}, {
+		"id": 200233,
+		"name": "娇花-生命虹吸",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.4",
+		"damage_type": "SHADOW",
+		"life_steal_value": "ctx:effect_value() * 0.5",
+		"long_time_skill": true,
+		"cd": 2000,
+		"prepare_time": 630,
+		"repeat_interval": 1000,
+		"post_time": 370,
+		"repeat": 5
+	}, {
+		"id": 200234,
+		"name": "娇花-死亡缠绕",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1500,
+		"post_time": 500,
+		"target_buff": [{
+			"buff_id": 159,
+			"name": "death_coil",
+			"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"damage_type": "SHADOW",
+			"effect_value": "ctx:buff_effect_value() * 0.6",
+			"on_pulse_stub" : "ctx:buff():creator():take_buff_cure(ctx:buff_effect_value() * 0.5, ctx:buff():creator(), ctx:buff())",
+			"life_time": 3000,
+			"pulse": 3
+		}]
+	}, {
+		"id": 200260,
+		"name": "沐丝-治疗术",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cure": true,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"cd": 2000,
+		"prepare_time": 1155,
+		"post_time": 845
+	}, {
+		"id": 200261,
+		"name": "沐丝-群体驱散",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 10000
+		},
+		"cd": 2000,
+		"prepare_time": 1320,
+		"post_time": 680,
+		"despelling": {
+			"layer_count": 1,
+			"debuff": false
+		}
+	}, {
+		"id": 200262,
+		"name": "沐丝-神圣之环",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cure": true,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"effect_value": "ctx:effect_value() * 1.25",
+		"cd": 2000,
+		"long_time_skill": true,
+		"prepare_time": 1320,
+		"post_time": 680
+	}, {
+		"id": 200263,
+		"name": "沐丝-神圣新星",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "HOLY",
+		"cd": 2000,
+		"long_time_skill": true,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"passive_skill": {
+			"passive" : true,
+			"after_do_damage_stub" : [
+				"if ctx:skill():skill_id() == ctx:passive_skill():skill_id() then",
+					"for _, mate in pairs(ctx:passive_owner():teammates(false)) do",
+						"if mate:distance(ctx:passive_owner()) <= 5000 then",
+							"local cure = ctx:passive_owner():magic_attack() + 1715 * ctx:passive_skill():skill_level_factor()",
+							"mate:take_skill_cure(cure * 0.2, ctx:passive_owner(), ctx:passive_skill())",
+						"end",
+					"end",
+					"return true",
+				"end",
+				"return false"
+			]
+		}
+	}, {
+		"id": 200264,
+		"name": "沐丝-救赎之魂",
+		"passive": true,
+		"before_dead_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"trigger_once": true,
+		"self_buff": [{
+			"buff_id": 160,
+			"name": "redemption_ghost",
+			"life_time": 15000
+		}]
+	}, {
+		"id": 200270,
+		"name": "闭月-暗言术痛",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "SHADOW",
+		"cd": 2000,
+		"prepare_time": 396,
+		"post_time": 1604,
+		"target_buff": [{
+			"buff_id": 161,
+			"name": "pain",
+			"effect_value": "ctx:effect_value() * 0.75 * 0.25",
+			"life_time": 4000,
+			"pulse": 4
+		}]
+	}, {
+		"id": 200271,
+		"name": "闭月-心灵尖啸",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"cd": 10000,
+		"prepare_time": 396,
+		"post_time": 1604,
+		"target_buff": [{
+			"buff_id": 162,
+			"after_be_damage_stub": "ctx:buff():dec_layer(ctx:buff():layer())",
+			"name": "add_status",
+			"status": "FEAR",
+			"life_time": 3000
+		}]
+	}, {
+		"id": 200272,
+		"name": "闭月-吸血鬼的拥抱",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668,
+		"target_buff": [{
+			"buff_id": 163,
+			"name": "dark_mark",
+			"after_source_value_calc_stub": [
+				"if ctx:source():guid() == ctx:buff():creator():guid() then",
+				"ctx:set_source_value(ctx:source_value() + 343 * ctx:skill():skill_level_factor())",
+				"end"
+			],
+			"after_be_damage_stub": [
+				"if ctx:source():guid() == ctx:buff():creator():guid() then",
+				"  for _, actor in pairs(ctx:buff():creator():teammates(false)) do",
+				"  actor:take_buff_cure(ctx:effect_value() * 0.2, ctx:buff():creator(), ctx:buff())",
+				"  end",
+				"end"
+			],
+			"life_time": 20000
+		}]
+	}, {
+		"id": 200273,
+		"name": "闭月-噬灵瘟疫",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 1.4",
+		"damage_type": "SHADOW",
+		"cd": 2000,
+		"prepare_time": 396,
+		"post_time": 1604,
+		"target_buff": [{
+			"buff_id": 164,
+			"name": "plague",
+			"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"damage_type": "SHADOW",
+			"effect_value": "ctx:buff_effect_value() * 1.4 * 0.75 * 0.2",
+			"on_pulse_stub" : "ctx:buff():creator():take_buff_cure(ctx:buff_effect_value() * 0.3, ctx:buff():creator(), ctx:buff())",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	}, {
+		"id": 200274,
+		"name": "闭月-心灵震爆",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 4581 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "SHADOW",
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668
+	}, {
+		"id": 200280,
+		"name": "大小姐-圣光闪现",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cure": true,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"cd": 2000,
+		"prepare_time": 1254,
+		"post_time": 746
+	}, {
+		"id": 200281,
+		"name": "大小姐-光明祝福",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"teammates": true,
+			"type": "circle",
+			"range": 50000
+		},
+		"cd": 2000,
+		"prepare_time": 1254,
+		"post_time": 746,
+		"target_buff": [{
+			"buff_id": 165,
+			"name": "add_cure_effect",
+			"before_be_cure_stub": "ctx:set_effect_value(ctx:effect_value() + 686 * ctx:skill():skill_level_factor())",
+			"life_time": 20000
+		}]
+	}, {
+		"id": 200282,
+		"name": "大小姐-圣光审判",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"cd": 2000,
+		"prepare_time": 1254,
+		"post_time": 746,
+		"target_buff": [{
+			"buff_id": 166,
+			"name": "add_source_hp",
+			"after_be_damage_stub": [
+				"if ctx:skill():is_first_stage() or ctx:skill():is_long_time_skill() then",
+					"ctx:source():take_buff_cure((ctx:buff():creator():magic_attack() + 1715 * ctx:buff():buff_level_factor()) * 0.1, ctx:buff():creator(), ctx:buff())",
+				"end"
+			],
+			"effect_times": 15,
+			"life_time": 10000
+		}]
+	}, {
+		"id": 200283,
+		"name": "大小姐-圣疗术",
+		"passive": true,
+		"after_select_skill_stub": [
+			"for _, actor in pairs(ctx:passive_owner():teammates(false)) do",
+			" if actor:hp_percent() < 0.2 and actor:has_mark(\"cure_mark\",ctx:passive_owner()) == false then",
+			" ctx:passive_skill():add_passive_target(actor)",
+			" ctx:passive_owner():use_skill(ctx:passive_skill())",
+			" return true",
+			" end",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					1
+				],
+				"type": "circle",
+				"teammates" : true,
+				"range": 4000
+			},		
+			"cure": true,
+			"effect_value": "ctx:target():max_hp() * (0.3+0.005 * ctx:skill():skill_level())",
+			"cd": 10000,
+			"trigger_once": true,
+			"prepare_time": 1254,
+			"post_time": 746,
+			"target_buff": [{
+				"buff_id": 167,
+				"name": "mark",
+				"mark_name": "cure_mark",
+				"life_time": -1
+			}]
+		}
+	}, {
+		"id": 200284,
+		"name": "大小姐-圣光信标",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "max_hp",
+			"teammates": true,
+			"range": 4000
+		},
+		"cd": 2000,
+		"prepare_time": 1254,
+		"post_time": 746,
+		"target_buff": [{
+			"buff_id": 168,
+			"name": "add_cure_effect",
+			"before_be_cure_stub": " ctx:set_effect_value(ctx:effect_value() + 1715 * ctx:skill():skill_level_factor())",
+			"effect_value": "ctx:effect_value() * 0.75",
+			"life_time": 10000
+		}]
+	}, {
+		"id": 200290,
+		"name": "圣光棍棍-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 1232,
+		"post_time": 768
+	}, {
+		"id": 200291,
+		"name": "圣光棍棍-神圣之盾",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 2000,
+		"prepare_time": 1232,
+		"post_time": 768,
+		"self_buff": [{
+			"buff_id": 169,
+			"name": "holy_shield",
+			"damage_type": "PHYSICAL",
+			"source_value": "ctx:buff():owner():physical_attack() + 627 * ctx:buff():skill_level_factor()",
+			"target_value": "ctx:source():magic_armor()",
+			"before_be_damage_stub": [
+				"if math.random(1000) < 400 then",
+				"ctx:set_effect_value(0)",
+				"ctx:source():take_buff_damage(ctx:buff_effect_value() * 0.5 , ctx:buff():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"ctx:buff():dec_layer(1)",
+				"end"
+			],
+			"init_layer": 4,
+			"life_time": 10000
+		}]
+	}, {
+		"id": 200292,
+		"name": "圣光棍棍-神圣震击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000,
+			"random": true,
+			"both": true
+		},
+		"cd": 2000,
+		"prepare_time": 1232,
+		"post_time": 768,
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "HOLY",
+		"effect_value": [
+			"if ctx:is_teammate(ctx:target(), ctx:source()) then",
+			"ctx:set_cure(true)",
+			"return 1880 * ctx:skill():skill_level_factor()",
+			"else",
+			"return ctx:effect_value()",
+			"end"
+		]
+	}, {
+		"id": 200293,
+		"name": "圣光棍棍-圣盾术",
+		"passive": true,
+		"trigger_once": true,
+		"after_select_skill_stub": [
+			"if ctx:passive_owner():hp_percent() < 0.3 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"type": "self"
+			},
+			"cd": 2000,
+			"prepare_time": 1232,
+			"post_time": 768,
+			"self_buff": [{
+				"buff_id": 170,
+				"name": "divine_shield",
+				"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * (0.2 + (0.005 * ctx:skill():skill_level())))",
+				"before_be_damage_stub": "ctx:set_effect_value(0)",
+				"life_time": 5000
+			}]
+		}
+	}, {
+		"id": 200294,
+		"name": "圣光棍棍-牺牲祝福",
+		"tar_logic": {
+			"type": "circle",
+			"range": 5000,
+			"count": [
+				1,
+				1
+			]
+		},
+		"cd": 2000,
+		"prepare_time": 1232,
+		"post_time": 768,
+		"target_buff": [{
+			"buff_id": 171,
+			"name": "damage_link",
+			"damage_type": "PHYSICAL",
+			"before_do_damage_stub": [
+				"local trans_value = ctx:effect_value() * (0.5 + (0.005 * ctx:buff():skill_level()))",
+				"ctx:buff():creator():take_buff_damage(trans_value, ctx:buff():damage_type(), ctx:source(), ctx:buff())",
+				"ctx:set_effect_value(ctx:effect_value() - trans_value)"
+			],
+			"life_time": 10000
+		}]
+	}, {
+		"id": 200300,
+		"name": "大大姐-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 561,
+		"post_time": 1439
+	}, {
+		"id": 200301,
+		"name": "大大姐-奉献",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 2000,
+		"prepare_time": 1265,
+		"post_time": 735,
+		"traps": [{
+			"id": 4,
+			"name": "devotion",
+			"range": 5000,
+			"enemy_enter_stub": "ctx:target():add_buff(ctx:trap():extra_buff(0), ctx:trap():creator(), ctx)",
+			"enemy_leave_stub": "ctx:target():clear_buff(ctx:trap():extra_buff(0), ctx:trap():creator())",
+			"extra_buff": [{
+				"buff_id": 294,
+				"name": "devotion",
+				"source_value": "ctx:source():physical_attack() + 1715 * ctx:trap():trap_level_factor()",
+				"target_value": "ctx:target():magic_armor()",
+				"effect_value": "ctx:buff_effect_value() * 0.2",
+				"damage_type": "HOLY",
+				"life_time": 8000,
+				"pulse": 8
+			}],
+			"life_time": 8000
+		}]
+	}, {
+		"id": 200302,
+		"name": "大大姐-命令圣印",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 1265,
+		"post_time": 735,
+		"target_buff": [{
+			"buff_id": 172,
+			"name": "seal_of_command",
+			"before_be_damage_stub": [
+				"if ctx:skill():damage_type() == DamageType_PHYSICAL then",
+				"ctx:buff():dec_layer(1)",
+				"ctx:source():take_buff_cure(ctx:effect_value() * 0.6, ctx:buff():creator(), ctx:buff())",
+				"end"
+			],
+			"init_layer": 4,
+			"life_time": 10000
+		}]
+	}, {
+		"id": 200303,
+		"name": "大大姐-神圣风暴",
+		"tar_logic": {
+			"count": [
+				1,
+				4
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "HOLY",
+		"cd": 2000,
+		"prepare_time": 561,
+		"post_time": 1439,
+		"passive_skill": {
+			"name": "大大姐-神圣风暴回复",
+			"passive": true,
+			"after_do_damage_stub": [
+				"if ctx:skill():skill_id() ~= ctx:passive_skill():skill_id() then return false end",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+					"if ctx:passive_owner():distance(mate) < 2000 then",
+					"mate:take_skill_cure(ctx:effect_value() * 0.25, ctx:source(), ctx:passive_skill())",
+					"end",
+				"end",
+				"return true"
+			]
+		}
+	}, {
+		"id": 200304,
+		"name": "大大姐-复仇",
+		"passive": true,
+		"after_do_critical_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"cd": 0,
+		"self_buff": [{
+			"buff_id": 173,
+			"name": "add_level2",
+			"level2_type": "physical_attack",
+			"level2_type_value": "ctx:passive_skill():skill_level_factor() * 515",
+			"life_time": 8000
+		}]
+	}, {
+		"id": 200310,
+		"name": "老相好-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 533,
+		"post_time": 1467
+	}, {
+		"id": 200311,
+		"name": "老相好-十字军打击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 1.4",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 800,
+		"post_time": 1200
+	}, {
+		"id": 200312,
+		"name": "老相好-正义审判",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 1.2",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 400,
+		"post_time": 1600,
+		"target_buff": [{
+			"buff_id": 174,
+			"name": "seal_of_justice",
+			"before_be_damage_stub": [
+				"if ctx:skill():damage_type() == DamageType_PHYSICAL then",
+				"ctx:buff():owner():take_buff_damage(ctx:effect_value() * 0.3 , ctx:skill():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"ctx:buff():dec_layer(1)",
+				"end"
+			],
+			"life_time": 10000,
+			"init_layer": 4
+		}]
+	}, {
+		"id": 200313,
+		"name": "老相好-愤怒之锤",
+		"passive": true,
+		"after_select_skill_stub": [
+			"for _, actor in pairs(ctx:passive_owner():enemies(false)) do",
+			"  if actor:hp_percent() <= 0.2 and actor:has_mark(\"despair_hammer\", ctx:passive_owner()) == false then",
+			"  ctx:passive_skill():add_passive_target(actor)",
+			"  ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"  return true",
+			"  end",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					1
+				],
+				"type": "circle",
+				"range": 15000
+			},
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"effect_value": "ctx:effect_value() * 4.0",
+			"damage_type": "HOLY",
+			"cd": 0,
+			"prepare_time": 1235,
+			"post_time": 765,
+			"target_buff": [{
+				"buff_id": 175,
+				"name": "mark",
+				"mark_name": "despair_hammer",
+				"life_time": -1
+			}]
+		}
+	}, {
+		"id": 200314,
+		"name": "老相好-制裁之锤",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "farest",
+			"range": 15000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 400,
+		"post_time": 1100,
+		"target_buff": [{
+			"buff_id": 176,
+			"name": "add_status",
+			"status": "STUN",
+			"life_time": 4000
+		}]
+	}, {
+		"id": 200320,
+		"name": "女贼-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 833,
+		"post_time": 667,
+		"repeat": 2
+	}, {
+		"id": 200321,
+		"name": "女贼-背刺",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"back_stab": true,
+		"accurate_percent_value": "1",
+		"critical_percent_value": "ctx:critical_percent() + 0.5",
+		"critical_factor_value": "ctx:critical_factor() + 0.2",
+		"cd": 2000,
+		"prepare_time": 666,
+		"repeat_interval": 833,
+		"post_time": 1001,
+		"repeat": 2,
+		"target_buff": [{
+			"buff_id": 177,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}]
+	}, {
+		"id": 200322,
+		"name": "女贼-致命毒药",
+		"passive": true,
+		"after_battle_start_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"cd": 0,
+		"self_buff": [{
+			"buff_id": 178,
+			"name": "deadly_poison",
+			"before_do_damage_stub": [
+				"if math.random(1000) < 200 then",
+				"ctx:target():add_buff(ctx:buff():extra_buff(0), ctx:buff():owner(), ctx)",
+				"ctx:target():add_buff(ctx:buff():extra_buff(1), ctx:buff():owner(), ctx)",
+				"end"
+			],
+			"extra_buff": [{
+					"buff_id": 179,
+					"name": "poison",
+					"source_value": "ctx:source():physical_attack() + ctx:buff():buff_level_factor() * 1715",
+					"target_value": "ctx:target():magic_armor()",
+					"damage_type": "NATRUE",
+					"effect_value": "ctx:buff_effect_value() * 0.27",
+					"life_time": 3000,
+					"pulse": 3
+				},
+				{
+					"buff_id": 177,
+					"name": "combo_point",
+					"max_layer": 5,
+					"life_time": -1
+				}
+			],
+			"life_time": -1
+		}]
+	}, {
+		"id": 200323,
+		"name": "女贼-割裂",
+		"passive": true,
+		"combo_point_overflow_stub": [
+			"if ctx:buff():creator():guid() == ctx:passive_owner():guid() then",
+			"ctx:passive_skill():add_passive_target(ctx:buff():owner())",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					1
+				],
+				"type": "circle",
+				"range": 15000
+			},
+			"cd": 2000,
+			"prepare_time": 630,
+			"post_time": 1370,
+			"target_buff": [{
+				"buff_id": 180,
+				"name": "bleed",
+				"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+				"target_value": "ctx:target():physical_armor()",
+				"damage_type": "PHYSICAL",
+				"effect_value": "ctx:buff_effect_value() * 0.4",
+				"life_time": 10000,
+				"pulse": 5
+			}]
+		}
+	}, {
+		"id": 200324,
+		"name": "女贼-速效毒药",
+		"passive": true,
+		"after_battle_start_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"cd": 0,
+		"self_buff": [{
+			"buff_id": 181,
+			"name": "instant_poison",
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:buff():buff_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.8",
+			"damage_type": "NATRUE",
+			"before_do_damage_stub": [
+				"if math.random(1000) < 200 then",
+				"ctx:target():take_buff_damage(ctx:buff_effect_value(), ctx:buff():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"ctx:target():add_buff(ctx:buff():extra_buff(0), ctx:buff():owner(), ctx)",
+				"end"
+			],
+			"extra_buff": [{
+				"buff_id": 177,
+				"name": "combo_point",
+				"max_layer": 5,
+				"life_time": -1
+			}],
+			"life_time": -1
+		}]
+	}, 
+	{
+		"id": 200330,
+		"name": "呆贼-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"cd": 2000,
+		"prepare_time": 462,
+		"repeat_interval": 891,
+		"post_time": 647,
+		"repeat": 2
+	}, {
+		"id": 200331,
+		"name": "呆贼-邪恶攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.45",
+		"cd": 2000,
+		"prepare_time": 462,
+		"repeat_interval": 891,
+		"post_time": 647,
+		"repeat": 2,
+		"target_buff": [{
+			"buff_id": 182,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}]
+	}, {
+		"id": 200332,
+		"name": "呆贼-剑刃乱舞",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 500,
+		"target_buff": [{
+			"buff_id": 182,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}],
+		"self_buff": [{
+			"buff_id": 183,
+			"name": "blade_flurry",
+			"add_extra_count": 1,
+			"extra_range": 5000,
+			"level2_type": "physical_attack",
+			"level2_type_value": "515 * ctx:buff():buff_level_factor()",
+			"life_time": 8000
+		}]
+	}, {
+		"id": 200333,
+		"name": "呆贼-剔骨",
+		"passive": true,
+		"combo_point_overflow_stub": [
+			"if ctx:buff():creator():guid() == ctx:passive_owner():guid() then",
+			"ctx:passive_skill():add_passive_target(ctx:buff():owner())",
+			"ctx:passive_owner():use_skill(ctx:passive_skill(),ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					1
+				],
+				"type": "circle",
+				"range": 15000
+			},
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():physical_armor()",
+			"effect_value": "ctx:effect_value() * 1.4",
+			"damage_type": "PHYSICAL",
+			"cd": 2000,
+			"prepare_time": 500,
+			"post_time": 1500
+		}
+	}, {
+		"id": 200334,
+		"name": "呆贼-无情打击",
+		"passive": true,
+		"after_do_critical_stub": [
+			"ctx:passive_skill():add_passive_target(ctx:target())",
+			"ctx:passive_owner():use_skill(ctx:passive_skill());return true"
+		],
+		"target_buff": [{
+			"buff_id": 182,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}],
+		"self_buff": [{
+			"buff_id": 184,
+			"name": "add_critical_percent",
+			"critical_percent_value": "ctx:skill():skill_level() * 0.002 + 0.8",
+			"life_time": 8000
+		}]
+	}, {
+		"id": 200340,
+		"name": "落雁-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 462,
+		"repeat_interval": 891,
+		"post_time": 647,
+		"repeat": 2
+	}, {
+		"id": 200341,
+		"name": "落雁-出血",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 462,
+		"repeat_interval": 891,
+		"post_time": 647,
+		"repeat": 2,
+		"target_buff": [{
+				"buff_id": 185,
+				"name": "combo_point",
+				"max_layer": 5,
+				"life_time": -1
+			},
+			{
+				"buff_id": 186,
+				"name": "hemorrhage",
+				"before_be_damage_stub": [
+					"if ctx:skill():damage_type() == DamageType_PHYSICAL then",
+					"ctx:set_effect_value(ctx:effect_value() + 188 * ctx:buff():buff_level_factor())",
+					"end",
+					"if math.random(1000) < 200 then",
+					"ctx:buff():owner():add_buff(ctx:buff():extra_buff(0), ctx:buff():creator(), ctx)",
+					"end"
+				],
+				"life_time": 8000,
+				"effect_times": 5,
+				"extra_buff": [{
+					"buff_id": 185,
+					"name": "combo_point",
+					"max_layer": 5,
+					"life_time": -1
+				}]
+			}
+		]
+	}, {
+		"id": 200342,
+		"name": "落雁-绞喉",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"back_stab": true,
+		"cd": 2000,
+		"prepare_time": 462,
+		"repeat_interval": 891,
+		"post_time": 647,
+		"repeat": 2,
+		"target_buff": [{
+				"buff_id": 187,
+				"name": "bleed",
+				"source_value": "ctx:source():physical_attack() + 1715 * ctx:buff():buff_level_factor()",
+				"target_value": "ctx:target():physical_armor()",
+				"damage_type": "PHYSICAL",
+				"effect_value": "ctx:buff_effect_value() * 0.2",
+				"life_time": 10000,
+				"pulse": 10
+			},
+			{
+				"buff_id": 185,
+				"name": "combo_point",
+				"max_layer": 5,
+				"life_time": -1
+			}
+		]
+	}, {
+		"id": 200343,
+		"name": "落雁-肾击",
+		"passive": true,
+		"combo_point_overflow_stub": [
+			"if ctx:buff():creator():guid() == ctx:passive_owner():guid() then",
+			"ctx:passive_skill():add_passive_target(ctx:buff():owner())",
+			"ctx:passive_owner():use_skill(ctx:passive_skill(),ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"count": [
+					1,
+					1
+				],
+				"type": "circle",
+				"range": 15000
+			},
+			"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():physical_armor()",
+			"effect_value": " ctx:effect_value() * 0.5",
+			"damage_type": "PHYSICAL",
+			"cd": 2000,
+			"prepare_time": 462,
+			"repeat_interval": 891,
+			"post_time": 647,
+			"repeat": 2,
+			"target_buff": [{
+				"buff_id": 188,
+				"name": "add_status",
+				"status": "STUN",
+				"life_time": 4000
+			}]
+		}
+	}, {
+		"id": 200344,
+		"name": "落雁-预谋",
+		"tar_logic": {
+			"type": "circle",
+			"range": 2000,
+			"count": [
+				1,
+				1
+			]
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 462,
+		"repeat_interval": 891,
+		"post_time": 647,
+		"repeat": 2,
+		"target_buff": [{
+			"buff_id": 185,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}],
+		"repeat_calc_buff": true
+	}, {
+		"id": 200350,
+		"name": "三颤-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 594,
+		"post_time": 906,
+		"repeat": 2
+	}, {
+		"id": 200351,
+		"name": "三颤-伏击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"back_stab": true,
+		"invisible": true,
+		"accurate_percent_value": "1",
+		"critical_percent_value": "ctx:critical_percent() + 0.5",
+		"critical_factor_value": "ctx:critical_factor() + 0.2",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500
+	}, {
+		"id": 200352,
+		"name": "三颤-闷棍",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"range": 15000,
+			"type": "farest"
+		},
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"target_buff": [{
+			"buff_id": 189,
+			"name": "add_status",
+			"after_be_damage_stub": "ctx:buff():dec_layer(ctx:buff():layer())",
+			"status": "BLIND",
+			"life_time": 20000
+		}],
+		"despelling": {
+			"all": true
+		}
+	}, {
+		"id": 200353,
+		"name": "三颤-鬼魅攻击",
+		"tar_logic": {
+			"type": "circle",
+			"range": 2000,
+			"count": [
+				1,
+				1
+			]
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 594,
+		"post_time": 1500,
+		"repeat": 2,
+		"self_buff": [{
+			"buff_id": 190,
+			"name": "ghostly_strike",
+			"move_speed_value": "ctx:source():move_speed() * 2",
+			"before_dodge_stub": "ctx:set_dodge_percent(ctx:dodge_percent() + 0.2)",
+			"life_time": 15000
+		}]
+	}, {
+		"id": 200354,
+		"name": "三颤-消失",
+		"passive": true,
+		"trigger_once": true,
+		"after_hp_change_stub": [
+			"if ctx:passive_owner():hp_percent() < 0.3 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"prepare_time": 630,
+			"post_time": 1370,
+			"target_buff": [{
+				"buff_id": 191,
+				"name": "disappear",
+				"life_time": 5000,
+				"skill_id": 200351,
+				"skill_level_value": "ctx:skill():skill_level()"
+			}]
+		}
+	},
+	{
+		"id" : 200701,
+		"name" : "山丘之力",
+		"passive" : true,
+		"before_do_damage_stub" : [
+			"local extra = 0.05 + 0.05 * ctx:passive_skill():skill_level()",
+			"ctx:set_effect_value(ctx:effect_value() * (1 + extra))",
+			"return true"
+		]
+	},
+	{
+		"id" : 200702,
+		"name" : "先祖坚韧",
+		"passive" : true,
+		"before_be_damage_stub" : [
+			"local extra = 0.05 + 0.05 * ctx:passive_skill():skill_level()",
+			"ctx:set_effect_value(ctx:effect_value() * (1 - extra))",
+			"return true"
+		]
+	},
+	{
+		"id" : 200703,
+		"name" : "神圣之灵",
+		"passive" : true,
+		"before_do_cure_stub" : [
+			"local extra = 0.05 + 0.05 * ctx:passive_skill():skill_level()",
+			"ctx:set_effect_value(ctx:effect_value() * (1 + extra))",
+			"return true"
+		]
+	}	
+]

@@ -1,0 +1,1151 @@
+[{
+		"id": 200600,
+		"name": "主角战士-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"property": {
+			"base_skill": true
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 366,
+		"repeat_interval": 366,
+		"post_time": 1268,
+		"repeat": 2
+	},
+	{
+		"id": 200601,
+		"name": "主角战士-惩戒痛击",
+		"desc": "对目标造成1次物理伤害和产生中量的威胁值，并迫使它在4秒内一直攻击你。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",
+		"cd": 2000,
+		"prepare_time": 300,
+		"repeat_interval": 500,
+		"post_time": 1200,
+		"repeat": 2,
+		"target_buff": [{
+			"buff_id": 194,
+			"name": "sneer",
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 200602,
+		"name": "主角战士-挫志怒吼",
+		"desc": "战士发出怒吼，降低敌方所有成员的攻击强度，持续20秒。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 50000
+		},
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1166,
+		"target_buff": [{
+			"buff_id": 195,
+			"name": "reduce_level2",
+			"level2_type": "physical_attack",
+			"level2_type_value": "ctx:skill():skill_level_factor() * 343",
+			"life_time": 20000
+		}]
+	},
+	{
+		"id": 200603,
+		"name": "主角战士-盾牌猛击",
+		"desc": "用盾牌击打目标，对其造成1次物理伤害，并有驱散目标身上的1个增益效果。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"cd": 2000,
+		"prepare_time": 366,
+		"post_time": 1634,
+		"passive_skill": {
+			"name": "主角战士-盾牌猛击-驱散",
+			"passive": true,
+			"after_do_damage_stub": [
+				"if ctx:skill():skill_id() == ctx:passive_skill():skill_id() then",
+				"buffs = ctx:target():find_buffs(0,0,1)",
+				"for _, buff in pairs(buffs) do",
+				"if buff:CanDespell() then",
+				"buff:SetLayer(0)",
+				"return true",
+				"end",
+				"end",
+				"end",
+				"return false"
+			]
+		}
+	},
+	{
+		"id": 200604,
+		"name": "主角战士-偏斜",
+		"desc": "受到物理攻击时，战士的护甲值临时提升",
+		"passive": true,
+		"after_target_value_calc_stub" :[
+			"if ctx:skill():damage_type() == PHYSICAL then",
+				"ctx:set_target_value(ctx:target_value() + ctx:passive_skill():skill_level_factor() * 515)",
+				"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 200610,
+		"name": "主角骑士-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"property": {
+			"base_skill": true
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": " ctx:effect_value() * 0.5",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 733,
+		"post_time": 767,
+		"repeat": 2
+	},
+	{
+		"id": 200611,
+		"name": "主角骑士-清算之手",
+		"desc": "对距离你最远的目标造成1次法术伤害，并嘲讽它攻击你，持续4秒。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "farest",
+			"range": 15000
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "HOLY",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"target_buff": [{
+			"buff_id": 196,
+			"name": "sneer",
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 200612,
+		"name": "主角骑士-庇护祝福",
+		"desc": "自身获得庇护祝福效果，圣骑士的抗性得到了提升，减少30%受到的持续性法术伤害，持续20秒。",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 500,
+		"target_buff": [{
+			"buff_id": 197,
+			"name": "knight_bless",
+			"life_time": 20000,
+			"after_target_value_calc_stub": [
+				"if ctx:skill():damage_type() == MAGIC then",
+				"ctx:set_target_value(ctx:target_value() + ctx:buff():buff_level_factor() * 515)",
+				"return true",
+				"end",
+				"return false"
+			],
+			"before_be_buff_damage_stub": [
+				"if ctx:damage_buff():damage_type() == MAGIC then",
+				"ctx:set_buff_effect_value(ctx:buff_effect_value() * 0.7)",
+				"end"
+			]
+		}]
+	},
+	{
+		"id": 200613,
+		"name": "主角骑士-祝福之锤",
+		"desc": "对目标造成1次神圣伤害，并使目标对自己的造成的法术伤害减少，持续6秒。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 500
+		},
+		"source_value": "ctx:source():physical_attack() + 627 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "HOLY",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"target_buff": [{
+			"buff_id": 198,
+			"name": "reduce_damage",
+			"before_do_damage_stub": [
+				"if ctx:target():guid() == ctx:buff():creator():guid() then",
+				"if ctx:skill():damage_type() == MAGIC then",
+				"ctx:set_effect_value(ctx:effect_value() - 188 * ctx:buff():buff_level_factor())",
+				"end",
+				"end"
+			],
+			"life_time": 6000
+		}]
+	},
+	{
+		"id": 200614,
+		"name": "主角骑士-惩戒光环",
+		"desc": "使队伍成员受到近战攻击时，对攻击者造成伤害。",
+		"tar_logic": {
+			"type": "self"
+		},
+		"passive": true,
+		"after_battle_start_stub": [
+			"for _, mate in pairs(ctx:passive_owner():teammates(true)) do",
+			"mate:add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"end"
+		],
+		"extra_buff": [{
+			"buff_id": 199,
+			"name": "punish_halo",
+			"life_time" : -1,
+			"after_be_damage_stub": [
+				"if ctx:skill():skill_range() <  2500 and ctx:skill():damage_type() == \"PHYSICAL\" then",
+				"if ctx:skill():is_first_stage() or ctx:skill():is_long_time_skill() then",
+					"ctx:source():take_buff_damage(188 * ctx:buff():buff_level_factor(), ctx:skill():damage_type(), ctx:buff():owner(), ctx:buff())",
+				"end",
+				"end"
+			]
+		}]
+	},
+	{
+		"id": 200680,
+		"name": "主角牧师-治疗术",
+		"desc": "治疗单个目标，恢复一定生命值。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"cure": true,
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668
+	},
+	{
+		"id": 200681,
+		"name": "主角牧师-真言术盾",
+		"desc": "为一名队友增加5秒的护盾，吸收一定的伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"teammates": true,
+			"type": "min_hp_percent",
+			"range": 5000
+		},
+		"cd": 2000,
+		"prepare_time": 330,
+		"post_time": 670,
+		"target_buff": [{
+			"buff_id": 200,
+			"name": "shield",
+			"shield_value": "ctx:source():magic_attack()* 0.2 + ctx:skill():skill_level_factor() * 1410",
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200682,
+		"name": "主角牧师-惩击",
+		"desc": "对目标造成1次法术伤害。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "HOLY",
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668,
+		"passive_skill": {
+			"name": "主角牧师-惩击回复",
+			"passive": true,
+			"after_do_damage_stub" : [
+				"if ctx:skill():skill_id() ~= ctx:passive_skill():skill_id() then return false end",
+				"low_hp = nil",
+				"cure = ctx:effect_value()",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+					"if low_hp == nil then low_hp = mate end",
+					"if low_hp:hp_percent() > mate:hp_percent() then low_hp = mate end",
+				"end",
+				"if low_hp ~= nil then",
+					"low_hp:take_skill_cure(cure, ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+				"return true"
+			]
+		}
+	},
+	{
+		"id": 200683,
+		"name": "主角牧师-治疗祷言",
+		"desc": "治疗全体队友。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"teammates": true,
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"cure": true,
+		"cd": 2000,
+		"prepare_time": 330,
+		"post_time": 1670
+	},
+	{
+		"id": 200684,
+		"name": "主角牧师-心灵之火【是否改为神圣之火】",
+		"desc": "施法后，有40%的几率使自身护甲提升，持续5秒。",
+		"passive": true,
+		"after_use_active_skill_stub": [
+			"if math.random(1000) < 400 then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 201,
+			"name": "add_level2",
+			"level2_type": "physical_armor",
+			"level2_type_value": "ctx:passive_skill():skill_level_factor() * 515",
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200640,
+		"name": "主角德鲁伊-治疗之触",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cure": true,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"cd": 2000,
+		"prepare_time": 266,
+		"post_time": 1734
+	},
+	{
+		"id": 200641,
+		"name": "主角德鲁伊-回春术",
+		"desc": "治疗目标，在10秒内持续恢复5次生命值",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "min_hp_percent",
+			"teammates": true,
+			"range": 4000
+		},
+		"cure": true,
+		"effect_value": "0",
+		"cd": 2000,
+		"prepare_time": 266,
+		"post_time": 1734,
+		"target_buff": [{
+			"buff_id": 202,
+			"name": "continue_cure",
+			"cure_value": "(ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()) * 0.35 * 0.2",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	},
+	{
+		"id": 200642,
+		"name": "主角德鲁伊-愤怒",
+		"desc": "对目标造成1次法术伤害。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "NATRUE",
+		"bullet_speed": 11000,
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668,
+		"passive_skill": {
+			"name": "主角德鲁伊-愤怒回复",
+			"passive": true,
+			"after_do_damage_stub" : [
+				"if ctx:skill():skill_id() ~= ctx:passive_skill():skill_id() then return false end",
+				"low_hp = nil",
+				"cure = ctx:effect_value()",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+					"if low_hp == nil then low_hp = mate end",
+					"if low_hp:hp_percent() > mate:hp_percent() then low_hp = mate end",
+				"end",
+				"if low_hp ~= nil then",
+					"low_hp:take_skill_cure(cure, ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+				"return true"
+			]
+		}
+	},
+	{
+		"id": 200643,
+		"name": "主角德鲁伊-虫群",
+		"desc": "召唤虫群，虫群所过之处会对敌人造成魔法伤害，并为己方回复同等生命值，虫群持续5秒，你必须不断引导来维持虫群",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 15000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.28",
+		"damage_type": "NATRUE",
+		"long_time_skill": true,
+		"repeat": 5,
+		"repeat_interval": 750,
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668,
+		"passive_skill": {
+			"name": "主角德鲁伊-虫群回复",
+			"passive": true,
+			"after_do_damage_stub": [
+				"if ctx:skill():skill_id() ~= ctx:passive_skill():skill_id() then return false end",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+				"mate:take_skill_cure(ctx:effect_value()*0.2, ctx:source(), ctx:passive_skill())",
+				"return true",
+				"end",
+				"return false"
+			]
+		}
+	},
+	{
+		"id": 200644,
+		"name": "主角德鲁伊-野性印记",
+		"desc": "治疗目标后，40%几率使目标的抗性提升，持续5秒【这个效果不对吧，应该仅有buff】",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if math.random(1000) < 400 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 203,
+			"name": "add_level2",
+			"level2_type": "magic_armor",
+			"level2_type_value": "ctx:passive_skill():skill_level_factor() * 435",
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200660,
+		"name": "主角法师-火球术",
+		"desc": "对目标造成1次法术伤害。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"bullet_speed": 11000,
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 1500,
+		"post_time": 500
+	},
+	{
+		"id": 200661,
+		"name": "主角法师-灼烧",
+		"desc": "点燃目标，在10秒内造成5次燃烧伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"cd": 2000,
+		"prepare_time": 1000,
+		"post_time": 1000,
+		"target_buff": [{
+			"buff_id": 204,
+			"name": "burning",
+			"damage_type": "FIRE",
+			"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"effect_value": "ctx:buff_effect_value() * 0.32",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	},
+	{
+		"id": 200662,
+		"name": "主角法师-火焰冲击",
+		"desc": "对目标造成1次法术伤害。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 1.6",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 1000,
+		"post_time": 1000
+	},
+	{
+		"id": 200663,
+		"name": "主角法师-冲击波",
+		"desc": "在你周围制造1次爆炸，对自身范围5米内的所有目标造成法术伤害，并使目标晕眩2秒。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"cd": 2000,
+		"prepare_time": 1000,
+		"post_time": 1000,
+		"damage_type": "FIRE",
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"target_buff": [{
+				"buff_id": 205,
+				"name": "add_status",
+				"status" : "STUN",
+				"life_time": 2000
+		}]
+	},
+	{
+		"id": 200664,
+		"name": "主角法师-魔甲术",
+		"desc": "提高施法者的抗性，受到法术攻击后，使攻击者的法术强度降低10%，持续3秒",
+		"passive": true,
+		"target_after_target_value_calc_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_target_value(ctx:target_value() + 515 * ctx:passive_skill():skill_level_factor())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"after_be_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:source():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 206,
+			"name": "reduce_level2",
+			"level2_type": "magic_attack",
+			"level2_type_value": "ctx:source():magic_attack() * 0.1",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 200670,
+		"name": "主角术士-暗影箭",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "SHADOW",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 1485,
+		"post_time": 515
+	},
+	{
+		"id": 200671,
+		"name": "主角术士-献祭",
+		"desc": "对目标立刻造成1次法术伤害，并在之后10秒内再造成5次持续法术伤害，持续伤害每次为献祭的20%",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 266,
+		"post_time": 734,
+		"target_buff": [{
+			"buff_id": 207,
+			"name": "warlock_sacrifice",
+			"damage_type": "FIRE",
+			"effect_value": "ctx:effect_value() * 0.2",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	},
+	{
+		"id": 200672,
+		"name": "主角术士-痛苦诅咒",
+		"desc": "对目标施加痛苦诅咒，10秒内造成5次法术伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value" : "0",
+		"damage_type": "SHADOW",
+		"cd": 2000,
+		"prepare_time": 366,
+		"post_time": 1634,
+		"target_buff": [{
+			"buff_id": 208,
+			"name": "warlock_curse",
+			"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+			"target_value": "ctx:target():magic_armor()",
+			"damage_type": "SHADOW",
+			"effect_value": "ctx:buff_effect_value() * 0.24",
+			"life_time": 10000,
+			"pulse": 5
+		}]
+	},
+	{
+		"id": 200673,
+		"name": "主角术士-燃烧",
+		"desc": "点燃1个被献祭的目标，造成1次法术伤害，并吞噬掉献祭效果。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 1.4",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 366,
+		"post_time": 1634,
+		"passive_skill": {
+			"name": "主角术士-燃烧-吞噬献祭",
+			"after_do_damage_stub": [
+				"if ctx:skill():skill_id() == ctx:passive_skill():skill_id() then",
+				"buffs = ctx:target():find_buffs_by_name(\"warlock_sacrifice\",ctx:passive_owner():guid())",
+				"for _, buff in pairs(buffs) do",
+				"buff:Flush()",
+				"end",
+				"return true",
+				"end",
+				"return false"
+			]
+		}
+	},
+	{
+		"id": 200674,
+		"name": "主角术士-元素诅咒",
+		"desc": "对目标施法后，30%几率使目标的抗性降低，持续6秒。",
+		"passive": true,
+		"after_use_active_skill_stub": [
+			"if math.random(1000) < 300 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 209,
+			"name": "reduce_level2",
+			"level2_type": "magic_armor",
+			"level2_type_value": "ctx:passive_skill():skill_level_factor() * 515",
+			"life_time": 6000
+		}]
+	},
+	{
+		"id": 200650,
+		"name": "主角盗贼-普通攻击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"effect_value": "ctx:effect_value() * 0.5",
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 832,
+		"post_time": 668,
+		"repeat": 2
+	}, {
+		"id": 200651,
+		"name": "主角盗贼-刀扇",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"prepare_time": 500,
+		"post_time": 1500,
+		"target_buff": [{
+			"buff_id": 210,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}],
+		"passive_skill": {
+			"name": "刀扇命中目标概率增加连击点",
+			"after_do_damage_stub": [
+				"if math.random(1000) < 333 then",
+				"ctx:target():add_buff(ctx:passive_skill():target_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+				"end",
+				"return false"
+			]
+		}
+	},
+	{
+		"id": 200652,
+		"name": "主角盗贼-脚踢",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 2000
+		},
+		"cd": 2000,
+		"prepare_time": 366,
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "PHYSICAL",
+		"post_time": 633,
+		"target_buff": [
+			{
+				"buff_id": 210,
+				"name": "combo_point",
+				"max_layer": 5,
+				"life_time": -1
+			},
+			{
+				"buff_id": 211,
+				"name": "add_status",
+				"status": "MUTE",
+				"life_time": 500
+			}
+		]
+	},
+	{
+		"id": 200653,
+		"name": "主角盗贼-切割",
+		"desc": "终结技，满5个连击点数自动触发，使你之后10秒内每次攻击有30%的几率对目标产生1次额外攻击",
+		"passive": true,
+		"combo_point_overflow_stub": [
+			"if ctx:buff():creator():guid() == ctx:passive_owner():guid() then",
+			"ctx:passive_skill():add_passive_target(ctx:buff():creator())",
+			"ctx:passive_owner():use_skill(ctx:passive_skill(),ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"active_skill": {
+			"tar_logic": {
+				"type": "self"
+			},
+			"prepare_time": 500,
+			"post_time": 1000,
+			"cd": 2000,
+			"self_buff": [
+				{
+					"buff_id": 212,
+					"desc": "概率造成额外伤害",
+					"name": "double_attack",
+					"source_value": "ctx:source():physical_attack() + 1715 * ctx:buff():buff_level_factor()",
+					"target_value": "ctx:target():physical_armor()",
+					"effect_value": "ctx:buff_effect_value() * 0.8",
+					"damage_type": "PHYSICAL",
+					"after_use_active_skill_stub": [
+						"if math.random(1000) <= 300 and ctx:is_teammate(ctx:target(), ctx:buff():owner()) == false then",
+							"ctx:target():take_buff_damage(ctx:buff_effect_value(), ctx:buff():damage_type(), ctx:buff():owner(), ctx:buff())",
+						"end"
+					],
+					"life_time": 10000
+				}
+			]
+		}
+	},
+	{
+		"id": 200654,
+		"name": "主角盗贼-致命",
+		"desc": "攻击命中目标后，每一个命中目标有40%的几率使自身攻击强度提升，持续6秒，叠加3层",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(1000) < 400 then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 213,
+			"name": "add_level2",
+			"level2_type": "physical_attack",
+			"level2_type_value": "229 * ctx:passive_skill():skill_level_factor()",
+			"max_layer": 3,
+			"life_time": 6000
+		}]
+	},
+	{
+		"id": 200620,
+		"name": "主角萨满-闪电箭",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.8",
+		"damage_type": "FLASH",
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668,
+		"chain_target": true,
+		"chain_reduce": [1.0]
+	},
+	{
+		"id": 200621,
+		"name": "主角萨满-熔岩爆裂",
+		"desc": "对目标造成1次法术伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 1.2",
+		"bullet_speed": 11000,
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 1332,
+		"post_time": 668
+	},
+	{
+		"id": 200622,
+		"name": "主角萨满-灼热图腾",
+		"desc": "召唤1个灼热图腾，持续20秒。灼热图腾会攻击距离最近的1个目标，对其造成法术伤害。图腾继承施法者40%的法术强度",
+		"tar_logic": {
+			"type": "self"
+		},
+		"prepare_time": 500,
+		"post_time": 500,
+		"cd": 2000,
+		"create_actor": [{
+			"id": 39278,
+			"life_time": 20000,
+			"magic_attack_value": "ctx:source():magic_attack()* 0.45 + 854 * ctx:skill():skill_level_factor()",
+			"location": {
+				"distance": 1000,
+				"dir": 0
+			}
+		}]
+	},
+	{
+		"id": 200623,
+		"name": "主角萨满-地震术",
+		"desc": "6秒内全屏范围持续召唤6次地震震动，每个敌人每次受到地震术15%的伤害，并降低40%移动速度，持续5秒",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 50000
+		},
+		"source_value": "ctx:source():magic_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.4",
+		"damage_type": "ICE",
+		"long_time_skill": true,
+		"cd": 2000,
+		"prepare_time": 500,
+		"repeat_interval": 1000,
+		"post_time": 500,
+		"repeat": 6,
+		"repeat_calc_buff": true,
+		"target_buff": [{
+			"buff_id": 214,
+			"name": "slow_down",
+			"slow_down_percent": 0.4,
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 200624,
+		"name": "主角萨满-元素掌握",
+		"desc": "法术暴击后，使你下个法术造额外的法术伤害",
+		"passive": true,
+		"after_do_critical_stub": [
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)"
+		],
+		"extra_buff": [{
+			"buff_id": 215,
+			"name": "add_damage",
+			"max_layer": 1,
+			"life_time": -1,
+			"after_source_value_calc_stub": [
+				"ctx:set_source_value( ctx:source_value() + 686 * ctx:skill():skill_level_factor())",
+				"ctx:buff():set_layer(0)"
+			]
+		}]
+	},
+	{
+		"id": 200630,
+		"name": "主角猎人-自动射击",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"auto_shoot": true,
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 466,
+		"post_time": 1534
+	},
+	{
+		"id": 200631,
+		"name": "主角猎人-瞄准射击",
+		"desc": "瞄准目标要害，对其造成1次物理伤害，该次伤害无法闪避，且伤害增加20%",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"after_calc_critical_percent_stub" : "ctx:set_dodge_percent_value(0)",
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 1.2 * 0.8",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 466,
+		"post_time": 1534
+	},
+	{
+		"id": 200632,
+		"name": "主角猎人-猫鼬撕咬",
+		"desc": "对目标造成1次物理伤害。若自身闪避后的8秒内使用，造成额外20%伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 5000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "PHYSICAL",
+		"cd": 2000,
+		"bullet_speed": 11000,
+		"prepare_time": 466,
+		"post_time": 1534,
+		"passive_skill": {
+			"after_do_dodge_stub": [
+				"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0),ctx:passive_owner(), ctx)"
+			]			
+		},
+		"extra_buff": [{
+				"buff_id": 216,
+				"name": "add_damage",
+				"life_time": 8000,
+				"before_do_damage_stub": [
+					"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+					"ctx:buff():set_layer(0)"
+				]
+		}]
+	},
+	{
+		"id": 200633,
+		"name": "主角猎人-乱射",
+		"desc": "6秒内全屏范围持续射出6次箭雨，每个敌人每次受到乱射16%的伤害",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 50000
+		},
+		"source_value": "ctx:source():physical_attack() + 1715 * ctx:skill():skill_level_factor()",
+		"target_value": "ctx:target():physical_armor()",
+		"effect_value": "ctx:effect_value() * 0.4",
+		"damage_type": "ICE",
+		"long_time_skill": true,
+		"cd": 2000,
+		"prepare_time": 466,
+		"repeat_interval": 1000,
+		"post_time": 534,
+		"repeat": 6,
+		"repeat_calc_buff": true
+	},
+	{
+		"id": 200634,
+		"name": "主角猎人-扰乱",
+		"desc": "攻击命中目标后，有几率使目标命中率降低，持续2秒。",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(1000) < 200 + ctx:skill():skill_level() * 5 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(),ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 217,
+			"name": "reduce_accurate_rate",
+			"after_calc_critical_percent_stub": [
+				"ctx:set_dodge_percent_value(ctx:dodge_percent_value() + 0.08 + ctx:buff():buff_level() * 0.002)"
+			],
+			"life_time" :2000
+		}]
+	},
+	{
+		"id": 200635,
+		"name": "主角猎人-召唤白虎",
+		"after_battle_start_stub": "ctx:passive_owner():use_skill(ctx:passive_skill());return true",
+		"passive": true,
+		"active_skill": {
+			"create_actor": [{
+				"id": 39221,
+				"life_time": -1,
+				"physical_attack_value": "ctx:source():physical_attack()* 0.4 + 683 * ctx:skill():skill_level_factor()",
+				"location": {
+					"distance": 1000,
+					"dir": 0
+				}
+			}]
+		}
+	}
+]

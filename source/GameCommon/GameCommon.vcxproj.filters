@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ClientMove.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPacket.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EnterScene.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePlayerPacket.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorBasicInfo.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleGroundInfo.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleExpression.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStageConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemAndEquip.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleInfo.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TrapConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneBroadCast.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrades.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroFragment.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroFragmentConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCommon.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoBufOption.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FriendMail.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneObject.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MissionPacket.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MissionConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorBasicInfo.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="All.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="All.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Base.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleExpression.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleGroundInfo.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleInfo.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatMessage.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientMove.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePlayerPacket.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EnterScene.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FriendMail.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroFragment.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroFragmentConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemAndEquip.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPacket.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MapPush.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MapPush.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MarketConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MissionConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MissionPacket.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtoBufOption.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneBroadCast.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCommon.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneObject.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStage.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStageConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TrapConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Upgrades.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Team.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Team.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AbilityAndStatus.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActivityConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActivityConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Guild.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Guild.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataCellPacket.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataCellPacket.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuildConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuildConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActivityPacket.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActivityPacket.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LootMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LootDb.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawCard.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawCard.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ArenaDb.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ArenaMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldBoss.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldBoss.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TrialFieldDB.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PackageConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PackageConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TrialFieldDB.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Base.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AllConfigEnum.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AllConfigEnum.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AllPacketEnum.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AllPacketEnum.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleField.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleField.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RankList.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RankList.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleImpact.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleImpact.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LimitMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LimitMessage.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="G2SMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="G2SMessage.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="S2GMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="S2GMessage.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorConfig.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorConfig.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuildCapturePoint.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GuildCapturePoint.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerCommon.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerCommon.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="S2SMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="S2SMessage.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleReply.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleReply.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="W2GMessage.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="W2GMessage.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="session.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBasicInfo.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBasicInfo.proto.fflua.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClientMove.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPacket.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatePlayerPacket.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EnterScene.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorBasicInfo.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleGroundInfo.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleExpression.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStageConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemAndEquip.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleInfo.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TrapConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneBroadCast.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrades.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroFragment.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroFragmentConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCommon.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoBufOption.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FriendMail.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MissionConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MissionPacket.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorBasicInfo.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="All.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="All.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Base.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleExpression.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleGroundInfo.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleInfo.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatMessage.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientMove.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatePlayerPacket.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EnterScene.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FriendMail.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroFragment.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroFragmentConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemAndEquip.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPacket.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPush.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPush.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MissionConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MissionPacket.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBasicInfo.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtoBufOption.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneBroadCast.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCommon.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStage.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStageConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TrapConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Upgrades.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Team.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Team.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbilityAndStatus.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivityConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivityConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Guild.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Guild.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataCellPacket.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataCellPacket.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuildConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuildConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivityPacket.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivityPacket.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LootMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LootDb.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawCard.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawCard.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ArenaDb.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ArenaMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldBoss.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldBoss.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TrialFieldDB.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TrialFieldDB.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Base.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AllConfigEnum.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AllConfigEnum.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AllPacketEnum.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AllPacketEnum.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleField.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleField.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RankList.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RankList.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleImpact.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleImpact.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LimitMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LimitMessage.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="G2SMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="G2SMessage.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="S2GMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="S2GMessage.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorConfig.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorConfig.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuildCapturePoint.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GuildCapturePoint.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerCommon.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerCommon.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="S2SMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="S2SMessage.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleReply.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleReply.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="W2GMessage.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="W2GMessage.proto.fflua.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="session.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBasicInfo.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Common\ProtoGen\proto\All.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\LoginPacket.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\EnterScene.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\ClientMove.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\CreatePlayerPacket.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\PlayerBasicInfo.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\ActorBasicInfo.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\BattleGroundInfo.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\BattleExpression.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\SceneConfig.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\MonsterConfig.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\EquipmentConfig.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\SceneStageConfig.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\SceneStage.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\ItemAndEquip.proto">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\..\Common\ProtoGen\proto\ItemConfig.proto">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

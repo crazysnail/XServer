@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D63EFCB5-014D-4724-BC14-0F4BA0A4BF46}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GameServer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\windows\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(SolutionDir)3rd\lua-5.3.3\src;C:\boost1620\include\boost-1_62;$(SolutionDir)3rd\Visual Leak Detector\include;C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\boost1620\lib;$(SolutionDir)\lib\$(Configuration);$(SolutionDir)3rd\Visual Leak Detector\lib;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10150.0\ucrt\x86\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>D:\Program Files %28x86%29\VC\include\boost;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCInstallDir)lib\amd64;$(VCInstallDir)atlmfc\lib\amd64;$(WindowsSDK_LibraryPath_x64);</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\windows\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(SolutionDir)3rd\lua-5.3.3\src;C:\boost1620\include\boost-1_62;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>C:\boost1620\lib;$(SolutionDir)\lib\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_LIB;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\zlib-1.2.11\;$(SolutionDir)3rd\lua-5.3.3\src;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)3rd\mysql-connector-c++-1.1.7\include;$(SolutionDir)3rd\libcurl-7.37.0\include;$(SolutionDir)GameCommon;$(SolutionDir)3rd\libhiredis\libhiredis;$(SolutionDir)3rd\Visual Leak Detector\include;$(SolutionDir)</AdditionalIncludeDirectories>
+      <AdditionalOptions> /D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <ShowIncludes>false</ShowIncludes>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libcurl_imp.lib;libmysql.lib;mysqlcppconn.lib;legacy_stdio_definitions.lib;lua-5.3.3.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd\mysql-connector-c++-1.1.7\lib;$(SolutionDir)3rd\libcurl-7.37.0\lib;$(SolutionDir)3rd\zlib-1.2.11\lib\$(Configuration)\;$(SolutionDir)\3rd\libhiredis\$(Configuration)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)3rd\mysql-connector-c++-noinstall-1.1.3-win32\include;$(SolutionDir)3rd\libcurl-7.37.0\include;$(SolutionDir)GameCommon;$(SolutionDir)3rd\Visual Leak Detector\include</AdditionalIncludeDirectories>
+      <AdditionalOptions> /D _CRT_SECURE_NO_WARNINGS /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <ShowIncludes>false</ShowIncludes>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;libcurl_imp.lib;vld.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\VC\lib\libs;$(SolutionDir)3rd\mysql-connector-c++-noinstall-1.1.3-win32\lib;$(SolutionDir)3rd\libcurl-7.37.0\lib;$(SolutionDir)3rd\Visual Leak Detector\lib\Win32</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;TIXML_USE_STL;NDEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;ZLIB_WINAPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\zlib-1.2.11\;$(SolutionDir)3rd\lua-5.3.3\src;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)3rd\mysql-connector-c++-1.1.7\include;$(SolutionDir)3rd\libcurl-7.37.0\include;$(SolutionDir)GameCommon;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>libcurl_imp.lib;libmysql.lib;mysqlcppconn.lib;libhiredis.lib;legacy_stdio_definitions.lib;lua-5.3.3.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd\mysql-connector-c++-1.1.7\lib;$(SolutionDir)3rd\libcurl-7.37.0\lib;$(SolutionDir)3rd\zlib-1.2.11\lib\$(Configuration)\;$(SolutionDir)\3rd\libhiredis\$(Configuration)</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_SCL_SECURE_NO_WARNINGS;TIXML_USE_STL;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)GameCommon;$(SolutionDir)3rd\mysql-connector-c++-noinstall-1.1.3-win32\include;$(SolutionDir)3rd\tinyxml</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd\mysql-connector-c++-noinstall-1.1.3-win32\lib</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="base\client_protocol_dispatcher.cpp" />
+    <ClCompile Include="base\client_session.cpp" />
+    <ClCompile Include="base\mt_db_load_work.cpp" />
+    <ClCompile Include="base\mt_db_save_work.cpp" />
+    <ClCompile Include="base\mt_game_urlwork.cpp" />
+    <ClCompile Include="base\mt_lua_proxy.cpp" />
+    <ClCompile Include="base\mt_timer.cpp" />
+    <ClCompile Include="data\data_manager.cpp" />
+    <ClCompile Include="data\data_value.cpp" />
+    <ClCompile Include="data\data_table.cpp" />
+    <ClCompile Include="data\luafile_manager.cpp" />
+    <ClCompile Include="friend\FriendContainer.cpp" />
+    <ClCompile Include="friend\mt_friend_manager.cpp" />
+    <ClCompile Include="mail\MessageContainer.cpp" />
+    <ClCompile Include="mail\static_message_manager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mt_activity\mt_activity.cpp" />
+    <ClCompile Include="mt_activity\mt_draw.cpp" />
+    <ClCompile Include="mt_activity\mt_operative_config.cpp" />
+    <ClCompile Include="mt_actor\mt_actor.cpp" />
+    <ClCompile Include="mt_actor\mt_actor_config.cpp" />
+    <ClCompile Include="mt_actor\mt_actor_skill_trigger.cpp" />
+    <ClCompile Include="mt_actor\mt_actor_state.cpp" />
+    <ClCompile Include="mt_actor\mt_battle_state.cpp" />
+    <ClCompile Include="mt_arena\geometry.cpp" />
+    <ClCompile Include="mt_arena\mt_arena.cpp" />
+    <ClCompile Include="mt_battle\battle_ability_manager.cpp" />
+    <ClCompile Include="mt_battle\battle_event.cpp" />
+    <ClCompile Include="mt_battle\mt_battle_command.cpp" />
+    <ClCompile Include="mt_battle\mt_battle_ground.cpp" />
+    <ClCompile Include="mt_battle\mt_battle_object.cpp" />
+    <ClCompile Include="mt_battle\mt_trap.cpp" />
+    <ClCompile Include="mt_battle\mt_worldboss_manager.cpp" />
+    <ClCompile Include="mt_battle_field\mt_battle_field.cpp" />
+    <ClCompile Include="mt_battle_field\mt_battle_field_manager.cpp" />
+    <ClCompile Include="mt_battle_reply\mt_battle_reply_manager.cpp" />
+    <ClCompile Include="mt_cache\mt_shm_manager.cpp" />
+    <ClCompile Include="mt_capture_point\mt_capture_point.cpp" />
+    <ClCompile Include="mt_chat\mt_chatmessage.cpp" />
+    <ClCompile Include="mt_chat\mt_word_manager.cpp" />
+    <ClCompile Include="mt_config\mt_config.cpp" />
+    <ClCompile Include="mt_data_cell\mt_data_cell.cpp" />
+    <ClCompile Include="mt_data_cell\mt_data_container.cpp" />
+    <ClCompile Include="mt_guid\mt_guid.cpp" />
+    <ClCompile Include="mt_guild\mt_guild_manager.cpp" />
+    <ClCompile Include="mt_guild\mt_player_guild_proxy.cpp" />
+    <ClCompile Include="mt_item\mt_container.cpp" />
+    <ClCompile Include="mt_item\mt_item.cpp" />
+    <ClCompile Include="mt_item\mt_item_package.cpp" />
+    <ClCompile Include="mt_lua\mt_lua_initializer.cpp" />
+    <ClCompile Include="mt_market\mt_market.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="mt_migrate\mt_migrate.cpp" />
+    <ClCompile Include="mt_migrate\mt_migrate_test.cpp" />
+    <ClCompile Include="mt_mission\mt_arrange_proxy.cpp" />
+    <ClCompile Include="mt_mission\mt_mission.cpp" />
+    <ClCompile Include="mt_mission\mt_mission_proxy.cpp" />
+    <ClCompile Include="mt_monster\mt_monster_manager.cpp" />
+    <ClCompile Include="mt_monster\mt_npc.cpp" />
+    <ClCompile Include="mt_player\mt_player.cpp" />
+    <ClCompile Include="mt_player\mt_player_offline_ai.cpp" />
+    <ClCompile Include="mt_scene\mt_copy_scene.cpp" />
+    <ClCompile Include="mt_scene\mt_logic_area.cpp" />
+    <ClCompile Include="mt_scene\mt_raid.cpp" />
+    <ClCompile Include="mt_scene\mt_raid_guildbattle.cpp" />
+    <ClCompile Include="mt_scene\mt_scene.cpp" />
+    <ClCompile Include="mt_scene\mt_scene_g2s.cpp" />
+    <ClCompile Include="mt_scene\mt_scene_manager.cpp" />
+    <ClCompile Include="mt_scene\mt_scene_upgrades.cpp" />
+    <ClCompile Include="mt_scene\mt_zone.cpp" />
+    <ClCompile Include="mt_server\mt_server.cpp" />
+    <ClCompile Include="mt_skill\mt_buff.cpp" />
+    <ClCompile Include="mt_skill\mt_simple_impact.cpp" />
+    <ClCompile Include="mt_skill\mt_skill.cpp" />
+    <ClCompile Include="mt_skill\mt_skill_logic.cpp" />
+    <ClCompile Include="mt_skill\mt_target_select.cpp" />
+    <ClCompile Include="mt_skill\skill_context.cpp" />
+    <ClCompile Include="mt_stage\mt_player_stage.cpp" />
+    <ClCompile Include="mt_stage\mt_scene_stage.cpp" />
+    <ClCompile Include="mt_team\mt_team_manager.cpp" />
+    <ClCompile Include="mt_trial_field\mt_tower.cpp" />
+    <ClCompile Include="mt_trial_field\mt_trial_field.cpp" />
+    <ClCompile Include="mt_types.cpp" />
+    <ClCompile Include="mt_upgrade\mt_upgrade.cpp" />
+    <ClCompile Include="ranklist\guilduserdamage_ranklist.cpp" />
+    <ClCompile Include="ranklist\ranklist.cpp" />
+    <ClCompile Include="ranklist\top_ranklist.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\client_protocol_dispatcher.h" />
+    <ClInclude Include="base\client_session.h" />
+    <ClInclude Include="base\mt_db_load_work.h" />
+    <ClInclude Include="base\mt_db_save_work.h" />
+    <ClInclude Include="base\mt_game_urlwork.h" />
+    <ClInclude Include="base\mt_lua_proxy.h" />
+    <ClInclude Include="base\mt_timer.h" />
+    <ClInclude Include="data\data_manager.h" />
+    <ClInclude Include="data\data_value.h" />
+    <ClInclude Include="data\data_table.h" />
+    <ClInclude Include="data\luafile_manager.h" />
+    <ClInclude Include="friend\FriendContainer.h" />
+    <ClInclude Include="friend\mt_friend_manager.h" />
+    <ClInclude Include="mail\MessageContainer.h" />
+    <ClInclude Include="mail\static_message_manager.h" />
+    <ClInclude Include="mt_activity\mt_activity.h" />
+    <ClInclude Include="mt_activity\mt_draw.h" />
+    <ClInclude Include="mt_activity\mt_operative_config.h" />
+    <ClInclude Include="mt_actor\mt_actor.h" />
+    <ClInclude Include="mt_actor\mt_actor_ai.h" />
+    <ClInclude Include="mt_actor\mt_actor_config.h" />
+    <ClInclude Include="mt_actor\mt_actor_state.h" />
+    <ClInclude Include="mt_actor\mt_battle_state.h" />
+    <ClInclude Include="mt_arena\geometry.h" />
+    <ClInclude Include="mt_arena\mt_arena.h" />
+    <ClInclude Include="mt_battle\battle_ability_manager.h" />
+    <ClInclude Include="mt_battle\battle_event.h" />
+    <ClInclude Include="mt_battle\mt_battle_command.h" />
+    <ClInclude Include="mt_battle\mt_battle_ground.h" />
+    <ClInclude Include="mt_battle\mt_battle_object.h" />
+    <ClInclude Include="mt_battle\mt_trap.h" />
+    <ClInclude Include="mt_battle\mt_worldboss_manager.h" />
+    <ClInclude Include="mt_battle_field\mt_battle_field.h" />
+    <ClInclude Include="mt_battle_field\mt_battle_field_manager.h" />
+    <ClInclude Include="mt_battle_reply\mt_battle_reply_manager.h" />
+    <ClInclude Include="mt_cache\mt_shm_manager.h" />
+    <ClInclude Include="mt_capture_point\mt_capture_point.h" />
+    <ClInclude Include="mt_chat\mt_chatmessage.h" />
+    <ClInclude Include="mt_chat\mt_word_manager.h" />
+    <ClInclude Include="mt_config\mt_config.h" />
+    <ClInclude Include="mt_data_cell\mt_data_cell.h" />
+    <ClInclude Include="mt_data_cell\mt_data_container.h" />
+    <ClInclude Include="mt_guid\mt_guid.h" />
+    <ClInclude Include="mt_guild\mt_guild_manager.h" />
+    <ClInclude Include="mt_guild\mt_player_guild_proxy.h" />
+    <ClInclude Include="mt_item\mt_container.h" />
+    <ClInclude Include="mt_item\mt_item.h" />
+    <ClInclude Include="mt_item\mt_item_package.h" />
+    <ClInclude Include="mt_lua\mt_lua_initializer.h" />
+    <ClInclude Include="mt_market\mt_market.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="mt_migrate\mt_migrate.h" />
+    <ClInclude Include="mt_mission\mt_arrange_proxy.h" />
+    <ClInclude Include="mt_mission\mt_mission.h" />
+    <ClInclude Include="mt_mission\mt_mission_proxy.h" />
+    <ClInclude Include="mt_monster\mt_monster_manager.h" />
+    <ClInclude Include="mt_monster\mt_npc.h" />
+    <ClInclude Include="mt_player\mt_player.h" />
+    <ClInclude Include="mt_player\mt_player_offline_ai.h" />
+    <ClInclude Include="mt_scene\mt_copy_scene.h" />
+    <ClInclude Include="mt_scene\mt_logic_area.h" />
+    <ClInclude Include="mt_scene\mt_raid.h" />
+    <ClInclude Include="mt_scene\mt_raid_guildbattle.h" />
+    <ClInclude Include="mt_scene\mt_scene.h" />
+    <ClInclude Include="mt_scene\mt_scene_object.h" />
+    <ClInclude Include="mt_scene\mt_scene_manager.h" />
+    <ClInclude Include="mt_scene\mt_zone.h" />
+    <ClInclude Include="mt_server\mt_server.h" />
+    <ClInclude Include="mt_skill\mt_buff.h" />
+    <ClInclude Include="mt_skill\mt_simple_impact.h" />
+    <ClInclude Include="mt_skill\mt_skill.h" />
+    <ClInclude Include="mt_skill\mt_skill_logic.h" />
+    <ClInclude Include="mt_skill\mt_target_select.h" />
+    <ClInclude Include="mt_skill\skill_context.h" />
+    <ClInclude Include="mt_stage\mt_player_stage.h" />
+    <ClInclude Include="mt_stage\mt_scene_stage.h" />
+    <ClInclude Include="mt_team\mt_team_manager.h" />
+    <ClInclude Include="mt_trial_field\mt_tower.h" />
+    <ClInclude Include="mt_trial_field\mt_trial_field.h" />
+    <ClInclude Include="mt_types.h" />
+    <ClInclude Include="mt_upgrade\mt_upgrade.h" />
+    <ClInclude Include="onhook\gathering_onhook.h" />
+    <ClInclude Include="onhook\onhook_manager.h" />
+    <ClInclude Include="onhook\pharmacy_onhook.h" />
+    <ClInclude Include="onhook\player_onhook_container.h" />
+    <ClInclude Include="onhook\questing_onhook.h" />
+    <ClInclude Include="onhook\smithing_onhook.h" />
+    <ClInclude Include="ranklist\guilduserdamage_ranklist.h" />
+    <ClInclude Include="ranklist\ranklist.h" />
+    <ClInclude Include="ranklist\top_ranklist.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3rd\protobuf-2.5.0\vsprojects\libprotobuf.vcxproj">
+      <Project>{3e283f37-a4ed-41b7-a3e6-a2d89d131a30}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameCommon\GameCommon.vcxproj">
+      <Project>{d9351e13-858a-4819-8cd7-4e1cb1f16bc8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\zxero\zXero.vcxproj">
+      <Project>{0172b561-fcf1-4398-a1db-b66275992167}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="base\CMakeLists.txt" />
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="protobuf.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\lua_script\handler\activity_common.lua" />
+    <None Include="..\bin\lua_script\handler\activity_handler.lua" />
+    <None Include="..\bin\lua_script\handler\player_common.lua" />
+    <None Include="..\bin\lua_script\handler\player_gm_hander.lua" />
+    <None Include="..\bin\lua_script\handler\player_handler.lua" />
+    <None Include="..\bin\lua_script\handler\scene_common.lua" />
+    <None Include="..\bin\lua_script\handler\scene_handler.lua" />
+    <None Include="..\bin\lua_script\handler\server_common.lua" />
+    <None Include="..\bin\lua_script\handler\server_handler.lua" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,12 @@
+﻿id,name,tips,icon0,icon1
+ID,名字,备注,创角ICON,角色界面ICON
+int,string,string,string,string
+0,zhongzu_wu,无种族,"",""
+1,zhongzu_niutouren,牛头人,race_profession+niutouren,race_profession+niutouren
+2,zhongzu_wangling,亡灵,race_profession+wangli,race_profession+wangli
+3,zhongzu_shouren,兽人,race_profession+shouren,race_profession+shouren
+4,zhongzu_jumo,巨魔,race_profession+jumo,race_profession+jumo
+5,zhongzu_renlei,人类,race_profession+renlei,race_profession+renlei
+6,zhongzu_anyejingling,暗夜精灵,race_profession+anyejingling,race_profession+anyejingling
+7,zhongzu_zhuru,侏儒,race_profession+zhuru,race_profession+zhuru
+

@@ -1,0 +1,11 @@
+﻿day,name,namecommon,special,specialcommon,gourpid,reward,npcid,sceneid
+id,名字,备注,特性,备注,怪物group,奖励,npcid,场景ID
+int,string,string,string,string,int,int,int,int
+0,wb_name_0,黑龙巢穴,"","",3961,20234017,14107,21
+1,wb_name_1,时光之穴,wb_spe_1,受到的物理伤害降低80%,3901,20234017,14101,22
+2,wb_name_2,晶红圣殿,wb_spe_2,受到的男性英雄的伤害降低80%,3911,20234017,14102,23
+3,wb_name_3,大地神殿,wb_spe_3,受到的联盟英雄的伤害降低80%,3921,20234017,14103,24
+4,wb_name_4,永恒之眼,wb_spe_4,受到的法术伤害降低80%,3931,20234017,14104,25
+5,wb_name_5,翡翠梦境,wb_spe_5,受到的部落英雄的伤害降低80%,3941,20234017,14105,26
+6,wb_name_6,龙眠神殿,wb_spe_6,受到的女性英雄的伤害降低80%,3951,20234017,14106,27
+

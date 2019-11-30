@@ -1,0 +1,7 @@
+﻿character,time1,time2,time3,time4,time5,time6,time7,time8,time9,time10,pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,effect1,effect2,effect3,effect4,effect5,effect6,effect7,effect8,effect9,effect10
+角色,时间,时间,时间,时间,时间,时间,时间,时间,时间,时间,值,值,值,值,值,值,值,值,值,值,值,值,值,值,值,值,值,值,值,值
+int,float,float,float,float,float,float,float,float,float,float,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string
+10233,0.2,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0|0|10,0,0,0,0,0,0,0,0,0,res/effect/createhero_dz_b.effect,0,0,0,0,0,0,0,0,0
+10202,0.3,2.2,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0|0|10,0|0|10,0,0,0,0,0,0,0,0,res/effect/createHero_srnzs_b.effect,res/effect/createHero_srnzs_c.effect,0,0,0,0,0,0,0,0
+10214,0.0,6.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,38|0|10,38|0|10,0,0,0,0,0,0,0,0,res/effect/CreateHero_RLFS_b.effect,res/effect/CreateHero_RLFS_c.effect,0,0,0,0,0,0,0,0
+

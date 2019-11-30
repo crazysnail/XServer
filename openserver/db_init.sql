@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS `mt_game_1000`;
+CREATE DATABASE `mt_game_1000` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE mt_game_1000;
+
+use mysql;
+GRANT USAGE ON *.* TO 'mt_game'@'localhost' IDENTIFIED BY 'SHxtsgGDKMsasj' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON mt_game.* TO 'mt_game'@'localhost' IDENTIFIED BY 'SHxtsgGDKMsasj';
+FLUSH PRIVILEGES;
+
+
+use mysql;
+GRANT USAGE ON *.* TO 'mt_game'@'127.0.0.1' IDENTIFIED BY 'SHxtsgGDKMsasj' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON mt_game.* TO 'mt_game'@'127.0.0.1' IDENTIFIED BY 'SHxtsgGDKMsasj';
+FLUSH PRIVILEGES;

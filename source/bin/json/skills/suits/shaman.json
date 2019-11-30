@@ -1,0 +1,439 @@
+[
+	{
+        "id": 223011,
+        "name": "元素智力（8件套萨满套装）",
+        "desc": "攻击时，有20%概率降低目标抗性190点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 274,
+				"name": "reduce_level2",
+				"level2_type": "magic_armor",
+				"number": 190,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 223012,
+        "name": "元素智力（8件套萨满套装）",
+        "desc": "攻击时，有5%概率令目标晕眩，持续2秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 5 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 275,
+				"name": "add_status",
+				"status": "STUN",
+				"max_layer": 1,
+				"life_time": 2000
+            }
+        ]
+    },
+	{
+        "id": 223021,
+        "name": "五雷智力（8件套萨满套装）",
+        "desc": "攻击时，有概率降低目标抗性220点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 276,
+				"name": "reduce_level2",
+				"level2_type": "magic_armor",
+				"number": 220,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 223022,
+        "name": "五雷敏捷（8件套萨满套装）",
+        "desc": "攻击时，有5%概率令目标晕眩，持续3秒秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 5 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 277,
+				"name": "add_status",
+				"status": "STUN",
+				"max_layer": 1,
+				"life_time": 3000
+            }
+        ]
+    },
+	{
+        "id": 223031,
+        "name": "大地之怒智力（8件套萨满套装）",
+        "desc": "释放法术时，忽视目标2%闪避",
+        "passive": true,
+        "after_source_critical_etc_value_calc_stub": "ctx:set_target_dodge_value(ctx:target_dodge_value() * 0.98); return true"
+    },
+	{
+        "id": 223032,
+        "name": "大地之怒智力（8件套萨满套装）",
+        "desc": "当你的法术攻击被闪避时，目标有40%的概率仍然会承受此次伤害，这个效果5秒内最多触发1次",
+        "passive": true,
+		"cd": 5000,
+        "before_do_damage_stub": [
+			"if ctx:is_dodge() and math.random(100) < 40 then",
+				"ctx:target():take_skill_damage(ctx:effect_value(), ctx:passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223033,
+        "name": "大地之怒智力（8件套萨满套装）",
+        "desc": "当己方单位多于敌方时（含召唤单位），造成的伤害增加4%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:passive_owner():teammate_count() > ctx:passive_owner():enemy_count() then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.04)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },	
+	{
+        "id": 223034,
+        "name": "大地之怒敏捷（8件套萨满套装）",
+        "desc": "攻击时，忽视目标2%韧性",
+        "passive": true,
+        "after_source_critical_etc_value_calc_stub": "ctx:set_target_toughness_value(ctx:target_toughness_value() * 0.98); return true"
+    },
+	{
+        "id": 223035,
+        "name": "大地之怒敏捷（8件套萨满套装）",
+        "desc": "爆击后，有40%的几率令目标下一次承受的伤害必定爆击",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:is_critical() and math.random(100) < 40 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 278,
+				"name" : "will_be_critical",
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 223036,
+        "name": "大地之怒敏捷（8件套萨满套装）",
+        "desc": "被你爆击过的单位会添加击破状态，你之后对该目标的所有攻击均会额外增加1%伤害，叠加5层",
+        "passive": true,
+		"before_do_damage_stub" : [
+			"buff = ctx:target():find_buff(200000, ctx:passive_owner():guid())",
+			"if buff ~= nil then",
+				"ctx:set_effect_value(ctx:effect_value() * (1.0 + buff:layer() * 0.01))",
+				"return true",
+			"end",
+			"return false"				
+		],
+        "after_do_damage_stub": [
+			"if ctx:is_critical() then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id" : 279, 
+				"name" : "mark",
+				"mark_name" : "ground_agility_suit_mark",
+				"max_layer" : 5,
+				"life_time" : -1
+			}
+		]
+    },	
+	{
+        "id": 223041,
+        "name": "无尽风暴智力（8件套萨满套装）",
+        "desc": "释放法术时，忽视目标3%闪避",
+        "passive": true,
+        "after_source_critical_etc_value_calc_stub": "ctx:set_target_dodge_value(ctx:target_dodge_value() * 0.97); return true"
+    },
+	{
+        "id": 223042,
+        "name": "无尽风暴智力（8件套萨满套装）",
+        "desc": "当你的法术攻击被闪避时，目标有60%的概率仍然会承受此次伤害，这个效果5秒内最多触发1次",
+        "passive": true,
+		"cd": 5000,
+        "before_do_damage_stub": [
+			"if ctx:is_dodge() and math.random(100) < 20 then",
+				"ctx:target():take_skill_damage(ctx:effect_value(), ctx:passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223043,
+        "name": "无尽风暴智力（8件套萨满套装）",
+        "desc": "当己方单位多于敌方时（含召唤单位），造成的伤害增加6%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:passive_owner():teammate_count() > ctx:passive_owner():enemy_count() then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.06)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223044,
+        "name": "无尽风暴敏捷（8件套萨满套装）",
+        "desc": "攻击时，忽视目标3%韧性",
+        "passive": true,
+        "after_source_critical_etc_value_calc_stub": "ctx:set_target_toughness_value(ctx:target_toughness_value() * 0.97); return true"
+    },
+	{
+        "id": 223045,
+        "name": "无尽风暴敏捷（8件套萨满套装）",
+        "desc": "爆击后，有60%的几率令目标下一次承受的伤害必定爆击",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:is_critical() and math.random(100) < 60 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 280,
+				"name" : "will_be_critical",
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 223046,
+        "name": "无尽风暴敏捷（8件套萨满套装）",
+        "desc": "被你爆击过的单位会添加击破状态，你之后对该目标的所有攻击均会额外增加2%伤害，叠加5层",
+        "passive": true,
+		"before_do_damage_stub" : [
+			"buff = ctx:target():find_buff(200000, ctx:passive_owner():guid())",
+			"if buff ~= nil then",
+				"ctx:set_effect_value(ctx:effect_value() * (1.0 + buff:layer() * 0.02))",
+				"return true",
+			"end",
+			"return false"				
+		],
+        "after_do_damage_stub": [
+			"if ctx:is_critical() then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id" : 281, 
+				"name" : "mark",
+				"mark_name" : "ground_agility_suit_mark",
+				"max_layer" : 5,
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 223051,
+        "name": "风暴召唤者智力（5件套萨满套装）",
+        "desc": "使你造成的魔法伤害和治疗效果提高3%",
+        "passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true",
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+    },
+	{
+        "id": 223052,
+        "name": "风暴召唤者智力（5件套萨满套装）",
+        "desc": "使你的闪电箭有20%概率附带跳跃伤害，每次跳跃伤害衰减15%，最多跳跃4次",
+        "passive": true,
+		"after_do_damage_stub" : [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+				"enemies = ctx:passive_owner():enemies(false)",
+				"count = 1",
+				"for _,enemy in pairs(enemies) do",
+					"if enemy:guid() ~= ctx:target():guid() and count < 5 then",
+						"damage = ctx:effect_value() * (1 - 0.15*count)",
+						"enemy:take_skill_damage(damage, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+						"count = count + 1",
+					"end",
+				"end",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223053,
+        "name": "风暴召唤者敏捷（5件套萨满套装）",
+        "desc": "使你造成的伤害提高3%",
+        "passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+    },
+	{
+        "id": 223054,
+        "name": "风暴召唤者敏捷（5件套萨满套装）",
+        "desc": "使你的普通攻击有概率进行连击，额外造成一次伤害",
+        "passive": true,
+		"after_do_damage_stub" : [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+				"ctx:target():take_skill_damage(ctx:effect_value(), ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223061,
+        "name": "碎地者智力（9件套萨满套装）",
+        "desc": "使你造成的魔法伤害和治疗效果提高4%",
+        "passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true",
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+    },
+	{
+        "id": 223062,
+        "name": "碎地者智力（9件套萨满套装）",
+        "desc": "使你的法术命中目标时有20%的几率额外造成一次伤害，伤害效果为50%",
+        "passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+				"ctx:target():take_skill_damage(ctx:effect_value() * 0.5, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223063,
+        "name": "碎地者智力（9件套萨满套装）",
+        "desc": "套装触发几率提升至30%，额外造成20%伤害",
+        "passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 30 then",
+				"ctx:target():take_skill_damage(ctx:effect_value() * 0.7, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223064,
+        "name": "碎地者敏捷（9件套萨满套装）",
+        "desc": "使你造成的伤害提高4%",
+        "passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+    },
+	{
+        "id": 223065,
+        "name": "碎地者敏捷（9件套萨满套装）",
+        "desc": "攻击时，有20%的概率选择目标抗性与护甲中较低的进行伤害结算",
+        "passive": true,
+		"after_target_value_calc_stub": [
+			"if math.random(100) < 20 then",
+				"armor = ctx:target():physical_armor()",
+				"if ctx:target():magic_armor() < armor then armor = ctx:target():magic_armor() end",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223066,
+        "name": "碎地者敏捷（9件套萨满套装）",
+        "desc": "套装触发几率提升至30%，并且触发时造成的伤害额外提升10%",
+        "passive": true,
+		"after_target_value_calc_stub": [
+			"if math.random(100) < 30 then",
+				"armor = ctx:target():physical_armor()",
+				"if ctx:target():magic_armor() < armor then armor = ctx:target():magic_armor() end",
+				"return true",
+			"end",
+			"return false"
+		],
+		"before_do_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.1); return true"
+    },
+	{
+        "id": 223071,
+        "name": "预言者套装智力（5件套萨满套装）",
+        "desc": "使你受到的晕眩时间减少10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_STUN) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"ctx:buff():set_life_time(ctx:buff():get_life_time() * 0.9)",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223072,
+        "name": "预言者套装智力（5件套萨满套装）",
+        "desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    },
+	{
+        "id": 223073,
+        "name": "预言者套装敏捷（5件套萨满套装）",
+        "desc": "使你受到的晕眩时间减少10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_STUN) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"ctx:buff():set_life_time(ctx:buff():get_life_time() * 0.9)",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 223074,
+        "name": "预言者套装敏捷（5件套萨满套装）",
+        "desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    }
+]

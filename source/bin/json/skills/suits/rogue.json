@@ -1,0 +1,238 @@
+[
+	{
+        "id": 226011,
+        "name": "迅影（8件套盗贼套装）",
+        "desc": "攻击时，有20%概率使目标中毒，每秒损失60点生命，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+                "buff_id": 287,
+                "name": "poison",
+				"number" : 60,
+                "pulse" : 4,
+                "life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 226021,
+        "name": "暗幕（8件套盗贼套装）",
+        "desc": "攻击时，有20%概率使目标中毒，每秒损失69点生命，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+                "buff_id": 288,
+                "name": "poison",
+				"number" : 69,
+                "pulse" : 4,
+                "life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 226031,
+        "name": "夜幕杀手（8件套盗贼套装）",
+        "desc": "攻击时，忽视目标2%护甲",
+        "passive": true,
+        "after_target_value_calc_stub": "ctx:set_target_value(ctx:target_value() * 0.98); return true"
+    },
+	{
+        "id": 226032,
+        "name": "夜幕杀手（8件套盗贼套装）",
+        "desc": "使你的攻击有20%的几率忽视目标20%的护甲",
+        "passive": true,
+        "after_target_value_calc_stub": [
+			"if math.random(100) < 20 then",
+				"ctx:set_target_value(ctx:target_value() * 0.8)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 226032,
+        "name": "夜幕杀手（8件套盗贼套装）",
+        "desc": "使你的攻击对正对着你的目标造成的伤害增加4%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"target_dir = ctx:target():dir()",
+			"dir_to_source = ctx:target():dir_with_target(ctx:passive_owner():guid())",
+			"if math.abs(target_dir - dir_to_source) < 3.14/4 then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.04)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 226041,
+        "name": "血牙（8件套盗贼套装）",
+        "desc": "攻击时，忽视目标3%护甲",
+        "passive": true,
+        "after_target_value_calc_stub": "ctx:set_target_value(ctx:target_value() * 0.97); return true"
+    },
+	{
+        "id": 226042,
+        "name": "血牙（8件套盗贼套装）",
+        "desc": "使你的攻击有20%的几率降低目标20%的护甲，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 289,
+				"name": "reduce_level2",
+				"level2_type": "physical_armor",
+				"level2_type_value": "ctx:target():physical_armor() * 0.2",
+				"max_layer": 1,
+				"life_time": 4000
+			}
+		]
+    },
+	{
+        "id": 226043,
+        "name": "血牙（8件套盗贼套装）",
+        "desc": "使你的攻击对正对着你的目标造成的伤害增加6%，同时对背对着你的目标增加3%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"target_dir = ctx:target():dir()",
+			"dir_to_source = ctx:target():dir_with_target(ctx:passive_owner():guid())",
+			"if math.abs(target_dir - dir_to_source) < 3.14/4 then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.06)",
+				"return true",
+			"elseif math.abs(target_dir - dir_to_source) > 3.14 * 0.75 then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.03)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },	
+	{
+        "id": 226051,
+        "name": "死亡执行者的拥抱（5件套盗贼套装）",
+        "desc": "使你造成的伤害提高3%",
+        "passive": true,
+        "before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03);return true"
+    },
+	{
+        "id": 226052,
+        "name": "死亡执行者的拥抱（5件套盗贼套装）",
+        "desc": "使你的普通攻击有一定几率找到敌人护甲上的破绽，使你的下一次攻击必定造成爆击",
+        "passive": true,
+        "after_do_damage_stub": [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+				"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id" : 290,
+				"name" : "make_critical",
+				"max_layer" : 1,
+				"life_time" : -1
+			}
+		]
+    },
+	{
+		"id": 226061,
+        "name": "骨镰（9件套盗贼套装）",
+        "desc": "使你造成的伤害提高4%",
+        "passive": true,
+        "before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04);return true"
+    },
+	{
+		"id": 226062,
+        "name": "骨镰（9件套盗贼套装）",
+        "desc": "攻击时，有20%的几率对目标最近的一个敌方单位造成50%连锁伤害",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if math.random(100) < 20 then",
+				"near = nil",
+				"for _, enemy in pairs(ctx:passive_owner():enemies(false)) do",
+					"if near == nil then near = enemy end",
+					"new_distance = ctx:target():distance(enemy)",
+					"curr_distance = ctx:target():distance(near)",
+					"if (new_distance < curr_distance) then near = enemy end",
+				"end",
+				"if near ~=  nil then",
+					"near:take_skill_damage(ctx:effect_value() * 0.5, ctx:damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+			"end"
+		]
+    },
+	{
+		"id": 226063,
+        "name": "骨镰（9件套盗贼套装）",
+        "desc": "套装触发几率提升至30%，连锁伤害优先选择生命值最低的单位",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if math.random(100) < 30 then",
+				"low_hp_enemy = nil",
+				"for _, enemy in pairs(ctx:source():teammates(false)) do",
+					"if low_hp_enemy == nil then low_hp_enemy = enemy end",
+					"if low_hp_enemy:hp() > enemy:hp() then low_hp_enemy = enemy end",
+				"end",
+				"if low_hp_enemy ~=  nil then",
+					"low_hp_enemy:take_skill_damage(ctx:effect_value() * 0.5, ctx:damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+			"end"
+		]
+    },
+	{
+        "id": 226071,
+        "name": "狂妄者套装（5件套盗贼套装）",
+        "desc": "当你受到晕眩状态时，则再次受到晕眩的抵抗能力增加20%，再次受到晕眩的持续时间减少20%",
+        "passive": true,
+		"after_buff_add_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_STUN) == false then return false end",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 291,
+				"name" : "resist_stun",
+				"after_control_prob_calc_stub" : [
+					"if ctx:buff():has_control_status(BattleObjectStatus_STUN) == false then return false end",
+					"control_prob = ctx:buff():control_prob()",
+					"if control_prob > 0 then",
+						"ctx:buff():set_control_prob(control_prob * 0.8)",
+						"ctx:buff():set_life_time(ctx:buff():life_time() * 0.8)",
+						"ctx:buff():set_layer(0)",
+						"return true",
+					"end",
+					"return false"
+				],
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 226072,
+        "name": "狂妄者套装（5件套盗贼套装）",
+        "desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    }
+]

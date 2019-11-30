@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0172B561-FCF1-4398-A1DB-B66275992167}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>zXero</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\boost1620\include\boost-1_62;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\boost1620\lib;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)lib\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>C:\boost1620\include\boost-1_62;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\boost1620\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;ZLIB_WINAPI;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd\zlib-1.2.11\;$(SolutionDir)include;$(SolutionDir)3rd\lua-5.3.3\src;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)GameCommon;$(SolutionDir)3rd\mysql-connector-c++-1.1.7\include;$(SolutionDir)3rd\libcurl-7.37.0\include;$(SolutionDir)3rd\libhiredis\libhiredis;$(SolutionDir)3rd\Visual Leak Detector\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)GameCommon;$(SolutionDir)3rd\mysql-connector-c++-noinstall-1.1.3-win32\include;$(SolutionDir)3rd\libcurl-7.37.0\include;$(SolutionDir)3rd\Visual Leak Detector\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd\zlib-1.2.11\;$(SolutionDir)include;$(SolutionDir)3rd\lua-5.3.3\src;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)GameCommon;$(SolutionDir)3rd\mysql-connector-c++-1.1.7\include;$(SolutionDir)3rd\libcurl-7.37.0\include;$(SolutionDir)3rd\libhiredis\libhiredis;$(SolutionDir)3rd\Visual Leak Detector\include</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)3rd\protobuf-2.5.0\src;$(SolutionDir)GameCommon;$(SolutionDir)3rd\mysql-connector-c++-noinstall-1.1.3-win32\include</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\acceptor.h" />
+    <ClInclude Include="..\include\active_model.h" />
+    <ClInclude Include="..\include\app.h" />
+    <ClInclude Include="..\include\asynclogging.h" />
+    <ClInclude Include="..\include\buffer.h" />
+    <ClInclude Include="..\include\channel.h" />
+    <ClInclude Include="..\include\connector.h" />
+    <ClInclude Include="..\include\dbcontext.h" />
+    <ClInclude Include="..\include\dbhelper.h" />
+    <ClInclude Include="..\include\dbwork.h" />
+    <ClInclude Include="..\include\event_loop.h" />
+    <ClInclude Include="..\include\event_loop_thread.h" />
+    <ClInclude Include="..\include\event_loop_thread_pool.h" />
+    <ClInclude Include="..\include\fd_set.h" />
+    <ClInclude Include="..\include\fixed_buffer.h" />
+    <ClInclude Include="..\include\http_codec.h" />
+    <ClInclude Include="..\include\http_parser.h" />
+    <ClInclude Include="..\include\inet_address.h" />
+    <ClInclude Include="..\include\json\autolink.h" />
+    <ClInclude Include="..\include\json\config.h" />
+    <ClInclude Include="..\include\json\features.h" />
+    <ClInclude Include="..\include\json\forwards.h" />
+    <ClInclude Include="..\include\json\json.h" />
+    <ClInclude Include="..\include\json\reader.h" />
+    <ClInclude Include="..\include\json\value.h" />
+    <ClInclude Include="..\include\json\writer.h" />
+    <ClInclude Include="..\include\json_codec.h" />
+    <ClInclude Include="..\include\json_dispatcher.h" />
+    <ClInclude Include="..\include\json_obj_base.h" />
+    <ClInclude Include="..\include\log.h" />
+    <ClInclude Include="..\include\log_file.h" />
+    <ClInclude Include="..\include\lua\fflua.h" />
+    <ClInclude Include="..\include\lua\fflua_register.h" />
+    <ClInclude Include="..\include\lua\fflua_type.h" />
+    <ClInclude Include="..\include\md5.h" />
+    <ClInclude Include="..\include\module.h" />
+    <ClInclude Include="..\include\mutex.h" />
+    <ClInclude Include="..\include\network.h" />
+    <ClInclude Include="..\include\object_pool.h" />
+    <ClInclude Include="..\include\obj_reflector.h" />
+    <ClInclude Include="..\include\pb2json.h" />
+    <ClInclude Include="..\include\poller.h" />
+    <ClInclude Include="..\include\protobuf_codec.h" />
+    <ClInclude Include="..\include\protobuf_dispatcher.h" />
+    <ClInclude Include="..\include\random_generator.h" />
+    <ClInclude Include="..\include\redis_context.h" />
+    <ClInclude Include="..\include\redis_work.h" />
+    <ClInclude Include="..\include\select_poller.h" />
+    <ClInclude Include="..\include\tcp_client.h" />
+    <ClInclude Include="..\include\tcp_client_pool.h" />
+    <ClInclude Include="..\include\tcp_connection.h" />
+    <ClInclude Include="..\include\tcp_connector.h" />
+    <ClInclude Include="..\include\thread.h" />
+    <ClInclude Include="..\include\date_time.h" />
+    <ClInclude Include="..\include\timer.h" />
+    <ClInclude Include="..\include\timer_id.h" />
+    <ClInclude Include="..\include\timer_queue.h" />
+    <ClInclude Include="..\include\types.h" />
+    <ClInclude Include="..\include\tcp_server.h" />
+    <ClInclude Include="..\include\network_errno.h" />
+    <ClInclude Include="..\include\protobuf_dispatcher2.h" />
+    <ClInclude Include="..\include\urlcodeing.h" />
+    <ClInclude Include="..\include\urlcontext.h" />
+    <ClInclude Include="..\include\urlwork.h" />
+    <ClInclude Include="..\include\work.h" />
+    <ClInclude Include="..\include\work_pool.h" />
+    <ClInclude Include="..\include\work_thread.h" />
+    <ClInclude Include="hashmap.h" />
+    <ClInclude Include="json_batchallocator.h" />
+    <ClInclude Include="mem_allocator.h" />
+    <ClInclude Include="mem_debugger.h" />
+    <ClInclude Include="mem_sampler.h" />
+    <ClInclude Include="shm\shm_dynamic_block.h" />
+    <ClInclude Include="shm\shm_dynamic_buddy_block.h" />
+    <ClInclude Include="shm\shm_dynamic_fast_block.h" />
+    <ClInclude Include="shm\share_memory.h" />
+    <ClInclude Include="shm\shm_dynamic_chunk.h" />
+    <ClInclude Include="shm\shm_static_block.h" />
+    <ClInclude Include="shm\shm_static_chunk.h" />
+    <ClInclude Include="utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="asynclogging.cpp" />
+    <ClCompile Include="buffer.cpp" />
+    <ClCompile Include="connector.cpp" />
+    <ClCompile Include="date_time.cpp" />
+    <ClCompile Include="dbcontext.cpp" />
+    <ClCompile Include="dbhelper.cpp" />
+    <ClCompile Include="dbwork.cpp" />
+    <ClCompile Include="event_loop_thread.cpp" />
+    <ClCompile Include="event_loop_thread_pool.cpp" />
+    <ClCompile Include="fflua.cpp" />
+    <ClCompile Include="fixed_buffer.cpp" />
+    <ClCompile Include="http_codec.cpp" />
+    <ClCompile Include="http_parser.cpp" />
+    <ClCompile Include="json_codec.cpp" />
+    <ClCompile Include="json_reader.cpp" />
+    <ClCompile Include="json_value.cpp" />
+    <ClCompile Include="json_writer.cpp" />
+    <ClCompile Include="log.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ShowIncludes>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ShowIncludes>
+    </ClCompile>
+    <ClCompile Include="log_file.cpp" />
+    <ClCompile Include="md5.cpp" />
+    <ClCompile Include="mem_debugger.cpp" />
+    <ClCompile Include="mem_sampler.cpp" />
+    <ClCompile Include="network_errno.cpp" />
+    <ClCompile Include="pb2json.cpp" />
+    <ClCompile Include="poller.cpp" />
+    <ClCompile Include="protobuf_codec.cpp" />
+    <ClCompile Include="protobuf_dispatcher.cpp" />
+    <ClCompile Include="protobuf_dispatcher2.cpp" />
+    <ClCompile Include="random_generator.cpp" />
+    <ClCompile Include="redis_work.cpp" />
+    <ClCompile Include="select_poller.cpp" />
+    <ClCompile Include="acceptor.cpp" />
+    <ClCompile Include="shm\shm_dynamic_block.cpp" />
+    <ClCompile Include="shm\shm_dynamic_buddy_block.cpp" />
+    <ClCompile Include="shm\shm_dynamic_fast_block.cpp" />
+    <ClCompile Include="shm\share_memory.cpp" />
+    <ClCompile Include="shm\shm_dynamic_chunk.cpp" />
+    <ClCompile Include="shm\shm_static_block.cpp" />
+    <ClCompile Include="tcp_client.cpp" />
+    <ClCompile Include="tcp_client_pool.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="timer_queue.cpp" />
+    <ClCompile Include="urlcodeing.cpp" />
+    <ClCompile Include="urlcontext.cpp" />
+    <ClCompile Include="urlwork.cpp" />
+    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="work_pool.cpp" />
+    <ClCompile Include="work_thread.cpp" />
+    <ClInclude Include="..\include\tcp_socket.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClCompile Include="app.cpp" />
+    <ClCompile Include="channel.cpp" />
+    <ClCompile Include="event_loop.cpp" />
+    <ClCompile Include="inet_address.cpp" />
+    <ClCompile Include="module.cpp" />
+    <ClCompile Include="network.cpp" />
+    <ClCompile Include="tcp_connection.cpp" />
+    <ClCompile Include="tcp_server.cpp" />
+    <ClCompile Include="tcp_socket.cpp" />
+    <ClCompile Include="thread.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json_internalarray.inl" />
+    <None Include="json_internalmap.inl" />
+    <None Include="json_valueiterator.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

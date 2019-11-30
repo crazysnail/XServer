@@ -1,0 +1,37 @@
+[{
+	"id": 211015,
+	"name": "世界boss-狂暴技能",
+	"desc": "战斗开始一段时间后, boss释放这个技能, 秒杀全场",
+	"tar_logic": {
+		"count": [
+			1,
+			99
+		],
+		"type": "circle",
+		"range": 10000
+	},
+	"prepare_time": 400,
+	"post_time": 1100,
+	"source_value" : "100",
+	"effect_value": "ctx:target():hp() * 2",
+	"cd" : 2000
+},
+{
+	"id": 210773,
+	"name": "世界boss-狂暴技能",
+	"desc": "战斗开始一段时间后, boss释放这个技能, 秒杀全场",
+		"tar_logic": {
+		"count": [
+			1,
+			99
+		],
+		"type": "circle",
+		"range": 10000
+	},
+	"prepare_time": 400,
+	"post_time": 1100,
+	"source_value" : "100",
+	"effect_value": "ctx:target():hp() * 2",
+	"cd" : 2000
+}
+]

@@ -1,0 +1,11 @@
+﻿id,icon,common1,name,award,coincost,map,sceneid,levellimit,guildlevellimit
+id,icon,活动类型1,副本名称,award,帮派消耗,map,场景ID,等级限制对应团队本,帮会等级限制
+int,string,string,string,int,int,string,int,int,int
+0,current_map+word_map_13,祖尔格拉布,gw_name_0,2410000,4820000,map_chenmoshenmiao+dynamic_map_chenmoshenmiao,2101,50,3
+1,current_map+word_map_11,安其拉废墟,gw_name_1,2020000,4040000,map_zuerfalake+dynamic_map_zuerfalake,2102,53,3
+2,current_map+word_map_17,熔火之心,gw_name_2,2890000,5780000,map_heishishenyuan+dynamic_map_heishishenyuan,2103,51,3
+3,current_map+word_map_14,奥妮克希亚的巢穴,gw_name_3,360000,720000,map_heishitashangceng+dynamic_map_heishitashangceng,2104,55,3
+4,current_map+word_map_19,黑翼之巢,gw_name_4,3470000,6940000,map_heishitaxiaceng+dynamic_map_heishitaxiaceng,2105,57,3
+5,current_map+word_map_10,安其拉神殿,gw_name_5,3900000,7800000,map_aodaman+dynamic_map_aodaman,2106,59,3
+6,current_map+word_map_18,纳克萨玛斯,gw_name_6,7230000,14460000,map_tonglingxueyuan+dynamic_map_tonglingxueyuan,2107,60,3
+

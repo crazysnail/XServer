@@ -1,0 +1,38 @@
+[
+    {
+        "id": 220000,
+        "name": "诺兹多姆-降低物理伤害",
+        "passive": true,
+        "before_be_damage_stub": "if ctx:skill():damage_type() == DamageType_PHYSICAL then ctx:set_effect_value(ctx:effect_value() * 0.2) end"
+    },
+    {
+        "id": 220001,
+        "name": "阿莱克丝塔萨-降低男性英雄伤害",
+        "passive": true,
+        "before_be_damage_stub": "if ctx:source():male() then ctx:set_effect_value(ctx:effect_value() * 0.2) end"
+    },
+    {
+        "id": 220002,
+        "name": "耐萨里奥-降低联盟英雄伤害",
+        "passive": true,
+        "before_be_damage_stub": "if ctx:source():alliance() then ctx:set_effect_value(ctx:effect_value() * 0.2) end"
+    },
+    {
+        "id": 220003,
+        "name": "玛里苟斯-降低法术伤害",
+        "passive": true,
+        "before_be_damage_stub": "if ctx:skill():damage_type() ~= DamageType_PHYSICAL then ctx:set_effect_value(ctx:effect_value() * 0.2) end"
+    },
+    {
+        "id": 220004,
+        "name": "伊瑟拉-降低部落英雄伤害",
+        "passive": true,
+        "before_be_damage_stub": "if ctx:source():horde() then ctx:set_effect_value(ctx:effect_value() * 0.2) end"
+    },
+    {
+        "id": 220005,
+        "name": "克拉苏斯-降低女性英雄伤害",
+        "passive": true,
+        "before_be_damage_stub": "if ctx:source():female() then ctx:set_effect_value(ctx:effect_value() * 0.2) end"
+    }
+]

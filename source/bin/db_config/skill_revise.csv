@@ -1,0 +1,6 @@
+﻿id,desc,revise_stage,revise_target,attribute_type,revise_type,revise_value
+id,描述,修正阶段,修正目标,修正数据,修正数据类型,修正数据
+int,string,int,int,string,string,float
+1,给自己增加10点攻强,1,0,physical_attack,direct,10.0
+2,给自己增加10%法攻,2,0,magic_attack,percentage,10.0
+

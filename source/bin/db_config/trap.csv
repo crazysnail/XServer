@@ -1,0 +1,8 @@
+﻿id,name,desc,model
+id,名字,描述,模型
+int,string,string,string
+1,冰霜陷阱,冰霜陷阱,res/effect/xh_skill3.effect
+2,献祭陷阱,献祭陷阱,res/effect/whqjz_skill2.effect
+3,炸弹陷阱,炸弹陷阱,res/effect/lr_skill1_hit.effect
+4,奉献陷阱,奉献陷阱,res/effect/whqjz_skill2.effect
+

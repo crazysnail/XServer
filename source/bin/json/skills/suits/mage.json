@@ -1,0 +1,224 @@
+[{
+		"id": 227011,
+		"name": "博学者（8件套法师套装）",
+		"desc": "攻击时，有5%概率令目标冻结原地，持续2秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 5 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 237,
+			"name": "add_status",
+			"status": "FROZEN",
+			"life_time": 2000
+		}]
+	},
+	{
+		"id": 227021,
+		"name": "巫师（8件套法师套装）",
+		"desc": "攻击时，有5%概率令目标冻结原地，持续3秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 5 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 238,
+			"name": "add_status",
+			"status": "FROZEN",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 227031,
+		"name": "奥术师（8件套法师套装）",
+		"desc": "在你释放法术时，临时提升2%的法强",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_source_value(ctx:source_value() * 1.02); return true"
+	},
+	{
+		"id": 227032,
+		"name": "奥术师（8件套法师套装）",
+		"desc": "使你的法术有20%的几率忽视目标20%的抗性",
+		"passive": true,
+		"after_target_value_calc_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:set_target_value(ctx:target_value() * 0.8)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 227033,
+		"name": "奥术师（8件套法师套装）",
+		"desc": "使你的法术对处于减速的目标，造成的伤害额外增加4%",
+		"passive": true,
+		"before_do_damage_stub": [
+			"local slow_down_buffs = ctx:target():find_buffs_by_name(\"slow_down\", 0)",
+			"local is_slow_down = false",
+			"if #slow_down_buffs > 0 then is_slow_down = true end",		
+			"if is_slow_down then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.04)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 227041,
+		"name": "灵风（8件套法师套装）",
+		"desc": "在你释放法术时，临时提升3%的法强",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_source_value(ctx:source_value() * 1.03); return true"
+	},
+	{
+		"id": 227042,
+		"name": "灵风（8件套法师套装）",
+		"desc": "使你的法术有20%的几率降低目标20%抗性，持续4秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 239,
+			"name": "reduce_level2",
+			"level2_type": "magic_armor",
+			"level2_type_value": "ctx:target():magic_armor() * 0.2",
+			"max_layer": 1,
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 227043,
+		"name": "灵风（8件套法师套装）",
+		"desc": "使你的法术对处于减速的目标，造成的伤害额外增加6%",
+		"passive": true,
+		"before_do_damage_stub": [
+			"local slow_down_buffs = ctx:target():find_buffs_by_name(\"slow_down\", 0)",
+			"local is_slow_down = false",
+			"if #slow_down_buffs > 0 then is_slow_down = true end",	
+			"if is_slow_down then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.06)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 227051,
+		"name": "神秘套装（5件套法师套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高3%",
+		"passive": true,
+			"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true",
+			"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 227052,
+		"name": "神秘套装（5件套法师套装）",
+		"desc": "使你的寒冰箭、火球术、奥术飞弹，有10%概率打断敌方施法，并沉默3秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 10 and ctx:skill():has_prop(\"base_skill\") then",
+				"for _, target in pairs(ctx:skill():targets()) do",
+					"target:add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"end",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 240,
+			"name": "add_status",
+			"status": "MUTE",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 227061,
+		"name": "霜火（9件套法师套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高4%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_source_value(ctx:source_value() * 1.04); return true"
+	},
+	{
+		"id": 227062,
+		"name": "霜火（9件套法师套装）",
+		"desc": "你的法术有一定20%的概率引发更强大的元素能量，使后续的法术对你的目标所造成的伤害提高50%",
+		"passive": true,
+		"after_use_active_skill_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [
+			{
+			"buff_id": 241,
+			"name": "ice_fire",
+			"max_layer": 1,
+			"life_time": -1,
+			"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.5);return true",
+			"after_do_damage_stub" : "ctx:buff():set_layer(0)"
+			}
+		]
+	},
+	{
+		"id": 227063,
+		"name": "霜火（9件套法师套装）",
+		"desc": "你的法术有一定30%的概率引发更强大的元素能量，使后续的法术对你的目标所造成的伤害提高20%",
+		"passive": true,
+		"after_use_active_skill_stub": [
+			"if math.random(100) < 30 then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [
+			{
+			"buff_id": 242,
+			"name": "ice_fire",
+			"max_layer": 1,
+			"life_time": -1,
+			"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.7);return true",
+			"after_do_damage_stub" : "ctx:buff():set_layer(0)"
+			}
+		]
+	},
+	{
+        "id": 227071,
+        "name": "幻术师套装（5件套法师套装）",
+        "desc": "使你受到的冰冻时间减少10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FREEZE) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"ctx:buff():set_life_time(ctx:buff():get_life_time() * 0.9)",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 227072,
+        "name": "幻术师套装（5件套法师套装）",
+        "desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    }
+]

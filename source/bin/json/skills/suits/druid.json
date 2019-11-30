@@ -1,0 +1,647 @@
+[{
+		"id": 225011,
+		"name": "野性之心敏捷攻击（8件套未指定职业）",
+		"desc": "攻击时，有20%概率降低目标闪避78点，持续4秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 218,
+			"name": "reduce_level2",
+			"level2_type": "dodge",
+			"level2_type_value": "78",
+			"max_layer": 1,
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 225012,
+		"name": "野性之心敏捷生命（8件套未指定职业）",
+		"desc": "受到攻击时，有10%概率为自己回复240点生命值",
+		"passive": true,
+		"after_be_damage_stub": [
+			"if math.random(100) < 10 then",
+			"ctx:passive_owner():take_skill_cure(240, ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225013,
+		"name": "野性之心精神攻击（8件套未指定职业）",
+		"desc": "释放技能时，有概率为己方目标目标回复240点生命值",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:target():take_skill_cure(240, ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+			]
+	},
+	{
+		"id": 225021,
+		"name": "狂野之心敏捷攻击（8件套德鲁伊套装）",
+		"desc": "攻击时，有20%概率降低目标闪避90点，持续4秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 219,
+			"name": "reduce_level2",
+			"level2_type": "dodge",
+			"level2_type_value": "90",
+			"max_layer": 1,
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 225022,
+		"name": "狂野之心敏捷防御（8件套德鲁伊套装）",
+		"desc": "受到攻击时，有10%概率为自己回复276点生命值",
+		"passive": true,
+		"after_be_damage_stub": [
+			"if math.random(100) < 10 then",
+			"ctx:passive_owner():take_skill_cure(276, ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225023,
+		"name": "狂野之心敏捷防御（8件套德鲁伊套装）",
+		"desc": "释放技能时，有20%概率为己方目标目标回复276点生命值",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:target():take_skill_cure(276, ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225031,
+		"name": "塞纳里奥敏捷攻击（8件套德鲁伊套装）",
+		"desc": "攻击时，造成的物理伤害提升3%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 225032,
+		"name": "塞纳里奥敏捷攻击（8件套德鲁伊套装）",
+		"desc": "造成直接伤害时，有20%概率附加300点额外伤害",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:set_effect_value(ctx:effect_value() + 300)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225033,
+		"name": "塞纳里奥敏捷攻击（8件套德鲁伊套装）",
+		"desc": "使你的攻击对于处于持续性物理伤害的目标，造成的伤害额外增加4%",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:target():has_physical_dot() then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.04)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225034,
+		"name": "塞纳里奥敏捷防御（8件套德鲁伊套装）",
+		"desc": "受到攻击时，被爆击几率降低2%",
+		"passive": true,
+		"after_calc_dodge_percent_stub": "ctx:set_critical_percent_value(ctx:critical_percent_value() - 0.02); return true"
+	},
+	{
+		"id": 225035,
+		"name": "塞纳里奥敏捷防御（8件套德鲁伊套装）",
+		"desc": "受到攻击时，有20%的几率降低20%的伤害",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:set_effect_value(ctx:effect_value() * 0.8)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225036,
+		"name": "塞纳里奥敏捷防御（8件套德鲁伊套装）",
+		"desc": "使你每次受到技能直接造成伤害，增加自身护甲和抗性1%，持续4秒，叠加4层",
+		"passive": true,
+		"after_be_damage_stub": [
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(1), ctx:passive_owner())",
+			"return true"
+		],
+		"extra_buff": [{
+				"buff_id":220,
+				"name": "add_level2",
+				"level2_type": "physical_armor",
+				"level2_type_value": "ctx:owner():physical_armor() * 0.01",
+				"max_layer": 4,
+				"life_time": 4000
+			},
+			{
+				"buff_id":220,
+				"name": "add_level2",
+				"level2_type": "magic_armor",
+				"level2_type_value": "ctx:owner():magic_armor() * 0.01",
+				"max_layer": 4,
+				"life_time": 4000
+			}
+		]
+	},
+	{
+		"id": 225037,
+		"name": "塞纳里奥精神攻击（8件套德鲁伊套装）",
+		"desc": "使你造成的治疗效果提高2%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.02); return true"
+	},
+	{
+		"id": 225038,
+		"name": "塞纳里奥精神攻击（8件套德鲁伊套装）",
+		"desc": "在你的治疗法术爆击后，有40%的几率使你的下一个治疗法术必定爆击",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if math.random(100) < 40 and ctx:is_critical() then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id":221,
+			"name": "cure_will_do_critical",
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 225039,
+		"name": "塞纳里奥精神攻击（8件套德鲁伊套装）",
+		"desc": "使你的法术对处于持续性治疗效果的目标，造成的治疗效果额外增加4%",
+		"passive": true,
+		"before_do_cure_stub": [
+			"if ctx:target():has_cure_hot() then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.04)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225041,
+		"name": "怒风敏捷攻击（8件套德鲁伊套装）",
+		"desc": "攻击时，造成的物理伤害提升3%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 225042,
+		"name": "怒风敏捷攻击（8件套德鲁伊套装）",
+		"desc": "造成直接伤害时，有概率附加300点额外伤害，回复自身300点生命",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:passive_owner():take_skill_damage(300, NATRUE, ctx:passive_owner(), ctx:passive_skill())",
+			"ctx:passive_owner():take_skill_cure(300, ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225043,
+		"name": "怒风敏捷攻击（8件套德鲁伊套装）",
+		"desc": "使你的攻击对于处于持续性物理伤害的目标，造成的伤害额外增加6%",
+		"passive": true,
+		"before_be_damage_stub": [
+			"if ctx:target():has_physical_dot() then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.06)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225044,
+		"name": "怒风敏捷防御（8件套德鲁伊套装）",
+		"desc": "受到攻击时，被爆击几率降低3%",
+		"passive": true,
+		"after_calc_dodge_percent_stub": "ctx:set_critical_percent_value(ctx:critical_percent_value() - 0.03); return true"
+	},
+	{
+		"id": 225045,
+		"name": "怒风敏捷防御（8件套德鲁伊套装）",
+		"desc": "受到攻击时，有20%的几率降低20%的伤害，并由一个随机的敌对目标承受降低的伤害",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if math.random(100) < 20 and ctx:is_dodge() == false then",
+			"reduce_damage = ctx:effect_value() * 0.2",
+			"ctx:set_effect_value(ctx:effect_value() - reduce_damage)",
+			"enemies = ctx:passive_owner():enemies(false)",
+			"enemy = enemies[math.random(#enemies)]",
+			"if enemy ~= nil then",
+			"enemy:take_skill_damage(reduce_damage, NATRUE, ctx:passive_owner(), ctx:passive_skill())",
+			"end",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225046,
+		"name": "怒风敏捷防御（8件套德鲁伊套装）",
+		"desc": "使你每次受到技能直接造成伤害，增加自身护甲和抗性2%，持续4秒，叠加4层",
+		"passive": true,
+		"after_be_damage_stub": [
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(1), ctx:passive_owner())",
+			"return true"
+		],
+		"extra_buff": [{
+				"buff_id": 222,
+				"name": "add_level2",
+				"level2_type": "physical_armor",
+				"level2_type_value": "ctx:owner():physical_armor() * 0.02",
+				"max_layer": 4,
+				"life_time": 4000
+			},
+			{
+				"buff_id": 222,
+				"name": "add_level2",
+				"level2_type": "magic_armor",
+				"level2_type_value": "ctx:owner():magic_armor() * 0.02",
+				"max_layer": 4,
+				"life_time": 4000
+			}
+		]
+	},
+	{
+		"id": 225047,
+		"name": "怒风精神攻击（8件套德鲁伊套装）",
+		"desc": "使你造成的治疗效果提高3%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 225048,
+		"name": "怒风精神攻击（8件套德鲁伊套装）",
+		"desc": "在你的治疗法术爆击后，有60%的几率使你的下一个治疗法术必定爆击",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if math.random(100) < 60 and ctx:is_critical() then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 223,
+			"name": "cure_will_do_critical",
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 225049,
+		"name": "怒风精神攻击（8件套德鲁伊套装）",
+		"desc": "使你的法术对处于持续性治疗效果的目标，造成的治疗效果额外增加6%",
+		"passive": true,
+		"before_do_cure_stub": [
+			"if ctx:target():has_cure_hot() then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.06)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225051,
+		"name": "起源套装敏捷攻击（5件套德鲁伊套装）",
+		"desc": "使你造成的伤害提高3%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 225052,
+		"name": "起源套装敏捷攻击（5件套德鲁伊套装）",
+		"desc": "使你的普通攻击有20%概率额外获得一个连击点数",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 149,
+			"name": "combo_point",
+			"max_layer": 5,
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 225053,
+		"name": "起源套装敏捷防御（5件套德鲁伊套装）",
+		"desc": "使你受到的伤害降低3%",
+		"passive": true,
+		"before_be_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 0.97); return true"
+	},
+	{
+		"id": 225054,
+		"name": "起源套装敏捷防御（5件套德鲁伊套装）",
+		"desc": "使你的普通攻击有20%的几率为自己回复930点生命值",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+			"ctx:passive_owner():take_skill_cure(930, ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225055,
+		"name": "起源套装精神攻击（5件套德鲁伊套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高3%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true",
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 225056,
+		"name": "起源套装精神攻击（5件套德鲁伊套装）",
+		"desc": "使你的治疗之触，有20%概率立即重置目标身上的回春或者生命绽放效果，并立即结算原有的持续治疗效果",
+		"passive": true,
+		"todo": "差回春技能",
+		"after_do_cure_stub": [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+			"life_burst = ctx:target():find_buff(156, ctx:passive_owner():guid())",
+			"if life_burst ~= nil then life_burst:Flush() end",
+			"re_spring = ctx:target():find_buff(202, ctx:passive_owner():guid())",
+			"if re_spring ~= nil then re_spring:Flush() end",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225061,
+		"name": "梦游者敏捷攻击（9件套德鲁伊套装）",
+		"desc": "使你造成的伤害提高4%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+	},
+	{
+		"id": 225062,
+		"name": "梦游者敏捷攻击（9件套德鲁伊套装）",
+		"desc": "你的攻击有20%概率使目标身上的流血效果加深，流血伤害必定爆击，持续6秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id":224,
+				"name" : "enchent_bleed",
+				"after_be_buff_damage_stub" : [
+					"if ctx:buff():name() == \"bleed\" then",
+						"ctx:buff():set_effect_value(ctx:buff():effect_value() * 2)",
+					"end"
+				],
+				"life_time" : 6000
+			}
+		]
+	},
+	{
+		"id": 225063,
+		"name": "梦游者敏捷攻击（9件套德鲁伊套装）",
+		"desc": "套装触发几率提升至30%，并且触发时重置目标的流血buff",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 30 then",
+				"bleeds = ctx:target():find_buffs_by_name(\"bleed\", -1)",
+				"for _, bleed in pairs(bleeds) do",
+					"bleed:set_life_time(bleed:origin_life_time())",
+				"end",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id":225,
+				"name" : "enchent_bleed",
+				"after_be_buff_damage_stub" : [
+					"if ctx:buff():name() == \"bleed\" then",
+						"ctx:buff():set_effect_value(ctx:buff():effect_value() * 2)",
+					"end"
+				],
+				"life_time" : 6000
+			}
+		]
+	},
+	{
+		"id": 225064,
+		"name": "梦游者敏捷防御（9件套德鲁伊套装）",
+		"desc": "使你受到的伤害降低4%",
+		"passive": true,
+		"before_be_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 0.96); return true"
+	},
+	{
+		"id": 225065,
+		"name": "梦游者敏捷防御（9件套德鲁伊套装）",
+		"desc": "受到攻击时，若此次攻击未被爆击，则添加一层韧性buff，韧性临时提升27点，持续8秒，最多叠加5层",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if ctx:is_critical() == false then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [
+		{
+			"buff_id": 226,
+			"name": "add_level2",
+			"level2_type": "toughness",
+			"number": 27,
+			"max_layer": 5,
+			"life_time": 8000
+		}]
+	},
+	{
+		"id": 225066,
+		"name": "梦游者敏捷防御（9件套德鲁伊套装）",
+		"desc": "受到攻击时，若此次攻击未被爆击，则同时添加一层闪避buff，闪避临时提升20点，持续8秒，最多叠加五层",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if ctx:is_critical() == false then",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(1), ctx:passive_owner())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 227,
+			"name": "add_level2",
+			"level2_type": "dodge",
+			"number": 20,
+			"max_layer": 5,
+			"life_time": 8000
+		},
+		{
+			"buff_id": 227,
+			"name": "add_level2",
+			"level2_type": "toughness",
+			"number": 27,
+			"max_layer": 5,
+			"life_time": 8000
+		}]
+	},
+	{
+		"id": 225067,
+		"name": "梦游者精神攻击（9件套德鲁伊套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高4%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true",
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+	},
+	{
+		"id": 225068,
+		"name": "梦游者精神攻击（9件套德鲁伊套装）",
+		"desc": "你的治疗技能和持续效果的每一跳都可以令目标的生命值上限提高210点，效果可叠加最多5次",
+		"passive": true,
+		"after_do_cure_stub": "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner()); return true",
+		"hot_buff_pulse_stub": "ctx:buff():owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner()); return true",
+		"extra_buff": [{
+			"buff_id": 228,
+			"name": "add_hp_max",
+			"number": 210,
+			"max_layer": 5,
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 225069,
+		"name": "梦游者精神攻击（9件套德鲁伊套装）",
+		"desc": "你的治疗技能和持续效果的每一跳同时回复50点生命值，生命上限效果提高到7层",
+		"passive": true,
+		"after_do_cure_stub": [
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"ctx:target():take_skill_cure(105, ctx:passive_owner(), ctx:passive_skill())",
+			"return true"
+		],
+		"hot_buff_pulse_stub": [
+			"ctx:buff():owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"ctx:buff():owner():take_skill_cure(105, ctx:passive_owner(), ctx:passive_skill())",
+			"return true"
+		],
+		"extra_buff": [{
+			"buff_id": 229,
+			"name": "add_hp_max",
+			"number": 210,
+			"max_layer": 7,
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 225071,
+		"name": "占卜师套装敏捷攻击（5件套德鲁伊套装）",
+		"desc": "使你对冰冻的抵抗能力提升10%",
+		"passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FREEZE) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225072,
+		"name": "占卜师套装敏捷攻击（5件套德鲁伊套装）",
+		"desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+	},
+	{
+		"id": 225073,
+		"name": "占卜师套装敏捷防御（5件套德鲁伊套装）",
+		"desc": "使你对冰冻的抵抗能力提升10%",
+		"passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FREEZE) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225074,
+		"name": "占卜师套装敏捷防御（5件套德鲁伊套装）",
+		"desc": "使你受到的爆击伤害降低10%",
+		"passive": true,
+		"target_after_target_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() - 0.1); return true"
+	},
+	{
+		"id": 225075,
+		"name": "占卜师套装精神攻击（5件套德鲁伊套装）",
+		"desc": "使你对冰冻的抵抗能力提升10%",
+		"passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FREEZE) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 225076,
+		"name": "占卜师套装精神攻击（5件套德鲁伊套装）",
+		"desc": "使你造成的治疗爆击效果提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": [
+			"if ctx:skill():is_cure() then",
+				"ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true",
+			"end"
+		]
+	}
+]

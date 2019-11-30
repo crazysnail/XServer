@@ -1,0 +1,1 @@
+./3rd/Redis/redis-server  redis.windows.conf

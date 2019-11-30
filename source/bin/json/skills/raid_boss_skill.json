@@ -1,0 +1,190 @@
+[{
+		"id": 211330,
+		"name": "奥妮克希亚-火焰吐息",
+		"desc": "火焰吐息：锥形范围火焰伤害，任何在她面前的物体都会受到3500左右的火焰伤害。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "sector",
+			"range": 4000,
+			"radian": 1.57
+		},
+		"source_value": "ctx:source():magic_attack()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.667",
+		"damage_type": "FIRE",
+		"cd": 2000,
+		"prepare_time": 1254,
+		"post_time": 746
+	},
+	{
+		"id": 211331,
+		"name": "奥妮克希亚-击飞",
+		"desc": "击飞：范围击飞，可以击飞玩家，打乱玩家的站位。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "NATURE",
+		"cd": 8000,
+		"prepare_time": 1254,
+		"hit_off": {
+			"distance": 4000
+		},
+		"post_time": 746
+	},
+	{
+		"id": 211332,
+		"name": "奥妮克希亚-龙翼攻击",
+		"desc": "龙翼攻击：范围晕击，可以晕击任何处于她身前两侧的玩家3秒钟。",
+		"tar_logic": {
+			"count": [
+				1,
+				1
+			],
+			"type": "circle",
+			"range": 4000,
+			"sub_logic": [{
+					"count": [
+						1,
+						99
+					],
+					"type": "sector",
+					"range": 2000,
+					"radian": 1.57,
+					"dir": 1
+				},
+				{
+					"count": [
+						1,
+						99
+					],
+					"type": "sector",
+					"range": 2000,
+					"radian": 1.57,
+					"dir": -1
+				}
+			]
+		},
+		"source_value": "ctx:source():physical_attack()",
+		"target_value": "ctx:target():physical_armor()",
+		"damage_type": "NATURE",
+		"cd": 8000,
+		"prepare_time": 1254,
+		"post_time": 746,
+		"sub_target_buff": [{
+			"buff_id": 0,
+			"name": "add_status",
+			"status": "STUN",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 211333,
+		"name": "奥妮克希亚-噬人火焰",
+		"desc": "噬人火焰：从空中向地面多个目标同时释放炎爆大火球。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack()",
+		"target_value": "ctx:target():magic_armor()",
+		"damage_type": "FIRE",
+		"cd": 5000,
+		"prepare_time": 1254,
+		"post_time": 746
+	},
+	{
+		"id": 211334,
+		"name": "奥妮克希亚-深呼吸",
+		"desc": "深呼吸：大范围的烈焰灼烧，从地面冒出的大火柱，造成5000点范围伤害。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 4000
+		},
+		"source_value": "ctx:source():magic_attack()",
+		"target_value": "ctx:target():magic_armor()",
+		"effect_value": "ctx:effect_value() * 0.667",
+		"damage_type": "FIRE",
+		"cd": 22000,
+		"prepare_time": 1254,
+		"post_time": 746
+	},
+	{
+		"id": 211335,
+		"name": "奥妮克希亚-召唤幼龙",
+		"desc": "召唤幼龙：从两翼各召唤5只黑色幼龙。",
+		"tar_logic": {
+			"type": "self"
+		},
+		"cd": 60000,
+		"create_actor": [{
+				"id": 39032,
+				"life_time": -1,
+				"physical_attack_value": "ctx:source():physical_attack()* 0.4",
+				"magic_attack_value": "ctx:source():magic_attack()* 0.4",
+				"hp_value": "ctx:source():max_hp()* 0.1",
+				"cab_be_select": true,
+				"location": {
+					"distance": 6000,
+					"dir": 1
+				},
+				"count": 5
+			},
+			{
+				"id": 39032,
+				"life_time": -1,
+				"physical_attack_value": "ctx:source():physical_attack()* 0.4",
+				"magic_attack_value": "ctx:source():magic_attack()* 0.4",
+				"hp_value": "ctx:source():max_hp()* 0.1",
+				"cab_be_select": true,
+				"location": {
+					"distance": 6000,
+					"dir": -1
+				},
+				"count": 5
+			}
+		],
+		"prepare_time": 1254,
+		"post_time": 746
+	},
+	{
+		"id": 211336,
+		"name": "奥妮克希亚-群体恐惧",
+		"desc": "群体恐惧：对仇恨最高的目标施放恐惧咆哮，影响目标周围3米范围的目标，无法行动5秒。",
+		"tar_logic": {
+			"count": [
+				1,
+				99
+			],
+			"type": "circle",
+			"range": 10000
+		},
+		"damage_type": "SHADOW",
+		"cd": 5000,
+		"prepare_time": 1254,
+		"post_time": 746,
+		"target_buff": [{
+			"buff_id": 0,
+			"name": "add_status",
+			"status": "FEAR",
+			"life_time": 5000
+		}]
+	}
+]

@@ -1,0 +1,1 @@
+start bin\mysqld --defaults-file="my.ini"

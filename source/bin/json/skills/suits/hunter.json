@@ -1,0 +1,250 @@
+[
+	{
+        "id": 224011,
+        "name": "野兽追猎者（8件套猎人套装）",
+        "desc": "攻击时，有20%概率使自己的攻强提高286点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 230,
+				"name": "add_level2",
+				"level2_type": "physical_attack",
+				"number": 286,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 224021,
+        "name": "兽王（8件套猎人套装）",
+        "desc": "攻击时，有概20%率使自己的攻强提高328点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 231,
+				"name": "add_level2",
+				"level2_type": "physical_attack",
+				"number": 328,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 224031,
+        "name": "巨人追猎者（8件套猎人套装）",
+        "desc": "攻击时，临时提升2%的攻强",
+        "passive": true,
+        "after_source_value_calc_stub": "ctx:set_source_value(ctx:source_value() * 1.02); return true"
+    },
+	{
+        "id": 224032,
+        "name": "巨人追猎者（8件套猎人套装）",
+        "desc": "在你对目标造成远程攻击伤害时，有20%几率使其获得破甲虚弱效果。这个效果可以令所有远程攻击对该目标的攻击强度提高6%，持续4秒",
+        "passive": true,
+        "after_do_damage_stub":[
+			"if math.random(100) < 20 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" :[
+			{
+				"buff_id": 232,
+				"name": "physical_armor_weak",
+				"target_after_source_value_calc_stub" : [
+					"if ctx:skill():skill_range() > 3000 then",
+						"ctx:set_source_value(ctx:source_value() * 1.06)",
+						"return true",
+					"end",
+					"return false"
+				],
+				"life_time": 4000
+			}
+		]
+    },
+	{
+        "id": 224033,
+        "name": "巨人追猎者（8件套猎人套装）",
+        "desc": "当你的生命值百分比高于目标时，造成的伤害增加4%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:passive_owner():hp_percent() > ctx:target():hp_percent() then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.04)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 224041,
+        "name": "巨龙追猎者（8件套猎人套装）",
+        "desc": "攻击时，临时提升3%的攻强",
+        "passive": true,
+        "after_source_value_calc_stub": "ctx:set_source_value(ctx:source_value() * 1.03); return true"
+    },
+	{
+        "id": 224042,
+        "name": "巨龙追猎者（8件套猎人套装）",
+        "desc": "在你对目标造成远程攻击伤害时，有20%几率使其获得破甲虚弱效果。这个效果可以令所有远程攻击对该目标的攻击强度提高9%，持续4秒",
+        "passive": true,
+        "after_do_damage_stub":[
+			"if math.random(100) < 20 then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" :[
+			{
+				"buff_id": 233,
+				"name": "physical_armor_weak",
+				"target_after_source_value_calc_stub" : [
+					"if ctx:skill():skill_range() > 3000 then",
+						"ctx:set_source_value(ctx:source_value() * 1.09)",
+						"return true",
+					"end",
+					"return false"
+				],
+				"life_time": 4000
+			}
+		]
+    },
+	{
+        "id": 224043,
+        "name": "巨龙追猎者（8件套猎人套装）",
+        "desc": "当你的生命值百分比高于目标时，造成的伤害增加6%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:passive_owner():hp_percent() > ctx:target():hp_percent() then",
+				"ctx:set_effect_value(ctx:effect_value() * 1.06)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 224051,
+        "name": "攻击者（5件套猎人套装）",
+        "desc": "使你造成的伤害提高3%",
+        "passive": true,
+        "before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+    },
+	{
+        "id": 224052,
+        "name": "攻击者（5件套猎人套装）",
+        "desc": "自动射击时，若目标处于异常状态，有10%概率令其昏迷2秒",
+        "passive": true,
+        "after_do_damage_stub":[
+			"debuff = ctx:target():find_buff(0,0,-1)",
+			"if  debuff ~= nil and math.random(100) < 10 and ctx:skill():has_prop(\"base_skill\") then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" :[
+			{
+				"buff_id": 234,
+				"name" : "add_status",
+				"status" : "STUN",
+				"life_time" : 2000
+			}
+		]
+    },
+	{
+        "id": 224061,
+        "name": "地穴追猎者（9件套猎人套装）",
+        "desc": "使你造成的伤害提高4%",
+        "passive": true,
+        "before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+    },	
+	{
+        "id": 224062,
+        "name": "地穴追猎者（9件套猎人套装）",
+        "desc": "你的远程攻击打出致命一击后，使你获得激素刺激的效果，回复自身1050点生命值",
+        "passive": true,
+        "after_do_damage_stub": [
+			"if ctx:is_critical() then",
+				"ctx:passive_owner():take_skill_cure(1050, ctx:passive_owner(),ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 224063,
+        "name": "地穴追猎者（9件套猎人套装）",
+        "desc": "若你的攻击未爆击，则添加一层爆击BUFF，提高自身27点爆击，持续8秒，最多叠加5层",
+        "passive": true,
+        "after_do_damage_stub": [
+			"if ctx:is_critical() == false then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" :[
+			{
+				"buff_id": 235,
+				"name" : "add_level2",
+				"level2_type" : "critical",
+				"level2_type_value" : "27",
+				"max_layer" : 5,
+				"life_time" : 8000
+			}
+		]
+    },	
+	{
+        "id": 224071,
+        "name": "捕猎者套装（5件套猎人套装）",
+        "desc": "当你受到冰冻状态时，则再次受到冰冻的抵抗能力增加20%，再次受到冰冻的持续时间减少20%",
+        "passive": true,
+		"after_buff_add_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FREEZE) == false then return false end",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 236,
+				"name" : "resist_freeze",
+				"after_control_prob_calc_stub" : [
+					"if ctx:buff():has_control_status(BattleObjectStatus_FREEZE) == false then return false end",
+					"control_prob = ctx:buff():control_prob()",
+					"if control_prob > 0 then",
+						"ctx:buff():set_control_prob(control_prob * 0.8)",
+						"ctx:buff():set_life_time(ctx:buff():life_time() * 0.8)",
+						"ctx:buff():set_layer(0)",
+						"return true",
+					"end",
+					"return false"
+				],
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 227072,
+        "name": "捕猎者套装（5件套猎人套装）",
+		"desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    }
+]

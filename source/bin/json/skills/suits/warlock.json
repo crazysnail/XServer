@@ -1,0 +1,228 @@
+[
+	{
+        "id": 228011,
+        "name": "鬼雾（8件套术士套装）",
+        "desc": "攻击时，有5%概率令目标因恐惧而逃跑，持续2秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 5 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+                "buff_id": 282,
+                "name": "add_status",
+                "status": "FEAR",
+                "life_time": 2000
+            }
+        ]
+    },
+	{
+        "id": 228021,
+        "name": "死雾（8件套术士套装）",
+        "desc": "攻击时，有5%概率令目标因恐惧而逃跑，持续3秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 5 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+                "buff_id": 283,
+                "name": "add_status",
+                "status": "FEAR",
+                "life_time": 3000
+            }
+        ]
+    },
+	{
+        "id": 228031,
+        "name": "恶魔之心（8件套术士套装）",
+        "desc": "攻击时，忽视目标2%抗性",
+        "passive": true,
+        "after_target_value_calc_stub": "ctx:set_target_value(ctx:target_value() * 0.98);return true"
+    },
+	{
+        "id": 228032,
+        "name": "恶魔之心（8件套术士套装）",
+        "desc": "使你有20%的几率在释放法术时，造成的伤害提升20%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+			"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 228033,
+        "name": "恶魔之心（8件套术士套装）",
+        "desc": "使你的法术对处于法术dot的目标，造成的伤害额外增加4%",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:target():has_magic_dot() then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.04)",
+			"return true",
+			"end",
+			"return false"
+		]
+    },	
+	{
+        "id": 228041,
+        "name": "复仇（8件套术士套装）",
+        "desc": "攻击时，忽视目标3%抗性",
+        "passive": true,
+        "after_target_value_calc_stub": "ctx:set_target_value(ctx:target_value() * 0.97);return true"
+    },
+	{
+        "id": 228042,
+        "name": "复仇（8件套术士套装）",
+        "desc": "使你有20%的几率在释放法术时，额外造成目标最大生命值2%的伤害，最多不超过1200",
+        "passive": true,
+        "before_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ex_damage = ctx:target():max_hp() * 0.02",
+			"if ex_damage > 1200 then ex_damage = 1200 end",
+			"ctx:set_effect_value(ctx:effect_value() + ex_damage)",
+			"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 228043,
+        "name": "复仇（8件套术士套装）",
+        "desc": "使你的法术对处于持续性法术伤害的目标，造成的伤害额外增加6%",
+       "passive": true,
+        "before_do_damage_stub": [
+			"if ctx:target():has_magic_dot() then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.06)",
+			"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 228051,
+        "name": "厄运召唤者（5件套术士套装）",
+        "desc": "使你造成的魔法伤害和治疗效果提高3%",
+        "passive": true,
+        "before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03);return true",
+		"before_do_cure_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.03);return true"
+    },
+	{
+        "id": 228052,
+        "name": "厄运召唤者（5件套术士套装）",
+        "desc": "使你的暗影箭，有20%概率立即重置目标身上的腐蚀术和痛苦诅咒效果，并立即结算原有的持续伤害",
+		"todo": "目前没有痛苦诅咒",
+        "passive": true,
+       "after_do_damage_stub": [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+				"corruption = ctx:target():find_buff(158,ctx:passive_owner():guid())",
+				"if corruption ~= nil then",
+					"corruption:finish_now()",
+					"corruption:reset()",
+					"return true",
+				"end",
+				"corruption = ctx:target():find_buff(208,ctx:passive_owner():guid())",
+				"if corruption ~= nil then",
+					"corruption:finish_now()",
+					"corruption:reset()",
+					"return true",
+				"end",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 228061,
+        "name": "瘟疫之心（9件套术士套装）",
+        "desc": "使你造成的魔法伤害和治疗效果提高4%",
+        "passive": true,
+        "before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04);return true",
+		"before_do_cure_stub" : "ctx:set_effect_value(ctx:effect_value() * 1.04);return true"
+    },
+	{
+        "id": 228062,
+        "name": "瘟疫之心（9件套术士套装）",
+        "desc": "使你的法术伤害和持续性伤害的每一跳都会令目标的生命值上限降低210点，效果可叠加最多5次",
+        "passive": true,
+        "after_do_damage_stub": "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+		"after_dot_damage_stub" : "ctx:buff():owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+		"extra_buff" :[
+            {
+                "buff_id": 284,
+                "name": "reduce_max_hp",
+				"number" : 210,
+				"max_layer" : 5,
+                "life_time": -1
+            }
+		]
+    },
+	{
+        "id": 228063,
+        "name": "瘟疫之心（9件套术士套装）",
+        "desc": "使你的法术伤害和持续性伤害的每一跳同时降低目标105点生命值，生命值上限效果提高到7层",
+        "passive": true,
+        "after_do_damage_stub": [
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"ctx:target():take_skill_damage(105, NATRUE, ctx:passive_owner(), ctx:passive_skill())"
+		],
+		"after_dot_damage_stub" : [
+			"ctx:buff():owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"ctx:buff():owner():take_skill_damage(105, NATRUE, ctx:passive_owner(), ctx:passive_skill())"
+		],
+		"extra_buff" :[
+            {
+                "buff_id": 285,
+                "name": "reduce_max_hp",
+				"number" : 210,
+				"max_layer" : 7,
+                "life_time": -1
+            }
+		]
+    },
+	{
+        "id": 228071,
+        "name": "恶魔师护甲（5件套术士套装）",
+        "desc": "当你受到恐惧状态时，则再次受到恐惧的抵抗能力增加20%，再次受到恐惧的持续时间减少20%",
+        "passive": true,
+		"after_buff_add_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FEAR) == false then return false end",
+			"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner())",
+			"return true"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 286,
+				"name" : "resist_fear",
+				"after_control_prob_calc_stub" : [
+					"if ctx:buff():has_control_status(BattleObjectStatus_FEAR) == false then return false end",
+					"control_prob = ctx:buff():control_prob()",
+					"if control_prob > 0 then",
+						"ctx:buff():set_control_prob(control_prob * 0.8)",
+						"ctx:buff():set_life_time(ctx:buff():life_time() * 0.8)",
+						"ctx:buff():set_layer(0)",
+						"return true",
+					"end",
+					"return false"
+				],
+				"life_time" : -1
+			}
+		]
+    },
+	{
+        "id": 228072,
+        "name": "恶魔师护甲（5件套术士套装）",
+        "desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    }
+]

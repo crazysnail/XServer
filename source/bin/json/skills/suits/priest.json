@@ -1,0 +1,412 @@
+[{
+		"id": 229011,
+		"name": "虔诚智力（8件套牧师套装）",
+		"desc": "攻击时，有20%概率增加自身爆击78点，持续4秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 265,
+			"name": "add_level2",
+			"level2_type": "critical",
+			"level2_type_value": "78",
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 229012,
+		"name": "虔诚精神（8件套牧师套装）",
+		"desc": "释放技能时，有20%概率为己方目标增加一个防护盾，吸收240点伤害，护盾持续4秒",
+		"passive": true,
+		"after_use_skill_stub": [
+			"if math.random(100) < 20 and ctx:is_teammate(ctx:target(), ctx:source()) then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 266,
+			"name": "mantra_shield",
+			"physical_armor_value": "240",
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 229021,
+		"name": "坚贞智力（8件套牧师套装）",
+		"desc": "攻击时，有20%概率增加自身爆击90点，持续4秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 267,
+			"name": "add_level2",
+			"level2_type": "critical",
+			"level2_type_value": "90",
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 229022,
+		"name": "坚贞精神（8件套牧师套装）",
+		"desc": "释放技能时，有20%概率为己方目标增加一个防护盾，吸收276点伤害，护盾持续4秒",
+		"passive": true,
+		"after_use_skill_stub": [
+			"if math.random(100) < 20 and ctx:is_teammate(ctx:target(), ctx:source()) then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 268,
+			"name": "mantra_shield",
+			"physical_armor_value": "276",
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 229031,
+		"name": "预言智力（8件套牧师套装）",
+		"desc": "在你释放法术时，造成的魔法伤害提升2%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_source_value(ctx:source_value() * 1.02); return true"
+	},
+	{
+		"id": 229032,
+		"name": "预言智力（8件套牧师套装）",
+		"desc": "你的法术命中目标时，有20%概率附加300点额外伤害",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if math.random(100) < 20 then",
+				"ctx:set_source_value(ctx:source_value() + 300)",
+				"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229033,
+		"name": "预言智力（8件套牧师套装）",
+		"desc": "使你的法术折磨生命值比百分比比你低的单位，每次命中均会重置暗言术痛的效果",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if ctx:source():hp_percent()> ctx:target():hp_percent() then",
+			"buff = ctx:target():find_buff(161, ctx:source():guid())",
+			"if buff ~= nil then",
+			"buff:Flush()",
+			"return true",
+			"end",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229034,
+		"name": "预言精神（8件套牧师套装）",
+		"desc": "使你造成的治疗效果提高2%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.02); return true"
+	},
+	{
+		"id": 229035,
+		"name": "预言精神（8件套牧师套装）",
+		"desc": "使你有20%的几率在释放法术时，造成的治疗效果提高20%",
+		"passive": true,
+		"before_do_cure_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229036,
+		"name": "预言精神（8件套牧师套装）",
+		"desc": "使你的治疗法术在治疗生命值低于20%的目标额外增加5%治疗效果",
+		"passive": true,
+		"before_do_cure_stub": [
+			"if ctx:target():hp_percent() < 0.2 then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229041,
+		"name": "卓越智力（8件套牧师套装）",
+		"desc": "在你释放法术时，造成的魔法伤害提升3%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 229042,
+		"name": "卓越智力（8件套牧师套装）",
+		"desc": "你的法术命中目标时，有20%概率附加300点额外伤害，并为小队成员回复150点生命",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+			"ctx:set_effect_value(ctx:effect_value() + 300)",
+			"for _, mate in pairs(ctx:source():teammates(false)) do",
+			"mate:take_skill_cure(150, ctx:passive_owner(), ctx:passive_skill())",
+			"end",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229043,
+		"name": "卓越智力（8件套牧师套装）",
+		"desc": "使你的法术折磨生命值比百分比比你低的单位，每次命中均会重置暗言术痛的效果，并且暗言术痛的每一跳伤害均增加30%的爆击率",
+		"todo": "每一跳增加暴击率",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if ctx:source():hp_percent()> ctx:target():hp_percent() then",
+			"buff = ctx:target():find_buff(161, ctx:source():guid())",
+			"if buff ~= nil then",
+			"buff:set_life_time(buff:origin_life_time())",
+			"buff:set_critical_percent(buff:critical_percent() + 0.3)",
+			"return true",
+			"end",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229044,
+		"name": "卓越精神（8件套牧师套装）",
+		"desc": "使你造成的治疗效果提高3%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 229045,
+		"name": "卓越精神（8件套牧师套装）",
+		"desc": "使你有20%的几率在释放法术时，为目标添加一个增幅治疗buff，使目标受到的治疗效果提升20%，持续4秒",
+		"passive": true,
+		"after_use_skill_stub": [
+			"if math.random(100) < 20 and ctx:is_teammate(ctx:target(), ctx:source()) then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 269,
+			"name": "add_cure_effect",
+			"before_be_cure_stub": "ctx:set_effect_value(ctx:effect_value()* 1.2);",
+			"life_time": 4000
+		}]
+	},
+	{
+		"id": 229046,
+		"name": "卓越精神（8件套牧师套装）",
+		"desc": "使你的治疗法术在治疗生命值低于30%的目标额外增加20%治疗效果",
+		"passive": true,
+		"before_do_cure_stub": [
+			"if ctx:target():hp_percent() < 0.3 then",
+			"ctx:set_effect_value(ctx:effect_value() * 1.2)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229051,
+		"name": "神谕者智力（5件套牧师套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高3%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 229052,
+		"name": "神谕者智力（5件套牧师套装）",
+		"desc": "使你的暗言术·痛有10%概率令处于异常状态的目标因恐惧而逃跑，持续3秒，受到伤害恢复正常",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 10 and ctx:skill():has_prop(\"base_skill\") then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 270,
+			"name": "add_status",
+			"status": "FEAR",
+			"life_time": 3000
+		}]
+	},
+	{
+		"id": 229053,
+		"name": "神谕者精神（5件套牧师套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高3%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+	},
+	{
+		"id": 229054,
+		"name": "神谕者精神（5件套牧师套装）",
+		"desc": "使你的治疗术有20%概率使目标获得神谕护盾的效果，吸收目标生命上限值930的伤害，持续5秒",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 271,
+			"name": "oracle_shield",
+			"shield_value": "930",
+			"life_time": 5000
+		}]
+	},
+	{
+		"id": 229061,
+		"name": "信仰智力（9件套牧师套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高4%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+	},
+	{
+		"id": 229062,
+		"name": "信仰智力（9件套牧师套装）",
+		"desc": "技能命中目标时，有20%的几率为整个小队队员回复525点生命值",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 20 then",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+				"mate:take_skill_cure(525, ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+				"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229063,
+		"name": "信仰智力（9件套牧师套装）",
+		"desc": "技能命中目标时，有30%的几率为整个小队队员回复525点生命值,并且额外为生命值最低的目标回复525点生命值",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 30 then",
+				"low_hp_mate = nil",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+				"if low_hp_mate == nil then low_hp_mate = mate end",
+				"if low_hp_mate:hp() > mate:hp() then low_hp_mate = mate end",
+				"mate:take_skill_cure(525, ctx:passive_owner(), ctx:passive_skill())",
+				"end",
+				"if low_hp_mate~= nil then  low_hp_mate:take_skill_cure(525, ctx:passive_owner(), ctx:passive_skill()) end",
+				"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 229064,
+		"name": "信仰精神（9件套牧师套装）",
+		"desc": "使你造成的魔法伤害和治疗效果提高4%",
+		"passive": true,
+		"before_do_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true",
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+	},
+	{
+		"id": 229065,
+		"name": "信仰精神（9件套牧师套装）",
+		"desc": "你的治疗法术造成爆击后，会为目标添加神谕护盾效果，吸收525点生命值，护盾期间无视任何控制效果",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if ctx:is_critical() then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 272,
+			"name": "oracle_shield_ex",
+			"shield_value": "525",
+			"life_time": -1
+		}]
+	},
+	{
+		"id": 229066,
+		"name": "信仰精神（9件套牧师套装）",
+		"desc": "如果你的直接治疗技能未爆击，则添加一层爆击BUFF，提高自身27爆击，持续8秒，最多叠加5层",
+		"passive": true,
+		"after_do_cure_stub": [
+			"if ctx:is_critical() == false then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 273,
+			"name": "add_level2",
+			"level2_type": "critical",
+			"level2_type_value": "27",
+			"max_layer": 5,
+			"life_time": 8000
+		}]
+	},
+	{
+		"id": 229071,
+		"name": "忏悔者护甲智力（5件套牧师套装）",
+		"desc": "使你受到的恐惧时间减少10%",
+		"passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FEAR) == false then return false end",
+			"ctx:buff():set_life_time(ctx:life_time() * 0.9)",
+			"return false"
+		]
+	},
+	{
+		"id": 229072,
+		"name": "忏悔者护甲智力（5件套牧师套装）",
+		"desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"target_after_target_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() - 0.1); return true"
+	},
+	{
+		"id": 229073,
+		"name": "忏悔者护甲精神（5件套牧师套装）",
+		"desc": "使你受到的恐惧时间减少10%",
+		"passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_FEAR) == false then return false end",
+			"ctx:buff():set_life_time(ctx:life_time() * 0.9)",
+			"return false"
+		]
+	},	
+	{
+		"id": 229074,
+		"name": "忏悔者护甲精神（5件套牧师套装）",
+		"desc": "使你造成的治疗爆击效果提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": [
+			"if ctx:skill():is_cure() then",
+				"ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true",
+			"end"
+		]
+	}
+]

@@ -1,0 +1,471 @@
+[
+	{
+        "id": 221011,
+        "name": "勇气生命（8件套战士套装）",
+        "desc": "受到攻击时，有10%概率增加自身护甲190点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 10 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 253,
+				"name": "add_level2",
+				"level2_type": "physical_armor",
+				"number": 190,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 221012,
+        "name": "勇气攻击（8件套战士套装）",
+        "desc": "攻击时，有20%概率降低目标护甲190点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 254,
+				"name": "reduce_level2",
+				"level2_type": "physical_armor",
+				"number": 190,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 221021,
+        "name": "英勇防御（8件套战士套装）",
+        "desc": "受到攻击时，有10%概率增加自身护甲220点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 10 then",
+            "ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 255,
+				"name": "add_level2",
+				"level2_type": "physical_armor",
+				"number": 220,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 221022,
+        "name": "勇气攻击（8件套战士套装）",
+        "desc": "攻击时，有20%概率降低目标护甲220点，持续4秒",
+        "passive": true,
+        "after_do_damage_stub": [
+            "if math.random(100) < 20 then",
+            "ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+            "return true",
+			"end",
+			"return false"
+        ],
+		"extra_buff": [
+            {
+				"buff_id": 256,
+				"name": "reduce_level2",
+				"level2_type": "physical_armor",
+				"number": 220,
+				"max_layer": 1,
+				"life_time": 4000
+            }
+        ]
+    },
+	{
+        "id": 221031,
+        "name": "力量防御（8件套战士套装）",
+        "desc": "受到攻击时，闪避几率额外增加2%",
+        "passive": true,
+        "after_calc_dodge_percent_stub": "ctx:set_dodge_percent_value(ctx:dodge_percent_value() + 0.02); return true"
+    },
+	{
+        "id": 221032,
+        "name": "力量防御（8件套战士套装）",
+        "desc": "成功闪避时，有40%的概率闪避下一次攻击，这个效果5秒内最多触发1次",
+        "passive": true,
+		"cd": 5000,
+		"after_do_dodge_stub" : [
+			"if math.random(100) < 40 then",
+				"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 257,
+				"name" : "will_do_dodge",
+				"max_layer" : 1,
+				"life_time" : -1
+			}
+		]
+    },
+		{
+        "id": 221033,
+        "name": "力量防御（8件套战士套装）",
+        "desc": "受到攻击时，若你的生命值百分比低于目标，则降低自身受到的伤害4%",
+        "passive": true,
+        "after_be_damage_stub" : [
+			"if ctx:passive_owner():hp_percent() < ctx:source():hp_percent() then",
+				"ctx:set_effect_value(ctx:effect_value() * 0.96)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 221034,
+        "name": "力量攻击（8件套战士套装）",
+        "desc": "攻击时，爆击几率额外增加2%",
+        "passive": true,
+        "after_calc_critical_percent_stub": "ctx:set_critical_percent_value(ctx:critical_percent_value() + 0.02); return true"
+    },
+	{
+        "id": 221035,
+        "name": "力量攻击（8件套战士套装）",
+        "desc": "攻击时，有20%的几率增加自身358点攻强，持续4秒",
+        "passive": true,
+		"before_do_damage_stub" : [
+			"if math.random(100) < 20 then",
+				"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 258,
+				"name" : "add_level2",
+				"level2_type" : "physical_attack",
+				"number" : 358,
+				"life_time" : 4000
+			}
+		]
+    },
+		{
+        "id": 221036,
+        "name": "力量攻击（8件套战士套装）",
+        "desc": "使你的攻击有20%几率消耗自身1%的生命，这时，当次攻击额外造成目标最大生命值2%的伤害，最多不超过1200，当你的生命值低于20%时，不会触发这个效果",
+        "passive": true,
+        "after_do_damage_stub" : [
+			"if ctx:passive_owner():hp_percent() < 0.2 then return false end",
+			"if math.random(100) < 20 then",
+				"reduce_hp = ctx:passive_owner():max_hp() * 0.01",
+				"target_reduce_hp = ctx:target():max_hp() * 0.02",
+				"if target_reduce_hp > 1200 then target_reduce_hp = 1200 end",
+				"ctx:passive_owner():take_skill_damage(reduce_hp, ctx:passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"ctx:target():take_skill_damage(target_reduce_hp, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end"
+		],
+		"damage_type" : "NATRUE"
+    },
+	{
+        "id": 221041,
+        "name": "愤怒防御（8件套战士套装）",
+        "desc": "受到攻击时，闪避几率额外增加3%",
+        "passive": true,
+        "after_calc_dodge_percent_stub": "ctx:set_dodge_percent_value(ctx:_dodge_percent_value() + 0.03); return true"
+    },
+	{
+        "id": 221042,
+        "name": "愤怒防御（8件套战士套装）",
+        "desc": "成功闪避时，有60%的概率闪避下一次攻击，这个效果5秒内最多触发1次",
+        "passive": true,
+		"cd": 5000,
+		"after_do_dodge_stub" : [
+			"if math.random(100) < 60 then",
+				"ctx:passive_owner():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 259,
+				"name" : "will_do_dodge",
+				"max_layer" : 1,
+				"life_time" : -1
+			}
+		]
+    },
+		{
+        "id": 221043,
+        "name": "愤怒防御（8件套战士套装）",
+        "desc": "受到攻击时，若你的生命值百分比低于目标，则降低自身受到的伤害6%",
+        "passive": true,
+        "before_be_damage_stub" : [
+			"if ctx:passive_owner():hp_percent() < ctx:source():hp_percent() then",
+				"ctx:set_effect_value(ctx:effect_value() * 0.94)",
+				"return true",
+				"end",
+			"return false"
+		]
+    },	
+	{
+        "id": 221044,
+        "name": "愤怒攻击（8件套战士套装）",
+        "desc": "攻击时，爆击几率额外增加3%",
+        "passive": true,
+        "after_calc_critical_percent_stub": "ctx:set_critical_percent_value(ctx:_critical_percent_value() + 0.03); return true"
+    },
+	{
+        "id": 221045,
+        "name": "愤怒攻击（8件套战士套装）",
+        "desc": "攻击时，有20%的几率使全队成员增加358点攻强，持续5秒",
+        "passive": true,
+		"after_do_damage_stub" : [
+			"if math.random(100) < 20 then",
+				"for _, mate in pairs(ctx:passive_owner():teammates(false)) do",
+					"mate:add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"end",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 260,
+				"name" : "add_level2",
+				"level2_type" : "physical_attack",
+				"number" : 358,
+				"max_layer" : 1,
+				"life_time" : 4000
+			}
+		]
+    },
+	{
+        "id": 221046,
+        "name": "愤怒攻击（8件套战士套装）",
+        "desc": "使你的攻击有20%几率消耗自身1%的生命，这时，当次攻击额外造成目标最大生命值3%的伤害，最多不超过1800，当你的生命值低于20%时，不会触发这个效果",
+        "passive": true,
+        "after_do_damage_stub" : [
+			"if ctx:passive_owner():hp_percent() < 0.2 then return false end",
+			"if math.random(100) < 20 then",
+				"reduce_hp = ctx:passive_owner():max_hp() * 0.01",
+				"target_reduce_hp = ctx:target():max_hp() * 0.03",
+				"if target_reduce_hp > 1800 then target_reduce_hp = 1800 end",
+				"ctx:passive_owner():take_skill_damage(reduce_hp, ctx:passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"ctx:target():take_skill_damage(target_reduce_hp, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end"
+		],
+		"damage_type" : "NATRUE"
+    },
+	{
+        "id": 221051,
+        "name": "征服者防御（5件套战士套装）",
+        "desc": "使你受到的伤害降低3%",
+        "passive": true,
+        "before_be_damage_stub" : "ctx:set_effect_value(ctx:effect_value() * 0.97); return true"
+    },
+	{
+        "id": 221052,
+        "name": "征服者防御（5件套战士套装）",
+        "desc": "使你的普通攻击有20%概率为目标添加致死效果，目标受到的治疗效果降低25%，持续4秒",
+        "passive": true,
+        "after_do_damage_stub" : [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 261,
+				"name": "reduce_cure_effect",
+				"before_be_cure_stub": "ctx:set_effect_value(ctx:effect_value() * 0.75)",
+				"life_time": 4000
+			}
+		]
+    },
+	{
+        "id": 221053,
+        "name": "征服者攻击（5件套战士套装）",
+        "desc": "使你造成的伤害提高3%",
+		"passive": true,
+		"before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.03); return true"
+    },
+	{
+        "id": 221054,
+        "name": "征服者攻击（5件套战士套装）",
+        "desc": "使你的普通攻击有20%概率造成近战范围群体伤害",
+        "passive": true,
+        "after_do_damage_stub" : [
+			"if math.random(100) < 20 and ctx:skill():has_prop(\"base_skill\") then",
+				"for _, mate in pairs(ctx:target():teammates(false)) do",
+					"if ctx:target():distance(mate) < 1600 then",
+						"mate():take_skill_damage(ctx:effect_value(), ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+					"end",
+				"end",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 221061,
+        "name": "无畏防御（9件套战士套装）",
+        "desc": "使你受到的伤害降低4%",
+        "passive": true,
+        "before_be_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 0.96); return true"
+    },
+	{
+        "id": 221062,
+        "name": "无畏防御（9件套战士套装）",
+        "desc": "受到物理攻击时有20%的概率进行反弹，反弹伤害为受到伤害的50%",
+        "passive": true,
+		"after_be_damage_stub" : [
+			"if ctx:skill_damage_type() == PHYSICAL and math.random(100) < 20 then",
+				"ctx:source():take_skill_damage(ctx:effect_value() * 0.5, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 221063,
+        "name": "无畏防御（9件套战士套装）",
+        "desc": "套装反弹概率提升至30%，并由敌方生命最低的单位承受此次反弹伤害",
+        "passive": true,
+       		"after_be_damage_stub" : [
+			"if ctx:skill_damage_type() == PHYSICAL and math.random(100) < 30 then",
+				"low_hp = nil",
+				"for _, mate in pairs(ctx:source():teammates(false)) do",
+					"if low_hp == nil then low_hp = mate end",
+					"if low_hp:hp_percent() > mate:hp_percent() then low_hp = mate end",
+				"end",
+				"low_hp:take_skill_damage(ctx:effect_value() * 0.5, ctx:skill_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 221064,
+        "name": "无畏攻击（9件套战士套装）",
+        "desc": "使你造成的伤害提高4%",
+        "passive": true,
+        "before_do_damage_stub": "ctx:set_effect_value(ctx:effect_value() * 1.04); return true"
+    },
+	{
+        "id": 221065,
+        "name": "无畏攻击（9件套战士套装）",
+        "desc": "攻击时，若此次攻击未被闪避，则添加一层命中buff，命中临时提升27点，持续8秒，最多叠加5层",
+        "passive": true,
+        "after_do_damage_stub": [
+			"if ctx:is_dodge() == false then",
+				"ctx:source():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 262,
+				"name" : "add_level2", 
+				"level2_type" : "accurate",
+				"number" : 27,
+				"max_layer" : 5, 
+				"life_time" : 8000
+			}
+		]
+    },
+	{
+        "id": 221066,
+        "name": "无畏攻击（9件套战士套装）",
+        "desc": "你的攻击每次命中同时会给目标添加一层buff，降低目标27点闪避值，持续8秒，最多叠加5层",
+        "passive": true,
+        "after_do_damage_stub": [
+			"if ctx:is_dodge() == false then",
+				"ctx:source():add_buff(ctx:passive_skill():extra_buff(0), ctx:passive_owner(), ctx)",
+				"ctx:target():add_buff(ctx:passive_skill():extra_buff(1), ctx:passive_owner(), ctx)",
+				"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff" : [
+			{
+				"buff_id": 263,
+				"name" : "add_level2", 
+				"level2_type" : "accurate",
+				"number" : 27,
+				"max_layer" : 5, 
+				"life_time" : 8000
+			},
+			{
+				"buff_id": 264,
+				"name" : "reduce_level2", 
+				"level2_type" : "dodge",
+				"number" : 27,
+				"max_layer" : 5, 
+				"life_time" : 8000
+			}
+		]
+    },
+	{
+        "id": 221071,
+        "name": "辩护者重甲防御（5件套战士套装）",
+        "desc": "使你对晕眩的抵抗能力提升10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_STUN) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 221072,
+        "name": "辩护者重甲防御（5件套战士套装）",
+        "desc": "使你受到的爆击伤害降低10%",
+		"passive": true,
+		"target_after_target_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() - 0.1); return true"
+    },
+	{
+        "id": 221073,
+        "name": "辩护者重甲攻击（5件套战士套装）",
+        "desc": "使你对晕眩的抵抗能力提升10%",
+        "passive": true,
+		"after_control_prob_calc_stub" : [
+			"if ctx:buff():has_control_status(BattleObjectStatus_STUN) == false then return false end",
+			"control_prob = ctx:buff():control_prob()",
+			"if control_prob > 0 then",
+				"ctx:buff():set_control_prob(control_prob * 0.9)",
+				"return true",
+			"end",
+			"return false"
+		]
+    },
+	{
+        "id": 221074,
+        "name": "辩护者重甲攻击（5件套战士套装）",
+       	"desc": "使你造成的爆击伤害提升10%",
+		"passive": true,
+		"after_source_value_calc_stub": "ctx:set_critical_factor(ctx:critical_factor() + 0.1); return true"
+    }
+]

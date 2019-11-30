@@ -1,0 +1,235 @@
+[{
+		"id": 220017,
+		"name": "无",
+		"desc": "造成的魔法伤害增加60点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_effect_value(ctx:effect_value() + 60)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 220019,
+		"name": "无",
+		"desc": "造成的魔法伤害增加9点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_effect_value(ctx:effect_value() + 9)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 220021,
+		"name": "无",
+		"desc": "造成的魔法伤害增加51点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_effect_value(ctx:effect_value() + 51)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 220022,
+		"name": "无",
+		"desc": "造成的魔法伤害增加60点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_effect_value(ctx:effect_value() + 60)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 220023,
+		"name": "无",
+		"desc": "造成的魔法伤害增加60点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_effect_value(ctx:effect_value() + 60)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 220024,
+		"name": "无",
+		"desc": "造成的魔法伤害增加60点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_effect_value(ctx:effect_value() + 60)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 220025,
+		"name": "无",
+		"desc": "造成的魔法伤害增加60点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == MAGIC then",
+			"ctx:set_effect_value(ctx:effect_value() + 60)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 0,
+		"name": "无",
+		"desc": "造成的物理伤害增加10点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"if ctx:skill():damage_type() == PHYSICAL then",
+			"ctx:set_effect_value(ctx:effect_value() + 10)",
+			"return true",
+			"end",
+			"return false"
+		]
+	},
+	{
+		"id": 0,
+		"name": "无",
+		"desc": "造成的伤害增加10点",
+		"passive": true,
+		"before_do_damage_stub": [
+			"ctx:set_effect_value(ctx:effect_value() + 10)",
+			"return true"
+		]
+	},
+	{
+		"id": 220016,
+		"name": "无",
+		"desc": "造成的治疗效果增加60点",
+		"passive": true,
+		"before_do_cure_stub": [
+			"ctx:set_effect_value(ctx:effect_value() + 60)",
+			"return true"
+		]
+	},
+	{
+		"id": 220018,
+		"name": "无",
+		"desc": "造成的治疗效果增加43点",
+		"passive": true,
+		"before_do_cure_stub": [
+			"ctx:set_effect_value(ctx:effect_value() + 43)",
+			"return true"
+		]
+	},
+	{
+		"id": 220020,
+		"name": "无",
+		"desc": "造成的治疗效果增加69点",
+		"passive": true,
+		"before_do_cure_stub": [
+			"ctx:set_effect_value(ctx:effect_value() + 69)",
+			"return true"
+		]
+	},
+	{
+		"id": 220011,
+		"name": "蜘蛛之吻",
+		"desc": "击中时，5%几率降低目标192护甲，持续10秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 5 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:source(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 292,
+			"name": "reduce_level2",
+			"level2_type": "physical_armor",
+			"number": 192,
+			"max_layer": 1,
+			"life_time": 10000
+		}]
+	},
+	{
+		"id": 220012,
+		"name": "火山",
+		"desc": "击中时，10%几率造成102点火焰伤害",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 10 then",
+			"ctx:target():take_skill_damage(102, ctx:passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"damage_type": "FIRE"
+	},
+	{
+		"id": 220013,
+		"name": "雷暴",
+		"desc": "击中时，10%几率造成102点自然伤害",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 10 then",
+			"ctx:target():take_skill_damage(102, ctx:passive_damage_type(), ctx:passive_owner(), ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"damage_type": "NATRUE"
+	},
+	{
+		"id": 220014,
+		"name": "艾斯卡达尔（4件套未指定职业）",
+		"desc": "爆击后，10%概率召唤艾斯卡达尔为你作战，持续30秒",
+		"passive": true,
+		"after_do_critical_stub": [
+			"if math.random(100) < 10 then",
+			"ctx:passive_owner():use_skill(ctx:passive_skill())",
+			"return true",
+			"end",
+			"return false"
+		],
+		"create_actor": [{
+			"id": 30017,
+			"life_time": 30000,
+			"location": {
+				"distance": 1000,
+				"dir": 0
+			}
+		}]
+	},
+	{
+		"id": 220015,
+		"name": "原始祝福（2件套未指定职业）",
+		"desc": "攻击5%概率获得远古神灵的祝福，攻强+328，持续10秒",
+		"passive": true,
+		"after_do_damage_stub": [
+			"if math.random(100) < 5 then",
+			"ctx:target():add_buff(ctx:passive_skill():extra_buff(0), ctx:source(), ctx)",
+			"return true",
+			"end",
+			"return false"
+		],
+		"extra_buff": [{
+			"buff_id": 293,
+			"name": "add_level2",
+			"level2_type": "physical_attack",
+			"number": 328,
+			"life_time": 10000
+		}]
+	}
+]

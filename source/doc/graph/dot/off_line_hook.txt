@@ -1,0 +1,7 @@
+digraph State {
+	need_init -> wait_reach_pos
+	wait_reach_pos -> wait_battle_finish [label="wait_15_seconds"]
+	wait_battle_finish -> wait_reach_pos [label="on battle end"]
+	need_init -> calc_done [label = "no more stage"]
+}
+	

@@ -1,0 +1,12 @@
+﻿pos_id,effect_path,get_effect_path,collider
+位置id,特效路径,触发特效的路径,碰撞器大小
+int,string,string,string
+1140200101,res/effect/scene_zhanchang_yezi.effect,res/effect/scene_zhanchang_yezi_chufa.effect,1|2|1
+1140200102,res/effect/scene_zhanchang_yezi.effect,res/effect/scene_zhanchang_yezi_chufa.effect,1|2|1
+1140200103,res/effect/scene_zhanchang_xiezi.effect,res/effect/scene_zhanchang_xiezi_chufa.effect,1|2|1
+1140200104,res/effect/scene_zhanchang_xiezi.effect,res/effect/scene_zhanchang_xiezi_chufa.effect,1|2|1
+1150100101,res/effect/scene_zhanchang_xiezi.effect,res/effect/scene_zhanchang_xiezi_chufa.effect,1|2|1
+1150100102,res/effect/scene_zhanchang_xiezi.effect,res/effect/scene_zhanchang_xiezi_chufa.effect,1|2|1
+1150100103,res/effect/scene_zhanchang_xiezi.effect,res/effect/scene_zhanchang_xiezi_chufa.effect,1|2|1
+1150100104,res/effect/scene_zhanchang_xiezi.effect,res/effect/scene_zhanchang_xiezi_chufa.effect,1|2|1
+

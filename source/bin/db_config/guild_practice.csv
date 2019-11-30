@@ -1,0 +1,11 @@
+﻿id,name,icon,attribute_0,attribute_1,attribute_2,attribute_3,item
+id,名字,icon,属性0,属性1,属性2,属性3,道具
+int,string,string,int,int,int,int,int
+0,攻法修炼,guild_practice+guild_practice_fagongxiulian,19,21,23,0,20121001
+1,护甲修炼,guild_practice+guild_practice_hujiaxiulian,20,0,0,0,20121001
+2,抗性修炼,guild_practice+guild_practice_kangxinxiulian,22,0,0,0,20121001
+3,命中修炼,guild_practice+guild_practice_mingzhongxiulian,11,0,0,0,20121001
+4,爆击修炼,guild_practice+guild_practice_baojixiulian,13,0,0,0,20121001
+5,闪避修炼,guild_practice+guild_practice_shanbixiulian,12,0,0,0,20121001
+6,韧性修炼,guild_practice+guild_practice_renxingxiulian,14,0,0,0,20121001
+

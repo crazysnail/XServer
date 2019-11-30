@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:AccountServer/AccountServer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GameCommon/GameCommon.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GameServer/GameServer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:zxerotest/zxerotest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:zxero/zxero.xcodeproj">
+   </FileRef>
+</Workspace>

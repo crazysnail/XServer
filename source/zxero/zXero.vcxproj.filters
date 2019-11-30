@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{2fd6c08a-334f-4ad0-b190-bb376a9b63f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{2c3798fd-a4ba-4716-ac8b-40bbb1ea2ba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\network">
+      <UniqueIdentifier>{addd26ba-f719-4f96-8678-ac40b1b69f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\base">
+      <UniqueIdentifier>{2f83ecc0-0a19-4ed0-91ba-68bc8701743c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\app">
+      <UniqueIdentifier>{34cab779-7d90-4695-9bf6-ff0a5697f382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="app">
+      <UniqueIdentifier>{58c0ea13-e5ce-4a8c-a817-8327a456941a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{9cae157f-f01b-43b0-b159-4301ac41bc2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protobuf">
+      <UniqueIdentifier>{3d036f97-d2f6-40be-9d36-82a5a52b59cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\protobuf">
+      <UniqueIdentifier>{7dc23e12-8c38-433b-b4aa-44d255a4dcf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="db">
+      <UniqueIdentifier>{b1506db8-3540-4702-893d-c5a1603c500b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\db">
+      <UniqueIdentifier>{7d58e629-5c20-438e-9275-a0e92768aa4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\url">
+      <UniqueIdentifier>{593a10b5-8988-4812-9534-4151f520be9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="url">
+      <UniqueIdentifier>{44766c84-69a9-499f-a5ae-61ac9959063c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="json">
+      <UniqueIdentifier>{38d1c23a-afa9-4539-81e9-3636876fcf03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="json_network">
+      <UniqueIdentifier>{9f1ab79c-de0e-4a44-a4f8-0e61023adc39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\json">
+      <UniqueIdentifier>{43ddcfbe-c514-4b03-8c7e-e9c8c9e41add}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\json_network">
+      <UniqueIdentifier>{1ebb0f56-d929-4232-9654-a3f165f76a81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\lua">
+      <UniqueIdentifier>{c85d080c-8f25-4105-8555-4aed6f521ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua">
+      <UniqueIdentifier>{a4b25b91-c5ac-4f29-b60e-3d5694f9ca75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="http_parser">
+      <UniqueIdentifier>{3263b909-188e-43dd-9418-606bac699bd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\http_parser">
+      <UniqueIdentifier>{82077cdd-39c3-4dd2-9de4-6656107fc80d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\md5">
+      <UniqueIdentifier>{938daab7-4adf-4163-be14-82776cc01994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="md5">
+      <UniqueIdentifier>{8242df07-6fe4-4375-b50d-e8600c3623f6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\fd_set.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\inet_address.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\log.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\thread.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\types.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\app.h">
+      <Filter>include\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\module.h">
+      <Filter>include\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\network.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tcp_socket.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\event_loop.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\channel.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\select_poller.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\date_time.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\event_loop_thread.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\event_loop_thread_pool.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\acceptor.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tcp_server.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tcp_connection.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\buffer.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\network_errno.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tcp_connector.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\timer_queue.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tcp_client.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\timer_id.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\timer.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\connector.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\protobuf_codec.h">
+      <Filter>include\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\protobuf_dispatcher.h">
+      <Filter>include\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\protobuf_dispatcher2.h">
+      <Filter>include\protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\poller.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fixed_buffer.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\work.h">
+      <Filter>include\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\work_pool.h">
+      <Filter>include\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\work_thread.h">
+      <Filter>include\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tcp_client_pool.h">
+      <Filter>include\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dbcontext.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dbwork.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dbhelper.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\random_generator.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\mutex.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\log_file.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\asynclogging.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mem_debugger.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mem_sampler.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\urlcontext.h">
+      <Filter>include\url</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\urlwork.h">
+      <Filter>include\url</Filter>
+    </ClInclude>
+    <ClInclude Include="json_batchallocator.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\autolink.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\config.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\features.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\forwards.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\json.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\reader.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\value.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json\writer.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json_codec.h">
+      <Filter>include\json_network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json_dispatcher.h">
+      <Filter>include\json_network</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="hashmap.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mem_allocator.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\redis_context.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\redis_work.h">
+      <Filter>include\db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\json_obj_base.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\obj_reflector.h">
+      <Filter>include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\active_model.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\lua\fflua.h">
+      <Filter>include\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\lua\fflua_register.h">
+      <Filter>include\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\lua\fflua_type.h">
+      <Filter>include\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="shm\share_memory.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="shm\shm_static_block.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="shm\shm_static_chunk.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="shm\shm_dynamic_fast_block.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="shm\shm_dynamic_buddy_block.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="shm\shm_dynamic_block.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="shm\shm_dynamic_chunk.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\object_pool.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\http_parser.h">
+      <Filter>include\http_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\http_codec.h">
+      <Filter>include\http_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\md5.h">
+      <Filter>include\md5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\pb2json.h">
+      <Filter>include\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\urlcodeing.h">
+      <Filter>include\http_parser</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="thread.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="app.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="module.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="inet_address.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_socket.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="network.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="event_loop.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="channel.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="select_poller.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="event_loop_thread.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="event_loop_thread_pool.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="acceptor.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_server.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="buffer.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="network_errno.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_connection.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="timer_queue.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="date_time.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="connector.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_client.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_codec.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_dispatcher.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="protobuf_dispatcher2.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="poller.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="fixed_buffer.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="log.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="work_pool.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="work_thread.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="tcp_client_pool.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="dbcontext.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="dbwork.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="dbhelper.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="random_generator.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="log_file.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="asynclogging.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="mem_debugger.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="mem_sampler.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="urlcontext.cpp">
+      <Filter>url</Filter>
+    </ClCompile>
+    <ClCompile Include="urlwork.cpp">
+      <Filter>url</Filter>
+    </ClCompile>
+    <ClCompile Include="json_reader.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json_value.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json_writer.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json_codec.cpp">
+      <Filter>json_network</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="redis_work.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="fflua.cpp">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="shm\share_memory.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="shm\shm_static_block.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="shm\shm_dynamic_fast_block.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="shm\shm_dynamic_buddy_block.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="shm\shm_dynamic_block.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="shm\shm_dynamic_chunk.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="http_parser.cpp">
+      <Filter>http_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="http_codec.cpp">
+      <Filter>http_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>md5</Filter>
+    </ClCompile>
+    <ClCompile Include="pb2json.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="urlcodeing.cpp">
+      <Filter>http_parser</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json_internalarray.inl">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json_internalmap.inl">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json_valueiterator.inl">
+      <Filter>json</Filter>
+    </None>
+  </ItemGroup>
+</Project>
