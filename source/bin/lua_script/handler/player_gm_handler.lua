@@ -71,7 +71,14 @@ gm_handler["!main_process"]= function(player,params)
 	local main3=cell_container:get_data_32(CellLogicType_MissionCell,MissionCellIndex.Part2Last)
 	local main4=cell_container:get_data_32(CellLogicType_MissionCell,MissionCellIndex.Part3Last)
 	
-	print("main1"..main1.." main2"..main2.." main3"..main3.." main4"..main4)
+	--LuaServer():LuaLog("MD5, str="..str,g_log_level.LL_INFO)
+	LuaServer():LuaLog("main1"..main1.." main2"..main2.." main3"..main3.." main4"..main4,g_log_level.LL_INFO)
+	return ResultCode_ResultOK
+end
+
+gm_handler["!showactors"]= function(player,params)
+	local cell_container= player:DataCellContainer()
+	cell_container:set_data_32(CellLogicType_MissionCell,MissionCellIndex.Part2Last,params[2],true)
 	return ResultCode_ResultOK
 end
 
