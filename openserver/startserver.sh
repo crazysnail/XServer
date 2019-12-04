@@ -46,7 +46,7 @@ prestart(){
 	curday=`date +%Y_%m_%d_%H_%M_%S`
 	#sudo mysqldump -uroot -hlocalhost -pxQxdWax#NTQ3DGV --hex-blob mt_game_${Serverid} |gzip -9 >./dbbak/db_${curday}_bak.gz
 	
-	python updatedb_linux.py
+	#python updatedb_linux.py
 }
 case $1 in
 	db)
