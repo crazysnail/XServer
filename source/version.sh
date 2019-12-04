@@ -45,7 +45,7 @@ cd ../source
 	cp ../makeinfo.log ${Version_Dir}${upname}_${curtime}
 	cp lastinfo.log ${Version_Dir}${upname}_${curtime}
 	#cp update.log ${Version_Dir}${upname}_${curtime}
-	cp ../openserver/* ${Version_Dir}${upname}_${cur-time}/linux/debug/
+	cp ../openserver/* ${Version_Dir}${upname}_${curtime}/linux/debug/
 	mkdir ${Version_Dir}${upname}_${curtime}/sys_command
 	#exit
 #else
