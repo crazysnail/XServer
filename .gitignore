@@ -1,3 +1,5 @@
+temp
+./temp/*
 lib/Debug/GameCommon.lib
 lib/Debug/GameCommon.pdb
 lib/Debug/libprotobuf.lib
