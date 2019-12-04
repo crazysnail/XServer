@@ -90,7 +90,7 @@ namespace Mt
 					}
 				}
 
-				ZXERO_ASSERT( (uint32)m_cols == cells.size() ) << "the table cols count do not match! tbname="<<filename<<" linenum="<<i<<" line="<<lines[i].c_str()
+				ZXERO_ASSERT( (uint32)m_cols == cells.size() ) << "the table cols count do not match! tbname="<<filename<<" linenum="<<i<<" line="<<lines[i].c_str();
 				if( (uint32)m_cols != cells.size() )
 				{//列数检查
 					return false;
