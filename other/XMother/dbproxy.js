@@ -81,7 +81,7 @@ exports.dbinit = function (callBack) {
 
             self.serverinfo_db.updateServerInfo({
                 Id: 1,
-                Name: '虚空测试服',
+                Name: '虚空审核服',
                 Ip: serverCfg.outhost,
                 Port: '9981',
                 Group: 'shenhe|android',
@@ -89,15 +89,15 @@ exports.dbinit = function (callBack) {
                 Status: 3
             }, null);
 
-            self.serverinfo_db.insertServerInfo({
-                Id: 2,
-                Name: '虚空体验服',
-                Ip: serverCfg.outhost,
-                Port: '9982',
-                Group: 'shenhe|android',
-                WhiteFlag:0,
-                Status:3
-            }, null);
+            // self.serverinfo_db.insertServerInfo({
+            //     Id: 2,
+            //     Name: '虚空体验服',
+            //     Ip: serverCfg.outhost,
+            //     Port: '9982',
+            //     Group: 'shenhe|android',
+            //     WhiteFlag:0,
+            //     Status:3
+            // }, null);
 
             // self.serverinfo_db.getServerList(null);
         }
